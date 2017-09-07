@@ -15,6 +15,7 @@
 # ---------------------------------------------------------------------------
 
 import arcpy, time, glob, os, subprocess
+arcpy.env.parallelProcessingFactor = "75%"
 
 #main
 if __name__ == "__main__":

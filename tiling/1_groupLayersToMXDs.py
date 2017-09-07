@@ -7,21 +7,29 @@
 # last modified: 8/25/2017
 # ---------------------------------------------------------------------------
 
-import arcpy
+import arcpy, os
 
 #main
 if __name__ == "__main__":
-	print 'hello'
-	all_mxd = arcpy.mapping.MapDocument("E:/mapServices/stateServices.mxd")
+	print 'Starting script'
 
+	#paths
+	scriptPath = os.path.dirname(os.path.realpath(__file__))
+	stateServicesMXD = 'E:/mapServices/stateServices.mxd'
+        templateMXD = scriptPath + '/template.mxd'
+        stateMXDpath = scriptPath + '/state_mxd/'
+	if not os.path.exists(stateMXDpath):
+		os.makedirs(stateMXDpath)
+	
+	all_mxd = arcpy.mapping.MapDocument(stateServicesMXD)
 	for lyr in arcpy.mapping.ListLayers(all_mxd):
 		if lyr.isGroupLayer: 
-			template_mxd = arcpy.mapping.MapDocument("E:/tile_scripts/template.mxd")
-			df = arcpy.mapping.ListDataFrames(template_mxd, "Layers")[0]
+			template_mxd = arcpy.mapping.MapDocument(templateMXD)
+			df = arcpy.mapping.ListDataFrames(template_mxd, 'Layers')[0]
 			for subLayer in lyr:
-				print "This layer is in a group layer: ",lyr ,str(subLayer.name)
+				print 'This layer is in a group layer: ',lyr ,str(subLayer.name)
 				arcpy.mapping.AddLayer(df, subLayer)
-			new_mxd = "E:/tile_scripts/state_mxd/" + str(lyr.name) + ".mxd"
+			new_mxd = stateMXDpath + str(lyr.name) + '.mxd'
 			print 'new mxd:',new_mxd
 			template_mxd.saveACopy(new_mxd)
 			del template_mxd
