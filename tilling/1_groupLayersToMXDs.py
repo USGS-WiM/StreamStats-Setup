@@ -21,7 +21,7 @@ if __name__ == "__main__":
 			for subLayer in lyr:
 				print "This layer is in a group layer: ",lyr ,str(subLayer.name)
 				arcpy.mapping.AddLayer(df, subLayer)
-			new_mxd = "E:/tile_scripts/state_mxd/" + str(lyr.name) + "_test.mxd"
+			new_mxd = "E:/tile_scripts/state_mxd/" + str(lyr.name) + ".mxd"
 			print 'new mxd:',new_mxd
 			template_mxd.saveACopy(new_mxd)
 			del template_mxd

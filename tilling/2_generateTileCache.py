@@ -3,7 +3,7 @@
 # Description: Generates tiles cache, then cleans up redudant files 
 # and optionally converts to TMS tile cache
 #    
-# Requirements:  ArcGIS 10.4.1
+# Requirements:  ArcGIS 10.5
 #
 # Notes: pass in desired output cache location as sole argument:
 #
@@ -35,15 +35,16 @@ if __name__ == "__main__":
 	tilingScheme = scriptPath + '/PredefinedTilingScheme_levels_ALL.xml'
 	webMapScaleList = ["591657527.591555","295828763.795777","147914381.897889","73957190.948944","36978595.474472","18489297.737236","9244648.868618","4622324.434309","2311162.217155","1155581.108577","577790.554289","288895.277144","144447.638572","72223.819286","36111.909643","18055.954822","9027.977411","4513.988705","2256.994353","1128.497176"]
 
+	#SET VARIABLES HERE
+	scaleList = webMapScaleList [15:18]  #cache levels
+	stateList = ['AK'] #states to process
+
 	#overwrite outputs
 	arcpy.env.overwriteOutput = True
 
-	for mxd in glob.glob(dataPath + '/*.mxd'):
-		print mxd
-
-		state = os.path.basename(mxd).split('.mxd')[0]
-
-		scaleList = webMapScaleList [15:19]
+	for state in stateList:
+		mxd = dataPath + '/' + state + '.mxd'
+		print 'Currently proccesing:',mxd
 
 		siteCachePath = cachePath + '/' + state + "/Layers/_alllayers/"
 
