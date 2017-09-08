@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="author" content="Martyn Smith - USGS NY WSC">
+    <title>StreamStats Services Batch Tester</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <script    src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+    <script type="text/javascript">
+
+        var csvFile = './testSites.csv';
+
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: csvFile,
+                dataType: "text",
+                success: function(data) {
+                    var result = $.csv.toObjects('./testSites.csv');
+                    console.log(result)
+                }
+            });
+        });
+
+    </script>
+  </head>
+  <body>
+    <div id="mapDiv"></div>
+  </body>
+</html>
