@@ -12,22 +12,27 @@
     
     <script type="text/javascript">
 
-        var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
-        var streamStatsURL = 'https://test.streamstats.usgs.gov/streamstatsservices';
+        //var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
+        var csvFile = './testSites.csv';
+        var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
+        var streamStatsParametersEndPoint = '/parameters.json'
         var streamStatsOptions = {
             rcode: null,
             xlocation: null,
             ylocation: null,
             crs: '4326',
+            simplify: true,
             includeparameters: false,
             includeflowtypes: false,
             includefeatures: true,
-            simplify: true
         };
 
         $(document).ready(function() {
-            loadCSV(csvFile);
+            $('#loadCSV').click(function() {
+                loadCSV(csvFile);
+                streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+            });
         });
 
         function loadCSV(csvFile) {
@@ -43,7 +48,7 @@
 
         function csvToObj(csv) {
             var siteList = $.csv.toObjects(csv);
-            $('#main').append('<div class="alert alert-success" role="alert"><strong>CSV Loaded Successfully</strong> You successfully read this important alert message.</div>');
+            $('#main').append('<div class="alert alert-success" role="alert"><strong>'  + siteList.length + ' sites successfully loaded</strong></div>');
             $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p');
             processSites(siteList)
         }
@@ -54,9 +59,10 @@
             $.each(siteList, function(index, site) {
                 console.log(site)
                 streamStatsOptions.rcode = site.state;
+                streamStatsOptions.rcode = 'NY';
                 streamStatsOptions.xlocation = site.lng;
                 streamStatsOptions.ylocation = site.lat;
-                streamStatsOptions.siteId = site.siteid;
+                //streamStatsOptions.siteId = site.siteid;
                 delineateBasin(streamStatsOptions);
             });
         }
@@ -77,21 +83,51 @@
                 dataType: 'json',
                 success: function(response) {
                     var siteId = this.url.split('siteId=')[1];
-                    var workspaceId = response.workspaceId;
-                    console.log('2',workspaceId);
+                    var workspaceId = response.workspaceID;
+                    console.log('2',response);
+                    //getBasinChars(workspaceId);
+                    $('#delineation_progressBar_' + siteId).removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                    var request_time = (new Date().getTime() - start_time)/1000;
+                    console.log('in complete:', siteId)
+                    $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
+                },
+                complete: function() {
+                    // var siteId = this.url.split('siteId=')[1];
+                    // var request_time = (new Date().getTime() - start_time)/1000;
+                    // console.log('in complete:', siteId)
+                    // $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
+                }
+            });
+        }
+        
+        function getBasinChars(workspaceId) {
+            console.log('in get basin chars:',workspaceId);
+
+            var rcode = workspaceId.substring(0,2);
+
+            var start_time = new Date().getTime();
+            $.ajax({
+                url: streamStatsURL + streamStatsParametersEndPoint + '?rcode=NY&workspaceID=' + workspaceId + '&includeparameters=BSLOPCM,CENTROIDX,CENTROIDY,CONTOUR,CSL1085LO,CSL1085UP,CSL10_85,DRNAREA,EL1200,FOREST,JULAVPRE,JUNAVPRE,JUNMAXTMP,LAGFACTOR,LC11DEV,LC11IMP,LENGTH,MAR,MAYAVPRE,MXSNO,OUTLETX,OUTLETY,PRECIP,PRJUNAUG00,SLOPERATIO,SSURGOA,SSURGOB,STORAGE',
+                // data: {
+                //     rcode: rcode,
+                //     workspaceID: workspaceId,
+                //     includeparameters: 'BSLOPCM,CENTROIDX,CENTROIDY,CONTOUR,CSL1085LO,CSL1085UP,CSL10_85,DRNAREA,EL1200,FOREST,JULAVPRE,JUNAVPRE,JUNMAXTMP,LAGFACTOR,LC11DEV,LC11IMP,LENGTH,MAR,MAYAVPRE,MXSNO,OUTLETX,OUTLETY,PRECIP,PRJUNAUG00,SLOPERATIO,SSURGOA,SSURGOB,STORAGE'
+                // },
+                dataType: 'json',
+                success: function(response) {
+                    var siteId = this.url.split('siteId=')[1];
+                    var workspaceId = response.workspaceID;
+                    console.log('2',response);
                     getBasinChars(workspaceId);
                     $('#delineation_progressBar_' + siteId).removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
                 },
                 complete: function() {
                     var siteId = this.url.split('siteId=')[1];
                     var request_time = (new Date().getTime() - start_time)/1000;
-                    $('#site' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span>')
+                    console.log('in complete:', siteId)
+                    $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
                 }
             });
-        }
-        
-        function getBasinChars(workspaceId) {
-            console.log('in get basin chars:',workspaceId)
         }
 
     </script>
@@ -103,6 +139,22 @@
         </div>
   
         <div class="jumbotron" id="main">
+                <fieldset id="serverForm" class="form-group">
+                        <legend>Select a server to use</legend>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios1" value="https://streamstats.usgs.gov" checked>
+                                Production Streamstats (https://streamstats.usgs.gov)
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios2" checked value="https://test.streamstats.usgs.gov">
+                                Test Streamstats (https://test.streamstats.usgs.gov)
+                            </label>
+                        </div>
+                </fieldset>
+                <button id="loadCSV" type="button" class="btn btn-primary">Load test sites from CSV File</button>
         </div>
 
         <footer class="footer">
