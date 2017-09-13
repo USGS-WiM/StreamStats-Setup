@@ -101,6 +101,7 @@
 
                     var request_time = (new Date().getTime() - start_time)/1000;
 
+                    //make sure we have a basin and point
                     if (response.featurecollection.length === 2) {
                         //update progress bar and update time
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
