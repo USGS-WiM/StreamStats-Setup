@@ -97,17 +97,11 @@
                 success: function(response) {
                     var siteId = this.url.split('siteId=')[1];
                     var workspaceId = response.workspaceID;
-                    console.log('in delineation success:', siteId, workspaceId, response)
-                    console.log('feature collection length:',response.featurecollection.length)
+                    console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
 
                     var request_time = (new Date().getTime() - start_time)/1000;
 
-                    if (response && response.featurecollection.legnth < 2) {
-                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
-                    }
-                    
-                    else {
+                    if (response.featurecollection.length === 2) {
                         //update progress bar and update time
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
                         $('#' + templateId + ' .delineation').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button>');
@@ -144,10 +138,17 @@
                         getBasinChars(siteId, workspaceId);
                     }
 
+                    else {
+                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
+                        return;
+                    }
+                    
+
 
                 },
                 error: function (request, status, error) {
-                    console.log("Error delineating basin", request, status, error);
+                    console.error("Error delineating basin", request, status, error);
                     $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
                     $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
                 }
