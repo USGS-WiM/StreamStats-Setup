@@ -4,16 +4,22 @@
     <meta name="author" content="Martyn Smith - USGS NY WSC">
     <title>StreamStats Services Batch Tester</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <script    src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+
+    <style>
+        .hide { display: none; }
+    </style>
     
     <script type="text/javascript">
 
-        //var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
-        var csvFile = './testSites.csv';
+        var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
         var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
         var streamStatsParametersEndPoint = '/parameters.json'
@@ -27,6 +33,7 @@
             includeflowtypes: false,
             includefeatures: true,
         };
+        var dopostqueue = $({});
 
         $(document).ready(function() {
             $('#loadCSV').click(function() {
@@ -48,7 +55,7 @@
 
         function csvToObj(csv) {
             var siteList = $.csv.toObjects(csv);
-            $('#main').append('<div class="alert alert-success" role="alert"><strong>'  + siteList.length + ' sites successfully loaded</strong></div>');
+            $('#main').append('</br></br><div class="alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong></div>');
             $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p');
             processSites(siteList)
         }
@@ -57,75 +64,155 @@
 
             //loop over sites
             $.each(siteList, function(index, site) {
-                console.log(site)
-                streamStatsOptions.rcode = site.state;
-                streamStatsOptions.rcode = 'NY';
-                streamStatsOptions.xlocation = site.lng;
-                streamStatsOptions.ylocation = site.lat;
-                //streamStatsOptions.siteId = site.siteid;
-                delineateBasin(streamStatsOptions);
+                //if (site.siteid === '01421648') {
+                    streamStatsOptions.rcode = site.state;
+                    streamStatsOptions.rcode = 'NY';
+                    streamStatsOptions.xlocation = site.lng;
+                    streamStatsOptions.ylocation = site.lat;
+                    streamStatsOptions.siteId = site.siteid;
+                    delineateBasin(streamStatsOptions);
+                //}
+
             });
         }
 
         function delineateBasin(siteInfo) {
+            console.log('in delineate:',siteInfo.siteId);
 
-            //create main site container with delineation and basin characteristic columns
-            var container = $('<div class="card"><div class="card-block"><h5><strong>Site:</strong> ' + streamStatsOptions.siteId + '<strong> State/Region:</strong> ' + streamStatsOptions.rcode + '</h5><div class="row"><div id="delineation_site_' + streamStatsOptions.siteId + '" class="col"><h6>Delineation</h6><div class="progress"><div id="delineation_progressBar_' + streamStatsOptions.siteId + '" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">Delineation</div></div></div><div id="basinchars_site_' + streamStatsOptions.siteId + '" class="col"><h6>Basin Characteristics<h6></div></div></div></div>');
+            //clone template main site container with delineation and basin characteristic columns
+            var templateId = 'card_' + siteInfo.siteId;
+            $("#template").clone().attr('id',templateId).appendTo("#main");
 
-            $('#main').append(container);
-
+            //update cloned template metadata for this site
+            $('#' + templateId + ' .siteid').text(siteInfo.siteId)
+            $('#' + templateId + ' .rcode').text(siteInfo.rcode)
 
             var start_time = new Date().getTime();
 
             $.ajax({
                 url: streamStatsURL + streamStatsDelineationEndPoint,
                 data: siteInfo,
+                //async: false,
                 dataType: 'json',
                 success: function(response) {
                     var siteId = this.url.split('siteId=')[1];
                     var workspaceId = response.workspaceID;
-                    console.log('2',response);
-                    //getBasinChars(workspaceId);
-                    $('#delineation_progressBar_' + siteId).removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                    console.log('in delineation success:', siteId, workspaceId, response)
+                    console.log('feature collection length:',response.featurecollection.length)
+
                     var request_time = (new Date().getTime() - start_time)/1000;
-                    console.log('in complete:', siteId)
-                    $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
+
+                    if (response && response.featurecollection.legnth < 2) {
+                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
+                    }
+                    
+                    else {
+                        //update progress bar and update time
+                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                        $('#' + templateId + ' .delineation').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button>');
+                    
+                        //write out map
+                        $('#' + templateId + ' .show-map').click(function() {
+
+                            if ($('#map_' + siteId).length) {
+                                if ($(this).text() === 'Show result on map') {
+                                    $(this).text('Hide Map');
+                                    $('#map_' + siteId).show();
+                                    return;
+                                } 
+                                else {
+                                    $(this).text('Show result on map');
+                                    $('#map_' + siteId).hide();
+                                }  
+                            }
+                            else {
+                                $(this).text('Hide Map');
+                                $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
+                                var map = L.map('map_' + siteId);
+                                var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                                    subdomains: 'abcd',
+                                    maxZoom: 19
+                                }).addTo(map);
+                                var watershed = L.geoJSON(response.featurecollection[1].feature).addTo(map);
+                                var point = L.geoJSON(response.featurecollection[0].feature).addTo(map);
+                                map.fitBounds(watershed.getBounds());
+                            }
+                        });
+
+                        getBasinChars(siteId, workspaceId);
+                    }
+
+
                 },
-                complete: function() {
-                    // var siteId = this.url.split('siteId=')[1];
-                    // var request_time = (new Date().getTime() - start_time)/1000;
-                    // console.log('in complete:', siteId)
-                    // $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
+                error: function (request, status, error) {
+                    console.log("Error delineating basin", request, status, error);
+                    $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
                 }
+
             });
         }
         
-        function getBasinChars(workspaceId) {
-            console.log('in get basin chars:',workspaceId);
+        function getBasinChars(siteId, workspaceId) {
+            console.log('in get basin chars:',siteId, workspaceId);
 
             var rcode = workspaceId.substring(0,2);
+            var templateId = 'card_' + siteId;
 
+            //animate progress bar
+            $('#' + templateId + ' .parameter_progress').addClass('progress-bar-striped').addClass('progress-bar-animated');
+             
             var start_time = new Date().getTime();
             $.ajax({
-                url: streamStatsURL + streamStatsParametersEndPoint + '?rcode=NY&workspaceID=' + workspaceId + '&includeparameters=BSLOPCM,CENTROIDX,CENTROIDY,CONTOUR,CSL1085LO,CSL1085UP,CSL10_85,DRNAREA,EL1200,FOREST,JULAVPRE,JUNAVPRE,JUNMAXTMP,LAGFACTOR,LC11DEV,LC11IMP,LENGTH,MAR,MAYAVPRE,MXSNO,OUTLETX,OUTLETY,PRECIP,PRJUNAUG00,SLOPERATIO,SSURGOA,SSURGOB,STORAGE',
-                // data: {
-                //     rcode: rcode,
-                //     workspaceID: workspaceId,
-                //     includeparameters: 'BSLOPCM,CENTROIDX,CENTROIDY,CONTOUR,CSL1085LO,CSL1085UP,CSL10_85,DRNAREA,EL1200,FOREST,JULAVPRE,JUNAVPRE,JUNMAXTMP,LAGFACTOR,LC11DEV,LC11IMP,LENGTH,MAR,MAYAVPRE,MXSNO,OUTLETX,OUTLETY,PRECIP,PRJUNAUG00,SLOPERATIO,SSURGOA,SSURGOB,STORAGE'
-                // },
+                url: streamStatsURL + streamStatsParametersEndPoint,
+                data: {
+                    rcode: rcode,
+                    workspaceID: workspaceId,
+                    includeparameters: 'BSLOPCM,CENTROIDX,CENTROIDY,CONTOUR,CSL1085LO,CSL1085UP,CSL10_85,DRNAREA,EL1200,FOREST,JULAVPRE,JUNAVPRE,JUNMAXTMP,LAGFACTOR,LC11DEV,LC11IMP,LENGTH,MAR,MAYAVPRE,MXSNO,OUTLETX,OUTLETY,PRECIP,PRJUNAUG00,SLOPERATIO,SSURGOA,SSURGOB,STORAGE',
+                    siteId: siteId
+                },
+                //async: false,
                 dataType: 'json',
                 success: function(response) {
                     var siteId = this.url.split('siteId=')[1];
-                    var workspaceId = response.workspaceID;
-                    console.log('2',response);
-                    getBasinChars(workspaceId);
-                    $('#delineation_progressBar_' + siteId).removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                    var templateId = 'card_' + siteId;
+                    console.log('in getBasinChars success:', siteId, response)
+                    
+                    var request_time = (new Date().getTime() - start_time)/1000;
+
+                    //update progress bar and update time
+                    $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');   
+                    $('#' + templateId + ' .parameter').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button>')
+                    
+                    //console.log('watershed',JSON.stringify(response.parameters))
+                    //write out table
+                    $('#' + templateId + ' .show-table').click(function() {
+
+                        if ($('#table_' + siteId).length) {
+                            if ($(this).text() === 'Show parameter table') {
+                                $(this).text('Hide parameter table');
+                                $('#table_' + siteId).show();
+                                return;
+                            } 
+                            else {
+                                $(this).text('Show parameter table');
+                                $('#table_' + siteId).hide();
+                            }  
+                        }
+                        else {
+                            $(this).text('Hide parameter table');
+                            $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm"><thead><tr><th>CODE</th><th>VALUE</th></tr></thead><tbody></tbody></table>');
+                            $.each(response.parameters, function(key,value) {
+                                $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + value.code + '</td><td>' + value.value + '</td></tr>');
+                            })
+                        }
+                    });
+
+
                 },
                 complete: function() {
-                    var siteId = this.url.split('siteId=')[1];
-                    var request_time = (new Date().getTime() - start_time)/1000;
-                    console.log('in complete:', siteId)
-                    $('#delineation_site_' + siteId).append('<span>Delineation time: ' + request_time + ' seconds</span></br><button type="button" class="btn-sm btn-success">Show result on map</button>')
                 }
             });
         }
@@ -137,6 +224,35 @@
         <div class="header clearfix">
           <h3 class="text-muted">StreamStats Services Batch Tester</h3>
         </div>
+
+        <!-- site progress template -->
+        <div class="hide">
+            <div id="template" class="card">
+                <div class="card-block">
+                    <dl class="row">
+                        <dt class="col-sm-3">Site ID</dt>
+                        <dd class="col-sm-9 siteid"></dd>
+                        <dt class="col-sm-3">State/Region</dt>
+                        <dd class="col-sm-9 rcode"></dd>
+                    </dl>
+                    <div class="row">
+                        <div class="delineation col">
+                            <h6>Delineation</h6>
+                            <div class="progress">
+                                <div class="delineation_progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">Delineation</div>
+                            </div>
+                         </div>
+                        <div class="parameter col">
+                            <h6>Basin Characteristics</h6>
+                            <div class="progress">
+                                <div class="parameter_progress progress-bar" role="progressbar" style="width: 100%">Basin Characteristics</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END site progress template -->
   
         <div class="jumbotron" id="main">
                 <fieldset id="serverForm" class="form-group">
