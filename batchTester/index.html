@@ -20,6 +20,7 @@
     <script type="text/javascript">
 
         var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
+        var streamStatsURL;
         var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
         var streamStatsParametersEndPoint = '/parameters.json'
@@ -36,9 +37,12 @@
         var dopostqueue = $({});
 
         $(document).ready(function() {
+            
             $('#loadCSV').click(function() {
-                loadCSV(csvFile);
-                streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+                //make sure this is only clicked one per session
+                if (!streamStatsURL) {
+                    loadCSV(csvFile);          
+                }
             });
         });
 
@@ -55,28 +59,51 @@
 
         function csvToObj(csv) {
             var siteList = $.csv.toObjects(csv);
-            $('#main').append('</br></br><div class="alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong></div>');
-            $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p');
-            processSites(siteList)
-        }
-
-        function processSites(siteList) {
+            $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
+            
 
             //loop over sites
             $.each(siteList, function(index, site) {
-                //if (site.siteid === '01421648') {
-                    streamStatsOptions.rcode = site.state;
-                    streamStatsOptions.rcode = 'NY';
-                    streamStatsOptions.xlocation = site.lng;
-                    streamStatsOptions.ylocation = site.lat;
-                    streamStatsOptions.siteId = site.siteid;
-                    delineateBasin(streamStatsOptions);
-                //}
+                //add site to checkbox value
+                $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;' + site.state + ' - ' + site.siteid + '</label></br>');
+            });
 
+            $('#main .sites-loaded').append('<br><br><button id="processSites" type="button" class="btn btn-success">Process Sites</button>');
+
+            $('#processSites').click(function() {
+                processSites()
+            })
+        }
+
+        function processSites() {
+
+            streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+            $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p><p>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p');
+
+
+
+            //get selected sites
+            var checkedValues = $('input:checkbox:checked').map(function() {
+                return JSON.parse(this.value);
+            }).get();
+
+            $.each(checkedValues, function(index, site) {
+                delineateBasin(site)
             });
         }
 
-        function delineateBasin(siteInfo) {
+        function delineateBasin(site) {
+            var siteInfo = {
+                rcode: site.state,
+                xlocation: site.lng,
+                ylocation: site.lat,
+                crs: 4326,
+                simplify: true,
+                includeparameters: false,
+                includeflwotypes: false,
+                includefeatures: true,
+                siteId: site.siteid
+            }
             console.log('in delineate:',siteInfo.siteId);
 
             //clone template main site container with delineation and basin characteristic columns
@@ -86,6 +113,8 @@
             //update cloned template metadata for this site
             $('#' + templateId + ' .siteid').text(siteInfo.siteId)
             $('#' + templateId + ' .rcode').text(siteInfo.rcode)
+            $('#' + templateId + ' .lat').text(siteInfo.ylocation)
+            $('#' + templateId + ' .lng').text(siteInfo.xlocation)
 
             var start_time = new Date().getTime();
 
@@ -141,17 +170,14 @@
 
                     else {
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</div>');
                         return;
                     }
-                    
-
-
                 },
                 error: function (request, status, error) {
                     console.error("Error delineating basin", request, status, error);
                     $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong></div>');
+                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + status.status + '</div>');
                 }
 
             });
@@ -187,8 +213,7 @@
                     //update progress bar and update time
                     $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');   
                     $('#' + templateId + ' .parameter').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button>')
-                    
-                    //console.log('watershed',JSON.stringify(response.parameters))
+
                     //write out table
                     $('#' + templateId + ' .show-table').click(function() {
 
@@ -211,14 +236,11 @@
                             })
                         }
                     });
-
-
                 },
                 complete: function() {
                 }
             });
         }
-
     </script>
   </head>
   <body>
@@ -236,6 +258,10 @@
                         <dd class="col-sm-9 siteid"></dd>
                         <dt class="col-sm-3">State/Region</dt>
                         <dd class="col-sm-9 rcode"></dd>
+                        <dt class="col-sm-3">Latitude</dt>
+                        <dd class="col-sm-9 lat"></dd>
+                        <dt class="col-sm-3">Longitude</dt>
+                        <dd class="col-sm-9 lng"></dd>
                     </dl>
                     <div class="row">
                         <div class="delineation col">
@@ -257,22 +283,34 @@
         <!-- END site progress template -->
   
         <div class="jumbotron" id="main">
-                <fieldset id="serverForm" class="form-group">
-                        <legend>Select a server to use</legend>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios1" value="https://streamstats.usgs.gov" checked>
-                                Production Streamstats (https://streamstats.usgs.gov)
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios2" checked value="https://test.streamstats.usgs.gov">
-                                Test Streamstats (https://test.streamstats.usgs.gov)
-                            </label>
-                        </div>
-                </fieldset>
-                <button id="loadCSV" type="button" class="btn btn-primary">Load test sites from CSV File</button>
+            <fieldset id="serverForm" class="form-group">
+                <legend>Select a server to use</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios2" checked value="https://test.streamstats.usgs.gov">
+                        Test Streamstats (https://test.streamstats.usgs.gov)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios1" value="https://streamstats.usgs.gov">
+                        Production Streamstats [Load Balancer] (https://streamstats.usgs.gov)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios3" value="https://bigkerna.streamstats.usgs.gov">
+                        BigKernA Streamstats (https://bigkerna.streamstats.usgs.gov)
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios4" value="https://bigkernb.streamstats.usgs.gov">
+                        BigKernB Streamstats (https://bigkernb.streamstats.usgs.gov)
+                    </label>
+                </div>
+            </fieldset>
+            <button id="loadCSV" type="button" class="btn btn-primary">Load test sites from CSV File</button>
         </div>
 
         <footer class="footer">
