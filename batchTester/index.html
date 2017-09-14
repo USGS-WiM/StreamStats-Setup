@@ -34,7 +34,7 @@
             includeflowtypes: false,
             includefeatures: true,
         };
-        var dopostqueue = $({});
+        var checkedValues;
 
         $(document).ready(function() {
             
@@ -83,19 +83,28 @@
             streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
             $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
 
-
-
             //get selected sites
-            var checkedValues = $('input:checkbox:checked').map(function() {
+            checkedValues = $('input:checkbox:checked').map(function() {
                 return JSON.parse(this.value);
             }).get();
 
             $.each(checkedValues, function(index, site) {
-                delineateBasin(site)
+                delineateBasin(site.siteid)
             });
         }
 
-        function delineateBasin(site) {
+        function siteLookup(siteid) {
+            var returnSite = null;
+            $.each(checkedValues, function(index, site) {
+                if (siteid === site.siteid) {
+                    returnSite = site;
+                }
+            });
+            return returnSite;
+        }
+
+        function delineateBasin(siteid) {
+            var site = siteLookup(siteid);
             var siteInfo = {
                 rcode: site.state,
                 xlocation: site.lng,
@@ -173,14 +182,22 @@
 
                     else {
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</div>');
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</br><button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+
+                        $('#' + templateId + ' .redelineate').click(function() {
+                            delineateBasin(siteId);
+                        });
                         return;
                     }
                 },
                 error: function (request, status, error) {
                     console.error("Error delineating basin", request, status, error);
                     $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + status.status + '</div>');
+                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + error + '<button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+                    
+                    $('#' + templateId + ' .redelineate').click(function() {
+                        delineateBasin(siteId);
+                    });
                 }
 
             });
