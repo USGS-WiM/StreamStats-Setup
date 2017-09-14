@@ -59,7 +59,7 @@
 
         function csvToObj(csv) {
             var siteList = $.csv.toObjects(csv);
-            $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
+            $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
             
 
             //loop over sites
@@ -78,7 +78,7 @@
         function processSites() {
 
             streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
-            $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p><p>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p');
+            $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
 
 
 
