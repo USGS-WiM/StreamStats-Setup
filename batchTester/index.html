@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.3/jquery.csv.min.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
+    <script src="https://cdn.rawgit.com/gnarf/jquery-ajaxQueue/master/dist/jquery.ajaxQueue.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
@@ -35,12 +36,14 @@
             includefeatures: true,
         };
         var checkedValues;
+        var csvLoaded = false;
+        var requestCount = 0;
 
         $(document).ready(function() {
             
             $('#loadCSV').click(function() {
                 //make sure this is only clicked one per session
-                if (!streamStatsURL) {
+                if (!csvLoaded) {
                     loadCSV(csvFile);          
                 }
             });
@@ -52,6 +55,7 @@
                 url: csvFile,
                 dataType: "text",
                 success: function(data) {
+                    csvLoaded = true;
                     csvToObj(data);
                 }
             });
@@ -64,30 +68,36 @@
             //write out status block
             $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
 
+            //add select all button
+            $('#main .sites-loaded').append('<br><button id="selectAllSites" type="button" class="btn-sm btn">Select All [PROCEED WITH CAUTION]</button></br>');
+            $('#selectAllSites').click(function() {
+                $("input:checkbox").attr('checked','checked');
+            })      
+
             //loop over sites
             $.each(siteList, function(index, site) {
-
                 //add site to checkbox value
                 $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;' + site.state + ' - ' + site.siteid + '</label></br>');
             });
-
-            $('#main .sites-loaded').append('<br><br><button id="processSites" type="button" class="btn btn-success">Process Sites</button>');
-
+            
+            //add process sites button
+            $('#main .sites-loaded').append('<br><button id="processSites" type="button" class="btn btn-success">Process Sites</button>');
             $('#processSites').click(function() {
                 processSites()
             })
         }
 
         function processSites() {
-
+            //get URL from selected radio
             streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
             $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
 
-            //get selected sites
+            //get selected sites from checkbox list
             checkedValues = $('input:checkbox:checked').map(function() {
                 return JSON.parse(this.value);
             }).get();
 
+            //kick of delineations for each site
             $.each(checkedValues, function(index, site) {
                 delineateBasin(site.siteid)
             });
@@ -104,7 +114,10 @@
         }
 
         function delineateBasin(siteid) {
+            //get full site info
             var site = siteLookup(siteid);
+
+            //create request object
             var siteInfo = {
                 rcode: site.state,
                 xlocation: site.lng,
@@ -120,6 +133,9 @@
 
             //clone template main site container with delineation and basin characteristic columns
             var templateId = 'card_' + siteInfo.siteId;
+
+            //if dif exists remove it
+            if ($('#' + templateId).length) $('#' + templateId).remove();
             $("#template").clone().attr('id',templateId).appendTo("#main");
 
             //update cloned template metadata for this site
@@ -128,14 +144,24 @@
             $('#' + templateId + ' .lat').text(siteInfo.ylocation)
             $('#' + templateId + ' .lng').text(siteInfo.xlocation)
 
-            var start_time = new Date().getTime();
-
-            $.ajax({
+            //use ajaxQueue so all requests don't go at once: https://github.com/gnarf/jquery-ajaxQueue
+            $.ajaxQueue({
                 url: streamStatsURL + streamStatsDelineationEndPoint,
                 data: siteInfo,
                 //async: false,
                 dataType: 'json',
-                success: function(response) {
+                beforeSend: function (request, settings) {
+                    start_time = new Date().getTime();
+                },
+                success: function(response, status, xhr) {
+
+                    //do hostname stuff
+                    var serverName = xhr.getResponseHeader("usgswim-hostname");
+                    $('#' + templateId + ' .hostname').text(serverName);
+                    var requestURL;
+                    //if using load balanced url, need to rewrite url for basin characteristic request
+                    (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+
                     var siteId = this.url.split('siteId=')[1];
                     var workspaceId = response.workspaceID;
                     console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
@@ -146,7 +172,7 @@
                     if (response.featurecollection.length === 2) {
                         //update progress bar and update time
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
-                        $('#' + templateId + ' .delineation').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button>');
+                        $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
                     
                         //write out map
                         $('#' + templateId + ' .show-map').click(function() {
@@ -165,8 +191,8 @@
                             else {
                                 $(this).text('Hide Map');
                                 $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
-                                var map = L.map('map_' + siteId);
-                                var CartoDB_DarkMatter = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png', {
+                                var map = L.map('map_' + siteId,{scrollWheelZoom:false});
+                                var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
                                     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
                                     subdomains: 'abcd',
                                     maxZoom: 19
@@ -177,7 +203,8 @@
                             }
                         });
 
-                        getBasinChars(siteId, workspaceId);
+                        //kick off parameter request using new URL
+                        getBasinChars(siteId, workspaceId, requestURL);
                     }
 
                     else {
@@ -203,27 +230,30 @@
             });
         }
         
-        function getBasinChars(siteId, workspaceId) {
-            console.log('in get basin chars:',siteId, workspaceId);
+        function getBasinChars(siteId, workspaceId, requestURL) {
+            console.log('in get basin chars:',siteId, workspaceId, requestURL);
 
             var rcode = workspaceId.substring(0,2);
             var templateId = 'card_' + siteId;
 
-            //animate progress bar
-            $('#' + templateId + ' .parameter_progress').addClass('progress-bar-striped').addClass('progress-bar-animated');
+            //show progress bar
+            $('#' + templateId + ' .parameter_progress_parent').show();
              
             var start_time = new Date().getTime();
             $.ajax({
-                url: streamStatsURL + streamStatsParametersEndPoint,
+                url: requestURL + streamStatsParametersEndPoint,
                 data: {
                     rcode: rcode,
                     workspaceID: workspaceId,
                     includeparameters: true,
                     siteId: siteId
                 },
-                //async: false,
                 dataType: 'json',
+                beforeSend: function (request, settings) {
+                    start_time = new Date().getTime();
+                },
                 success: function(response) {
+                    var workspaceId = this.url.split('workspaceId=')[1];
                     var siteId = this.url.split('siteId=')[1];
                     var templateId = 'card_' + siteId;
                     console.log('in getBasinChars success:', siteId, response)
@@ -232,7 +262,7 @@
 
                     //update progress bar and update time
                     $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');   
-                    $('#' + templateId + ' .parameter').append('<span>' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button>')
+                    $('#' + templateId + ' .parameter').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button></br></br>')
 
                     //write out table
                     $('#' + templateId + ' .show-table').click(function() {
@@ -257,11 +287,29 @@
                         }
                     });
                 },
-                complete: function() {
+                error: function(request, status, error) {
+                    console.error("Error calculating basin characteristics", request, status, error);
+                    $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                    $('#' + templateId + ' .parameter').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the parameter request</strong><br>HTTP Error: ' + error + '<button type="button" class="recalculate btn btn-danger">Retry</button></div>');
+                    
+                    $('#' + templateId + ' .recalculate').click(function() {
+                        getBasinChars(siteId, workspaceId, requestURL);
+                    });
                 }
             });
         }
-    </script>
+
+        //function for summing total request time
+        $(document).ajaxStop(function() {
+            if ($('.timer').length > 0) {
+                var totalTime = 0;
+                $('.timer').each(function(i, obj) {
+                    totalTime += Number($(obj).text().split(' seconds')[0]);
+                });
+                $('#main').append('<span><strong>Total time:</strong> ' + totalTime.toFixed(2) + ' seconds</span>');
+            }
+        });
+     </script>
   </head>
   <body>
     <div class="container">
@@ -282,18 +330,20 @@
                         <dd class="col-sm-9 lat"></dd>
                         <dt class="col-sm-3">Longitude</dt>
                         <dd class="col-sm-9 lng"></dd>
+                        <dt class="col-sm-3">Hostname</dt>
+                        <dd class="col-sm-9 hostname"></dd>
                     </dl>
                     <div class="row">
                         <div class="delineation col">
                             <h6>Delineation</h6>
                             <div class="progress">
-                                <div class="delineation_progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%">Delineation</div>
+                                <div class="delineation_progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
                             </div>
                          </div>
                         <div class="parameter col">
                             <h6>Basin Characteristics</h6>
-                            <div class="progress">
-                                <div class="parameter_progress progress-bar" role="progressbar" style="width: 100%">Basin Characteristics</div>
+                            <div class="parameter_progress_parent" style="display:none;">
+                                <div class="parameter_progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
                             </div>
                         </div>
                     </div>
