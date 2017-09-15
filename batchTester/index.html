@@ -77,7 +77,7 @@
             //loop over sites
             $.each(siteList, function(index, site) {
                 //add site to checkbox value
-                $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;' + site.state + ' - ' + site.siteid + '</label></br>');
+                $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;<strong>' + site.state + ':</strong> ' + site.siteid + '</label></br>');
             });
             
             //add process sites button
@@ -306,7 +306,15 @@
                 $('.timer').each(function(i, obj) {
                     totalTime += Number($(obj).text().split(' seconds')[0]);
                 });
-                $('#main').append('<span><strong>Total time:</strong> ' + totalTime.toFixed(2) + ' seconds</span>');
+
+                var timeText = totalTime.toFixed(2) + ' seconds'
+                if (totalTime > 60) {
+                    var minutes = Math.floor(totalTime / 60);
+                    var seconds = totalTime - minutes * 60;
+                    timeText = minutes + ' minute(s) ' + seconds.toFixed(2) + ' seconds';
+                }
+                if ($('.total-time').length) $('.total-time').remove();
+                $('#main').append('<span class="total-time"><strong>Total time:</strong> ' + timeText + '</span>');
             }
         });
      </script>
