@@ -20,21 +20,12 @@
     
     <script type="text/javascript">
 
+        //some globals
         var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
         var streamStatsURL;
         var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
         var streamStatsParametersEndPoint = '/parameters.json'
-        var streamStatsOptions = {
-            rcode: null,
-            xlocation: null,
-            ylocation: null,
-            crs: '4326',
-            simplify: true,
-            includeparameters: false,
-            includeflowtypes: false,
-            includefeatures: true,
-        };
         var checkedValues;
         var csvLoaded = false;
         var requestCount = 0;
