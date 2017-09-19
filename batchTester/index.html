@@ -30,6 +30,7 @@
         var checkedValues;
         var csvLoaded = false;
         var requestCount = 0;
+        var siteList;
 
         $(document).ready(function() {
             
@@ -55,7 +56,8 @@
 
         function csvToObj(csv) {
             //conert CSV to json
-            var siteList = $.csv.toObjects(csv);
+            siteList = $.csv.toObjects(csv);
+            console.log('sitelist:',siteList)
 
             //write out status block
             $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
@@ -273,6 +275,20 @@
                         else {
                             $(this).text('Hide parameter table');
                             $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm"><thead><tr><th>CODE</th><th>VALUE</th></tr></thead><tbody></tbody></table>');
+
+                            //get known good values from CSV
+
+                            //https://html-online.com/editor/
+                            //http://convertjson.com/html-table-to-json.htm
+                            //https://www.cleancss.com/json-minify/
+                            //
+
+                            console.log('sitelist',siteList)
+                            $.each(siteList, function(key,value) {
+                                console.log('this',key,value)
+                            });
+
+                            //get values from response
                             $.each(response.parameters, function(key,value) {
                                 $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + value.code + '</td><td>' + value.value + '</td></tr>');
                             })
