@@ -96,9 +96,15 @@
             }).get();
 
             //kick of delineations for each site
-            $.each(checkedValues, function(index, site) {
-                delineateBasin(site.siteid)
-            });
+            if (checkedValues > 0) {
+                $.each(checkedValues, function(index, site) {
+                    delineateBasin(site.siteid);
+                });
+            }
+            else {
+                alert("No sites selected");
+            }
+
         }
 
         function siteLookup(siteid) {
