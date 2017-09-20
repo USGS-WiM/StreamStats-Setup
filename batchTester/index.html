@@ -56,8 +56,8 @@
 
         function csvToObj(csv) {
             //conert CSV to json
-            //siteList = $.csv.toObjects(csv);
-            console.log('sitelist:', csv.split(/\r\n|\n/))
+            siteList = $.csv.toObjects(csv);
+            //console.log('sitelist:', csv.split(/\r\n|\n/))
 
             //write out status block
             $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
@@ -74,8 +74,12 @@
                 $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;<strong>' + site.state + ':</strong> ' + site.siteid + '</label></br>');
             });
             
+            //add process type radios
+            $('#main .sites-loaded').append('<br><fieldset id="processMethod" class="form-group"><legend>Select a processing method</legend><div class="form-check"><label class="form-check-label"><input type="radio" class="form-check-input" name="processRadios" id="processRadios1" checked value="synchronous">Synchronous (One site at a time)</label></div><div class="form-check"><label class="form-check-label"><input type="radio" class="form-check-input" name="processRadios" id="processRadios2" value="asynchronous">Asynchronous (All sites processed at the same time)</label></div></fieldset>');
+
             //add process sites button
             $('#main .sites-loaded').append('<br><button id="processSites" type="button" class="btn btn-success">Process Sites</button>');
+
             $('#processSites').click(function() {
                 processSites()
             })
@@ -139,89 +143,183 @@
             $('#' + templateId + ' .lng').text(siteInfo.xlocation)
 
             //use ajaxQueue so all requests don't go at once: https://github.com/gnarf/jquery-ajaxQueue
-            $.ajaxQueue({
-                url: streamStatsURL + streamStatsDelineationEndPoint,
-                data: siteInfo,
-                //async: false,
-                dataType: 'json',
-                beforeSend: function (request, settings) {
-                    start_time = new Date().getTime();
-                },
-                success: function(response, status, xhr) {
 
-                    //do hostname stuff
-                    var serverName = xhr.getResponseHeader("usgswim-hostname");
-                    $('#' + templateId + ' .hostname').text(serverName);
-                    var requestURL;
-                    //if using load balanced url, need to rewrite url for basin characteristic request
-                    (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+            var processType = $('#processMethod input[name=processRadios]:checked').val();
+            console.log('process type:', processType)
 
-                    var siteId = this.url.split('siteId=')[1];
-                    var workspaceId = response.workspaceID;
-                    console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
+            if (processType === 'synchronous') {
+                $.ajaxQueue({
+                    url: streamStatsURL + streamStatsDelineationEndPoint,
+                    data: siteInfo,
+                    //async: false,
+                    dataType: 'json',
+                    beforeSend: function (request, settings) {
+                        start_time = new Date().getTime();
+                    },
+                    success: function(response, status, xhr) {
 
-                    var request_time = (new Date().getTime() - start_time)/1000;
+                        //do hostname stuff
+                        var serverName = xhr.getResponseHeader("usgswim-hostname");
+                        $('#' + templateId + ' .hostname').text(serverName);
+                        var requestURL;
+                        //if using load balanced url, need to rewrite url for basin characteristic request
+                        (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
 
-                    //make sure we have a basin and point
-                    if (response.featurecollection.length === 2) {
-                        //update progress bar and update time
-                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
-                        $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
-                    
-                        //write out map
-                        $('#' + templateId + ' .show-map').click(function() {
+                        var siteId = this.url.split('siteId=')[1];
+                        var workspaceId = response.workspaceID;
+                        console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
 
-                            if ($('#map_' + siteId).length) {
-                                if ($(this).text() === 'Show result on map') {
-                                    $(this).text('Hide Map');
-                                    $('#map_' + siteId).show();
-                                    return;
-                                } 
+                        var request_time = (new Date().getTime() - start_time)/1000;
+
+                        //make sure we have a basin and point
+                        if (response.featurecollection.length === 2) {
+                            //update progress bar and update time
+                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
+                        
+                            //write out map
+                            $('#' + templateId + ' .show-map').click(function() {
+
+                                if ($('#map_' + siteId).length) {
+                                    if ($(this).text() === 'Show result on map') {
+                                        $(this).text('Hide Map');
+                                        $('#map_' + siteId).show();
+                                        return;
+                                    } 
+                                    else {
+                                        $(this).text('Show result on map');
+                                        $('#map_' + siteId).hide();
+                                    }  
+                                }
                                 else {
-                                    $(this).text('Show result on map');
-                                    $('#map_' + siteId).hide();
-                                }  
-                            }
-                            else {
-                                $(this).text('Hide Map');
-                                $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
-                                var map = L.map('map_' + siteId,{scrollWheelZoom:false});
-                                var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-                                    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-                                    subdomains: 'abcd',
-                                    maxZoom: 19
-                                }).addTo(map);
-                                var watershed = L.geoJSON(response.featurecollection[1].feature).addTo(map);
-                                var point = L.geoJSON(response.featurecollection[0].feature).addTo(map);
-                                map.fitBounds(watershed.getBounds());
-                            }
-                        });
+                                    $(this).text('Hide Map');
+                                    $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
+                                    var map = L.map('map_' + siteId,{scrollWheelZoom:false});
+                                    var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+                                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                                        subdomains: 'abcd',
+                                        maxZoom: 19
+                                    }).addTo(map);
+                                    var watershed = L.geoJSON(response.featurecollection[1].feature).addTo(map);
+                                    var point = L.geoJSON(response.featurecollection[0].feature).addTo(map);
+                                    map.fitBounds(watershed.getBounds());
+                                }
+                            });
 
-                        //kick off parameter request using new URL
-                        getBasinChars(siteId, workspaceId, requestURL);
-                    }
+                            //kick off parameter request using new URL
+                            getBasinChars(siteId, workspaceId, requestURL);
+                        }
 
-                    else {
+                        else {
+                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                            $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</br><button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+
+                            $('#' + templateId + ' .redelineate').click(function() {
+                                delineateBasin(siteId);
+                            });
+                            return;
+                        }
+                    },
+                    error: function (request, status, error) {
+                        console.error("Error delineating basin", request, status, error);
                         $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</br><button type="button" class="redelineate btn btn-danger">Retry</button></div>');
-
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + error + '<button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+                        
                         $('#' + templateId + ' .redelineate').click(function() {
                             delineateBasin(siteId);
                         });
-                        return;
                     }
-                },
-                error: function (request, status, error) {
-                    console.error("Error delineating basin", request, status, error);
-                    $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                    $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + error + '<button type="button" class="redelineate btn btn-danger">Retry</button></div>');
-                    
-                    $('#' + templateId + ' .redelineate').click(function() {
-                        delineateBasin(siteId);
-                    });
-                }
 
-            });
+                });
+            }
+
+            //do it synchronously
+            else {
+                $.ajax({
+                    url: streamStatsURL + streamStatsDelineationEndPoint,
+                    data: siteInfo,
+                    //async: false,
+                    dataType: 'json',
+                    beforeSend: function (request, settings) {
+                        start_time = new Date().getTime();
+                    },
+                    success: function(response, status, xhr) {
+
+                        //do hostname stuff
+                        var serverName = xhr.getResponseHeader("usgswim-hostname");
+                        $('#' + templateId + ' .hostname').text(serverName);
+                        var requestURL;
+                        //if using load balanced url, need to rewrite url for basin characteristic request
+                        (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+
+                        var siteId = this.url.split('siteId=')[1];
+                        var workspaceId = response.workspaceID;
+                        console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
+
+                        var request_time = (new Date().getTime() - start_time)/1000;
+
+                        //make sure we have a basin and point
+                        if (response.featurecollection.length === 2) {
+                            //update progress bar and update time
+                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
+                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
+                        
+                            //write out map
+                            $('#' + templateId + ' .show-map').click(function() {
+
+                                if ($('#map_' + siteId).length) {
+                                    if ($(this).text() === 'Show result on map') {
+                                        $(this).text('Hide Map');
+                                        $('#map_' + siteId).show();
+                                        return;
+                                    } 
+                                    else {
+                                        $(this).text('Show result on map');
+                                        $('#map_' + siteId).hide();
+                                    }  
+                                }
+                                else {
+                                    $(this).text('Hide Map');
+                                    $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
+                                    var map = L.map('map_' + siteId,{scrollWheelZoom:false});
+                                    var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
+                                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+                                        subdomains: 'abcd',
+                                        maxZoom: 19
+                                    }).addTo(map);
+                                    var watershed = L.geoJSON(response.featurecollection[1].feature).addTo(map);
+                                    var point = L.geoJSON(response.featurecollection[0].feature).addTo(map);
+                                    map.fitBounds(watershed.getBounds());
+                                }
+                            });
+
+                            //kick off parameter request using new URL
+                            getBasinChars(siteId, workspaceId, requestURL);
+                        }
+
+                        else {
+                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                            $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</br><button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+
+                            $('#' + templateId + ' .redelineate').click(function() {
+                                delineateBasin(siteId);
+                            });
+                            return;
+                        }
+                    },
+                    error: function (request, status, error) {
+                        console.error("Error delineating basin", request, status, error);
+                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
+                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + error + '<button type="button" class="redelineate btn btn-danger">Retry</button></div>');
+                        
+                        $('#' + templateId + ' .redelineate').click(function() {
+                            delineateBasin(siteId);
+                        });
+                    }
+
+                });
+            }
+
         }
         
         function getBasinChars(siteId, workspaceId, requestURL) {
