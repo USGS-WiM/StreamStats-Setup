@@ -21,45 +21,35 @@
     <script type="text/javascript">
 
         //some globals
-        var csvFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.csv';
+        var sitesFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.geojson';
         var streamStatsURL;
         var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
         var streamStatsParametersEndPoint = '/parameters.json'
+        var sitesLoaded = false;
         var checkedValues;
-        var csvLoaded = false;
-        var requestCount = 0;
-        var siteList;
 
         $(document).ready(function() {
             
-            $('#loadCSV').click(function() {
+            $('#loadSites').click(function() {
                 //make sure this is only clicked one per session
-                if (!csvLoaded) {
-                    loadCSV(csvFile);          
+                if (!sitesLoaded) {
+                    loadSites(sitesFile);          
                 }
             });
         });
 
-        function loadCSV(csvFile) {
-            $.ajax({
-                type: "GET",
-                url: csvFile,
-                dataType: "text",
-                success: function(data) {
-                    csvLoaded = true;
-                    csvToObj(data);
-                }
+        function loadSites(sitesFile) {
+            $.getJSON(sitesFile, function (data) {
+                sitesLoaded = true;
+                parseGeoJSON(data)
             });
         }
 
-        function csvToObj(csv) {
-            //conert CSV to json
-            siteList = $.csv.toObjects(csv);
-            //console.log('sitelist:', csv.split(/\r\n|\n/))
+        function parseGeoJSON(data) {
 
             //write out status block
-            $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + siteList.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
+            $('#main').append('</br></br><div class="sites-loaded alert alert-success" role="alert"><strong>'  + data.features.length + ' site(s) successfully loaded from CSV</strong><br><p>Points loaded from: <a href="https://github.com/USGS-WiM/StreamStats-Setup/blob/master/batchTester/testSites.csv">Github</a></br>Compare results to: <a href="https://docs.google.com/document/d/1YAlVpkL46RTWRM-gMWR5w6XOXq5oQ24dHHH92H-ttVg/edit#">V3 - V4 Cloud comparison document</a></p>Select the site(s) you want to process:<div class="site-checkboxes form-check"></div></div>');
 
             //add select all button
             $('#main .sites-loaded').append('<br><button id="selectAllSites" type="button" class="btn-sm btn">Select All [PROCEED WITH CAUTION]</button></br>');
@@ -68,9 +58,14 @@
             })      
 
             //loop over sites
-            $.each(siteList, function(index, site) {
+            $.each(data.features, function(index, site) {
+
+                //add lat/lng back to properties object
+                site.properties.lng = site.geometry.coordinates[0];
+                site.properties.lat = site.geometry.coordinates[1];
+
                 //add site to checkbox value
-                $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site) + ' class="form-check-input">&nbsp;<strong>' + site.state + ':</strong> ' + site.siteid + '</label></br>');
+                $('#main .sites-loaded').append('<label class="form-check-label"><input type="checkbox" value=' + JSON.stringify(site.properties) + ' class="form-check-input">&nbsp;<strong>' + site.properties.state + ':</strong> ' + site.properties.siteid + '</label></br>');
             });
             
             //add process type radios
@@ -85,17 +80,21 @@
         }
 
         function processSites() {
-            //get URL from selected radio
-            streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
-            $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
 
             //get selected sites from checkbox list
             checkedValues = $('input:checkbox:checked').map(function() {
                 return JSON.parse(this.value);
             }).get();
 
-            //kick of delineations for each site
-            if (checkedValues > 0) {
+            //kick of delineations for each site only if something is checked
+            if (checkedValues.length > 0) {
+
+                //get URL from selected radio
+                streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+
+                //show selected server
+                $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
+
                 $.each(checkedValues, function(index, site) {
                     delineateBasin(site.siteid);
                 });
@@ -103,7 +102,6 @@
             else {
                 alert("No sites selected");
             }
-
         }
 
         function siteLookup(siteid) {
@@ -330,7 +328,9 @@
         function getBasinChars(siteId, workspaceId, requestURL) {
             console.log('in get basin chars:',siteId, workspaceId, requestURL);
 
-            var rcode = workspaceId.substring(0,2);
+            //get state/region code
+            var site = siteLookup(siteId);
+            var rcode = site.state;
             var templateId = 'card_' + siteId;
 
             //show progress bar
@@ -376,25 +376,24 @@
                             }  
                         }
                         else {
+                            //create the parameter table
                             $(this).text('Hide parameter table');
-                            $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm"><thead><tr><th>CODE</th><th>VALUE</th></tr></thead><tbody></tbody></table>');
+                            $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm"><thead><tr><th>Parameter</th><th>Known Value</th><th>Computed Value</th></tr></thead><tbody></tbody></table>');
 
-                            //get known good values from CSV
+                            //get known good values from site data
+                            //get full site info
+                            var site = siteLookup(siteId);
+                            console.log('site info:',site)
 
-                            //https://html-online.com/editor/
-                            //http://convertjson.com/html-table-to-json.htm
-                            //https://www.cleancss.com/json-minify/
-                            //
-
-                            console.log('sitelist',siteList)
-                            $.each(siteList, function(key,value) {
-                                console.log('this',key,value)
+                            //THIS NEEDS SOME WORK, NEED TO CHECK IF A VALUE IS OR ISNT IN ONE OR THE OTHER
+                            $.each(site.testData, function(key,knownValue) {
+                                $.each(response.parameters, function(key,ssValue) {
+                                    console.log(knownValue,ssValue)
+                                    if (ssValue.code === knownValue.Label) {
+                                        $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + ssValue.code + '</td><td>' + knownValue.Value + '</td><td>' + ssValue.value + '</td></tr>');
+                                    }
+                                });
                             });
-
-                            //get values from response
-                            $.each(response.parameters, function(key,value) {
-                                $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + value.code + '</td><td>' + value.value + '</td></tr>');
-                            })
                         }
                     });
                 },
@@ -499,7 +498,7 @@
                     </label>
                 </div>
             </fieldset>
-            <button id="loadCSV" type="button" class="btn btn-primary">Load test sites from CSV File</button>
+            <button id="loadSites" type="button" class="btn btn-primary">Load test sites from CSV File</button>
         </div>
 
         <footer class="footer">
