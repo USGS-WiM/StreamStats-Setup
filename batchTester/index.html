@@ -170,6 +170,7 @@
 
                         var siteId = this.url.split('siteId=')[1];
                         var workspaceId = response.workspaceID;
+                        $('#' + templateId + ' .workspaceid').text(workspaceId);
                         console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
 
                         var request_time = (new Date().getTime() - start_time)/1000;
@@ -197,7 +198,7 @@
                                 else {
                                     $(this).text('Hide Map');
                                     $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
-                                    var map = L.map('map_' + siteId,{scrollWheelZoom:false});
+                                    var map = L.map('map_' + siteId,{scrollWheelZoom:false,dragging:false});
                                     var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
                                         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
                                         subdomains: 'abcd',
@@ -450,6 +451,8 @@
                         <dd class="col-sm-9 lng"></dd>
                         <dt class="col-sm-3">Hostname</dt>
                         <dd class="col-sm-9 hostname"></dd>
+                        <dt class="col-sm-3">Workspace ID</dt>
+                        <dd class="col-sm-9 workspaceid"></dd>
                     </dl>
                     <div class="row">
                         <div class="delineation col">
