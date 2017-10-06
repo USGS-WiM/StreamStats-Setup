@@ -1,0 +1,115 @@
+
+<html>
+<head>
+	<title>Network Nav Test App</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+	
+	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.1/dist/esri-leaflet.js"></script>
+	
+		
+    <style>
+        html, body, #map { margin: 0; height: 100%; width: 100%; }
+		.leaflet-touch .leaflet-bar button {
+		  width: 140px;
+		} 
+		
+		.leaflet-container.crosshair-cursor-enabled {
+			cursor:crosshair;
+		}
+    </style>
+</head>
+<body>
+
+
+<div id="map"></div>
+<script>
+
+	var map = L.map('map').setView([42.5, -73], 13);
+
+	L.esri.basemapLayer("DarkGray").addTo(map);
+	L.esri.tiledMapLayer({url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer'}).addTo(map);
+	
+	$.getJSON( "https://test.streamstats.usgs.gov/navigationservices/navigation", function( data ) {
+		console.log('network nav options:',data);
+		$(data).each(function(){	
+			createNetworkNavTool(this);
+		});
+	});
+	
+	function createNetworkNavTool(item) {
+		var name = item.name.replace('(','').replace(')','');
+		
+		//http://danielmontague.com/projects/easyButton.js/v1/examples/#button-states
+		var toggle = L.easyButton({
+		  states: [{
+			stateName: 'add-markers',
+			icon: '<span>' + name + '</span>',
+			title: 'initial',
+			onClick: function(control) {
+				getNavigationInfo(item.code);
+				control.state('add-markers');
+			}
+		  }, {
+			icon: '<span><i class="fa fa-map-marker"></i> Click start point</span>',
+			stateName: 'add-markers',
+			onClick: function(control) {
+				//startNavigation(item.code);
+				control.state('add-markers');
+			},
+			title: 'add markers'
+		  }]
+		}).addTo(map);
+	}
+
+	function getNavigationInfo(code) {
+	
+		$.getJSON( "https://test.streamstats.usgs.gov/navigationservices/navigation/" + code, function( data ) {
+		
+			console.log('network nav option selected:',data);
+			$(data.configuration).each(function(index,value){
+			
+				if (value.name === 'Start point location') {
+					var requestObj = [value];
+					
+					L.DomUtil.addClass(map._container,'crosshair-cursor-enabled');
+					
+					map.on('click', function(e) {
+						console.log('map clicked:',e.latlng);
+						var marker = new L.marker(e.latlng).addTo(map);
+						requestObj[0].value.coordinates = [e.latlng.lng,e.latlng.lat];
+						
+						var test = JSON.stringify(requestObj);
+						console.log('request object modified:',test);
+						L.DomUtil.removeClass(map._container,'crosshair-cursor-enabled');
+						
+
+						 $.ajax({
+							  type: 'POST',
+							  url: "https://test.streamstats.usgs.gov/navigationservices/navigation/" + code + "/route",
+							  crossDomain: true,
+							  data: test,
+							  dataType: "json",
+							  contentType: 'application/json; charset=UTF-8',
+							  success: function(resultData) { 
+								
+								console.log(resultData);
+							}
+						});
+					});;
+				}
+			});
+		});
+	}
+
+</script>
+</body>
+</html>
