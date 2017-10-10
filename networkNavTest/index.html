@@ -151,9 +151,11 @@
 						
 				console.log(data.name, 'states:', easyButtonStates)
 
-				L.easyButton({states: easyButtonStates}).addTo(map);
+				var button = L.easyButton({states: easyButtonStates}).addTo(map);
 
-				$('button.option-1-active').css('height',100);	
+				//place to disable certain buttons
+				if (data.code === 'networktrace') button.disable();
+
 			});
 		}
 		
