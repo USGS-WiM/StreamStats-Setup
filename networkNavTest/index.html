@@ -1,154 +1,231 @@
-
 <html>
-<head>
-	<title>Network Nav Test App</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
-	
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
-	
-	<script src="https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.1/dist/esri-leaflet.js"></script>
-
-	
+	<head>
+		<title>Network Nav Test App</title>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		
-    <style>
-        html, body, #map { margin: 0; height: 100%; width: 100%; }
-		.leaflet-touch .leaflet-bar button {
-		  width: 140px;
-		} 
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css' />
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'>
 		
-		.leaflet-container.crosshair-cursor-enabled {
-			cursor:crosshair;
-		}
-    </style>
-</head>
-<body>
-
-
-<div id="map"></div>
-<script>
-
-	var map = L.map('map').setView([42.5, -73], 13);
-
-	L.esri.basemapLayer("DarkGray").addTo(map);
-	//L.esri.tiledMapLayer({url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer'}).addTo(map);
-	
-	$.getJSON( "https://test.streamstats.usgs.gov/navigationservices/navigation", function( data ) {
-		console.log('network nav options:',data);
-		$(data).each(function(){	
-			createNetworkNavTool(this);
-		});
-	});
-	
-	function createNetworkNavTool(item) {
-
-		//raindrop trace
-		if (item.code === 'flowpath') {
-			L.easyButton({
-				states: [{
-					stateName: 'start',
-					icon: '<span>' + item.name + '</span>',
-					title: 'initial',
-					onClick: function(control) {
-						getNavigationInfo(control,item.code);
-						control.state('add-start-point');
-					}
-				}, {
-					icon: '<span><i class="fa fa-map-marker"></i> Click start point</span>',
-					stateName: 'add-start-point',
-					onClick: function(control) {
-						L.DomUtil.removeClass(map._container,'crosshair-cursor-enabled');
-						map.off('click');
-						control.state('start');
-					},
-					title: 'add markers'
-				},
-				{
-					icon: '<i class="fa fa-cog fa-spin fa-fw"></i><span class="sr-only">Loading...</span>',
-					stateName: 'loading',
-					title: 'loading'
-				}]
-			}).addTo(map);
-		}
-
-		// if (item.code === 'networkpath') {
-		// 	L.easyButton({
-		// 		states: [{
-		// 			stateName: 'start',
-		// 			icon: '<span>' + item.name + '</span>',
-		// 			title: 'initial',
-		// 			onClick: function(control) {
-		// 				getNavigationInfo(control,item.code);
-		// 				control.state('add-start-point');
-		// 			}
-		// 		}, {
-		// 			icon: '<span><i class="fa fa-map-marker"></i> Click start point</span>',
-		// 			stateName: 'add-start-point',
-		// 			onClick: function(control) {
-		// 				L.DomUtil.removeClass(map._container,'crosshair-cursor-enabled');
-		// 				map.off('click');
-		// 				control.state('start');
-		// 			},
-		// 			title: 'add markers'
-		// 		},
-		// 		{
-		// 			icon: '<i class="fa fa-cog fa-spin fa-fw"></i><span class="sr-only">Loading...</span>',
-		// 			stateName: 'loading',
-		// 			title: 'loading'
-		// 		}]
-		// 	}).addTo(map);
-		// }
-
-	}
-
-	function getNavigationInfo(control,code) {
-	
-		$.getJSON( "https://test.streamstats.usgs.gov/navigationservices/navigation/" + code, function( data ) {
-		
-			console.log('network nav option selected:',data);
-			$(data.configuration).each(function(index,value){
+		<script src='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js'></script>
+		<script src='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'></script>
+		<script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
+		<script src='https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.1/dist/esri-leaflet.js'></script>
 			
-				if (value.name === 'Start point location') {
-					var requestObj = [value];
-					
-					L.DomUtil.addClass(map._container,'crosshair-cursor-enabled');
-					
-					map.on('click', function(e) {
-						console.log('map clicked:',e.latlng);
+		<style>
+			html, body, #map { margin: 0; height: 100%; width: 100%; }
+			.leaflet-touch .leaflet-bar button {
+			  width: 200px;
+			} 
+			
+			.leaflet-container.crosshair-cursor-enabled {
+				cursor:crosshair;
+			}
+		</style>
+	</head>
+	<body>
+	
+	<div id='map'></div>
+	<script>
+		var servicesURL = 'https://test.streamstats.usgs.gov/navigationservices/navigation';
+		var requestObj = [];
 
-						requestObj[0].value.coordinates = [e.latlng.lng,e.latlng.lat];
-						
-						var test = JSON.stringify(requestObj);
-						console.log('request object modified:',test);
-						L.DomUtil.removeClass(map._container,'crosshair-cursor-enabled');
-						map.off('click');
-						control.state('loading');
+		var map = L.map('map').setView([42.5, -73], 13);
+	
+		L.esri.basemapLayer('DarkGray').addTo(map);
+		//L.esri.tiledMapLayer({url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer'}).addTo(map);
 
-						 $.ajax({
-							  type: 'POST',
-							  url: "https://test.streamstats.usgs.gov/navigationservices/navigation/" + code + "/route",
-							  crossDomain: true,
-							  data: test,
-							  dataType: "json",
-							  contentType: 'application/json; charset=UTF-8',
-							  success: function(resultData) { 
-								control.state('start');
-								var geojson = L.geoJSON(resultData).addTo(map);
-								map.fitBounds(geojson.getBounds());
-							}
-						});
-					});;
-				}
+		//loop over navigation options
+		$.getJSON(servicesURL, function( data ) {
+			console.log('network nav options:',data);
+			$(data).each(function(){
+				getNavigationConfiguration(servicesURL + '/' + this.code);
 			});
 		});
-	}
 
-</script>
-</body>
-</html>
+		function getNavigationConfiguration(url) {
+		
+			$.getJSON(url, function( data ) {
+			
+				console.log('getting configuration:',data);
+
+				//get count of point location configurations
+				var totalPointCount = getCountByType(data.configuration,'geojson point geometry');
+				console.log('total point count:',totalPointCount);
+
+				//get options count
+				var totalOptionsCount = getCountByType(data.configuration,'option')
+				console.log('total options count:',totalOptionsCount);
+
+				var easyButtonStates = [];
+
+				//push initial state
+				easyButtonStates.push({
+					stateName: 'initial',
+					icon: '<span>' + data.name + '</span>',
+					extraHTML:'<em>arbitrary</em> html string',
+					title: 'initial',
+					onClick: function(control) {
+						//first configuration item is always start point
+						control.configuration = data.configuration;
+						addNavigationPoint(control,control.configuration, totalPointCount, totalOptionsCount);
+
+						console.log('control config:',control.configuration);
+						control.state('start-point');
+					}
+				});
+
+				//loop over configurations and add additional states
+				$(data.configuration).each(function(index,value) {
+					if (this.name === 'Start point location') {
+						var stateObject = {
+							stateName: 'start-point',
+							icon: '<span><i class="fa fa-map-marker"></i> Click ' + this.name + '</span>',
+							title: 'initial',
+							onClick: function(control) {
+								//addNavigationPoint(control,this);
+								//if (totalPointCount > 1) control.state('end-point')
+							}
+						}
+						easyButtonStates.push(stateObject)
+					}
+					if (this.name === 'End point location') {
+						var stateObject = {
+							stateName: 'end-point',
+							icon: '<span><i class="fa fa-map-marker"></i> Click ' + this.name + '</span>',
+							title: 'initial',
+							onClick: function(control) {
+								//addNavigationPoint(control,this);
+							}
+						}
+						easyButtonStates.push(stateObject)
+					}
+					// if (this.name === 'Limit') {
+
+					// 	var stateObject = {
+					// 		stateName: 'limit',
+					// 		icon: '<i class="fa fa-check"></i><span> Set up limits</span>',
+					// 		title: 'limit',
+					// 		onClick: function(control) {
+					// 			//open Limits modal
+					// 			var txt;
+					// 			var person = prompt("Please enter your name:", "Harry Potter");
+					// 			if (person == null || person == "") {
+					// 				txt = "User cancelled the prompt.";
+					// 			} else {
+					// 				txt = "Hello " + person + "! How are you today?";
+					// 			}
+					// 			console.log(txt)
+					// 			//document.getElementById("demo").innerHTML = txt;
+					// 		}
+					// 	}
+					// 	easyButtonStates.push(stateObject);
+					// }
+				});
+				//push sbumit state
+				easyButtonStates.push({
+					stateName: 'submit',
+					icon: '<i class="fa fa-check"></i><span> Submit</span>',
+					title: 'submit',
+					onClick: function(control) {
+						//do request
+						startNavigation(control, data.code)
+						control.state('loading');
+					}
+				});
+				
+				//push loading state
+				easyButtonStates.push({
+					stateName: 'loading',
+					icon: '<i class="fa fa-cog fa-spin fa-fw"></i><span class="sr-only"> Loading...</span>',
+					title: 'loading'
+				});
+
+				//push error state
+				easyButtonStates.push({
+					stateName: 'error',
+					icon: '<i class="fa fa-exclamation"></i><span> Error</span>',
+					title: 'error'
+				});
+						
+				console.log(data.name, 'states:', easyButtonStates)
+
+				L.easyButton({states: easyButtonStates}).addTo(map);
+
+				$('button.option-1-active').css('height',100);	
+			});
+		}
+		
+		function addNavigationPoint(control, configuration, totalPointCount, totalOptionsCount) {
+			console.log('control:',control)
+	
+			var currentPointCount = 0;
+			L.DomUtil.addClass(map._container,'crosshair-cursor-enabled');
+			
+			map.on('click', function(e) {
+
+				console.log('map clicked:',e.latlng);
+				
+				configuration[currentPointCount].coordinates = [e.latlng.lng,e.latlng.lat];
+				control.configuration = configuration;
+
+				//iterate counter
+				currentPointCount += 1;
+
+				console.log('on configuration item #:',currentPointCount,'of',totalPointCount, 'options:',totalOptionsCount)
+
+				//check if we need to add another point
+				if (totalPointCount > 1) {
+					control.state('end-point');
+				}
+
+				//if we are done creating points, turn off click listener
+				if (currentPointCount === totalPointCount) {
+					L.DomUtil.removeClass(map._container,'crosshair-cursor-enabled');
+					map.off('click');
+				}
+
+				//check if we have some limit states and go to first
+				if (currentPointCount === totalPointCount && totalOptionsCount > 0) {
+
+					//temp hack to remove limit object
+					control.configuration.splice(1, 1);
+					startNavigation(control, configuration.code);
+
+					//control.state('limit');
+				}
+
+				//otherwise were done adding points
+				if (currentPointCount === totalPointCount && totalOptionsCount === 0) {
+					startNavigation(control, configuration.code);
+				}
+			});		
+		}
+		function startNavigation(control, navigationResource) {
+
+			console.log('Starting navigation request:', control.configuration)
+			$.ajax({
+				type: 'POST',
+				url: servicesURL + '/' + navigationResource + '/route',
+				crossDomain: true,
+				data: JSON.stringify(control.configuration),
+				dataType: 'json',
+				contentType: 'application/json; charset=UTF-8',
+				success: function(resultData) { 
+					var geojson = L.geoJSON(resultData).addTo(map);
+					map.fitBounds(geojson.getBounds());
+					control.state('start');
+				},
+				error: function() {
+					control.state('error');
+				} 
+			});
+		}
+
+		function getCountByType(object,text) {
+			return object.filter(function(item){return item.valueType === text}).length;
+		}
+	</script>
+	</body>
+	</html>
