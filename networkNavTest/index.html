@@ -69,9 +69,7 @@
 					onClick: function(control) {
 						//first configuration item is always start point
 						control.configuration = data.configuration;
-						addNavigationPoint(control,control.configuration, totalPointCount, totalOptionsCount);
-
-						console.log('control config:',control.configuration);
+						addNavigationPoint(control, data.code, totalPointCount, totalOptionsCount);
 						control.state('start-point');
 					}
 				});
@@ -159,7 +157,7 @@
 			});
 		}
 		
-		function addNavigationPoint(control, configuration, totalPointCount, totalOptionsCount) {
+		function addNavigationPoint(control, navigationResource, totalPointCount, totalOptionsCount) {
 			console.log('control:',control)
 	
 			var currentPointCount = 0;
@@ -169,8 +167,8 @@
 
 				console.log('map clicked:',e.latlng);
 				
-				configuration[currentPointCount].coordinates = [e.latlng.lng,e.latlng.lat];
-				control.configuration = configuration;
+				//update configuration point based on map click
+				control.configuration[currentPointCount].coordinates = [e.latlng.lng,e.latlng.lat];
 
 				//iterate counter
 				currentPointCount += 1;
@@ -193,20 +191,22 @@
 
 					//temp hack to remove limit object
 					control.configuration.splice(1, 1);
-					startNavigation(control, configuration.code);
+					control.state('loading');
+					$('.leaflet-container').css('cursor', 'wait');
+					startNavigation(control, navigationResource);
 
 					//control.state('limit');
 				}
 
 				//otherwise were done adding points
 				if (currentPointCount === totalPointCount && totalOptionsCount === 0) {
-					startNavigation(control, configuration.code);
+					startNavigation(control, navigationResource);
 				}
 			});		
 		}
 		function startNavigation(control, navigationResource) {
 
-			console.log('Starting navigation request:', control.configuration)
+			console.log('Starting navigation request:', navigationResource)
 			$.ajax({
 				type: 'POST',
 				url: servicesURL + '/' + navigationResource + '/route',
@@ -217,11 +217,14 @@
 				success: function(resultData) { 
 					var geojson = L.geoJSON(resultData).addTo(map);
 					map.fitBounds(geojson.getBounds());
-					control.state('start');
+					control.state('initial');
 				},
 				error: function() {
 					control.state('error');
-				} 
+				},
+				complete: function() {
+					$('.leaflet-container').css('cursor', '');
+				}
 			});
 		}
 
