@@ -6,8 +6,8 @@
         "geometry":{
            "type":"Point",
            "coordinates":[
-              -87.48533,
-              33.52147
+              -87.48516,
+              33.52127
            ]
         },
         "properties":{
@@ -16,23 +16,23 @@
            "testData":[
               {
                  "Label":"URBAN",
-                 "Value":5.2
+                 "Value":2.51
               },
               {
                  "Label":"CONTDA",
-                 "Value":0.528
+                 "Value":5.387
               },
               {
                  "Label":"LC06DEV",
-                 "Value":5.2
+                 "Value":5.387
               },
               {
                  "Label":"LC11IMP",
-                 "Value":0.72
+                 "Value":0.35
               },
               {
                  "Label":"LC11DEV",
-                 "Value":6.16
+                 "Value":2.87
               }
            ]
         }
@@ -42,8 +42,8 @@
         "geometry":{
            "type":"Point",
            "coordinates":[
-              -149.93956,
-              61.74747
+              -149.93971,
+              61.74746
            ]
         },
         "properties":{
@@ -52,11 +52,11 @@
            "testData":[
               {
                  "Label":"DRNAREA",
-                 "Value":0.1
+                 "Value":48.8
               },
               {
                  "Label":"PRECPRIS00",
-                 "Value":20
+                 "Value":25
               }
            ]
         }
