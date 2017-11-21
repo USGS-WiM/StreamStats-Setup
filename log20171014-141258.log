@@ -1,5 +1,0 @@
-2017-10-14 14:12:58,085 - StreamStats Batch Processor - INFO - Starting program
-2017-10-14 14:12:58,086 - StreamStats Batch Processor - INFO - Using server: https://streamstats.usgs.gov/streamstatsservices/
-2017-10-14 14:13:33,736 - StreamStats Batch Processor - INFO - Processed successfully: ( 1 of 1 ) points
-2017-10-14 14:13:33,736 - StreamStats Batch Processor - INFO - Merged basin shapefile:  c:\NYBackup\GitHub\StreamStats-Setup\batchDelineate\output\results.shp
-2017-10-14 14:13:33,739 - StreamStats Batch Processor - INFO - Finished.  Total time elapsed: 0.59 minutes
