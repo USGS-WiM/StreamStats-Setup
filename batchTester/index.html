@@ -362,41 +362,79 @@
                     $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');   
                     $('#' + templateId + ' .parameter').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button></br></br>')
 
-                    //write out table
+                    //create blank table
+                    $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm" style="display:none"><thead><tr><th>Parameter</th><th>Known Value</th><th>Computed Value</th><th>% Diff</th></tr></thead><tbody></tbody></table>');
+
+                    //set button text
+                    $('#' + templateId + ' .show-table').text('Show parameter table');
+
+                    //on button click
                     $('#' + templateId + ' .show-table').click(function() {
-
-                        if ($('#table_' + siteId).length) {
-                            if ($(this).text() === 'Show parameter table') {
-                                $(this).text('Hide parameter table');
-                                $('#table_' + siteId).show();
-                                return;
-                            } 
-                            else {
-                                $(this).text('Show parameter table');
-                                $('#table_' + siteId).hide();
-                            }  
-                        }
-                        else {
-                            //create the parameter table
+                        if ($(this).text() === 'Show parameter table') {
                             $(this).text('Hide parameter table');
-                            $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm"><thead><tr><th>Parameter</th><th>Known Value</th><th>Computed Value</th></tr></thead><tbody></tbody></table>');
-
-                            //get known good values from site data
-                            //get full site info
-                            var site = siteLookup(siteId);
-                            console.log('site info:',site)
-
-                            //THIS NEEDS SOME WORK, NEED TO CHECK IF A VALUE IS OR ISNT IN ONE OR THE OTHER
-                            $.each(site.testData, function(key,knownValue) {
-                                $.each(response.parameters, function(key,ssValue) {
-                                    console.log(knownValue,ssValue)
-                                    if (ssValue.code === knownValue.Label) {
-                                        $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + ssValue.code + '</td><td>' + knownValue.Value + '</td><td>' + ssValue.value + '</td></tr>');
-                                    }
-                                });
-                            });
-                        }
+                            $('#table_' + siteId).show();
+                            return;
+                        } 
+                        else {
+                            $(this).text('Show parameter table');
+                            $('#table_' + siteId).hide();
+                        }  
                     });
+
+                    //write out table
+                    //get known good values from site data
+                    //get full site info
+                    var site = siteLookup(siteId);
+                    console.log('site info:',site);
+
+                    var undefinedCount = 0
+
+                    //THIS NEEDS SOME WORK, NEED TO CHECK IF A VALUE IS OR ISNT IN ONE OR THE OTHER
+                    $.each(site.testData, function(key,knownValue) {
+                        $.each(response.parameters, function(key,ssValue) {
+
+                            //console.log(knownValue,ssValue)
+                            if (ssValue.code === knownValue.Label) {
+
+                                if (ssValue.value == null) {
+                                    console.log('undefined',ssValue)
+                                    undefinedCount+=1;
+                                }
+
+                                //calculate percent difference
+                                var percentDiff;
+                                
+                                //avoid divide by zero
+                                if (knownValue.Value === 0 && ssValue.value === 0) {
+                                    percentDiff = (0).toFixed(2)
+                                }
+                                //otherwise do normal percent diff calc
+                                else {
+                                    percentDiff = ((Math.abs(knownValue.Value - ssValue.value) / (Math.abs(knownValue.Value + ssValue.value)/2)) * 100).toFixed(2);
+                                }
+
+                                //add warning class to button if percent diff >1 or any param undefined
+                                if (percentDiff > 1 || ssValue.value === 'undefined') {
+                                    $('#' + templateId + ' .show-table').removeClass('btn-success').addClass('btn-warning');
+                                }
+
+                                //append table row
+                                $('#' + templateId + ' .table').find('tbody').append('<tr><td>' + ssValue.code + '</td><td>' + knownValue.Value + '</td><td>' + ssValue.value + '</td><td>' + percentDiff+ '</td></tr>');
+                            }
+                        });
+                    });
+
+                    //if all params are undefined, show recalc button
+                    if (undefinedCount > 0) {
+                        $('#' + templateId + ' .show-table').removeClass('btn-success').addClass('btn-danger');
+
+                        $('#' + templateId + ' .parameter_progress').removeClass('bg-success').addClass('bg-danger');
+                        $('#' + templateId + ' .parameter').append('</br></br><div class="alert alert-danger" role="alert"><strong>One or more parameters failed to compute</strong><br><button type="button" class="recalculate btn btn-danger">Retry</button></div>');
+                        
+                        $('#' + templateId + ' .recalculate').click(function() {
+                            getBasinChars(siteId, workspaceId, requestURL);
+                        });
+                    }
                 },
                 error: function(request, status, error) {
                     console.error("Error calculating basin characteristics", request, status, error);
