@@ -16,6 +16,8 @@
 
     <style>
         .hide { display: none; }
+        .top-buffer { margin-top:20px; }
+        .left-buffer { margin-left:20px; }
     </style>
     
     <script type="text/javascript">
@@ -169,17 +171,18 @@
                         (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
 
                         var siteId = this.url.split('siteId=')[1];
-                        var workspaceId = response.workspaceID;
-                        $('#' + templateId + ' .workspaceid').text(workspaceId);
-                        console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
+                        var workspaceID = response.workspaceID;
+                        $('#' + templateId + ' .workspaceid').text(workspaceID);
+                        console.log('in delineation success:', siteId, workspaceID, response,'feature collection length:',response.featurecollection.length)
 
                         var request_time = (new Date().getTime() - start_time)/1000;
 
                         //make sure we have a basin and point
                         if (response.featurecollection.length === 2) {
+
                             //update progress bar and update time
                             $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
-                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
+                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span><div class="row"><button type="button" class="show-map btn btn-success top-buffer left-buffer">Show result on map</button></div>');
                         
                             //write out map
                             $('#' + templateId + ' .show-map').click(function() {
@@ -211,7 +214,7 @@
                             });
 
                             //kick off parameter request using new URL
-                            getBasinChars(siteId, workspaceId, requestURL);
+                            getBasinChars(siteId, workspaceID, requestURL);
                         }
 
                         else {
@@ -237,7 +240,7 @@
                 });
             }
 
-            //do it synchronously
+            //do it asynchronously
             else {
                 $.ajax({
                     url: streamStatsURL + streamStatsDelineationEndPoint,
@@ -257,17 +260,18 @@
                         (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
 
                         var siteId = this.url.split('siteId=')[1];
-                        var workspaceId = response.workspaceID;
-                        console.log('in delineation success:', siteId, workspaceId, response,'feature collection length:',response.featurecollection.length)
+                        var workspaceID = response.workspaceID;
+                        console.log('in delineation success:', siteId, workspaceID, response,'feature collection length:',response.featurecollection.length)
 
                         var request_time = (new Date().getTime() - start_time)/1000;
 
                         //make sure we have a basin and point
                         if (response.featurecollection.length === 2) {
+
                             //update progress bar and update time
                             $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
-                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-map btn btn-success">Show result on map</button></br></br>');
-                        
+                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span><div class="row"><button type="button" class="show-map btn btn-success top-buffer left-buffer">Show result on map</button></div>');
+
                             //write out map
                             $('#' + templateId + ' .show-map').click(function() {
 
@@ -298,7 +302,7 @@
                             });
 
                             //kick off parameter request using new URL
-                            getBasinChars(siteId, workspaceId, requestURL);
+                            getBasinChars(siteId, workspaceID, requestURL);
                         }
 
                         else {
@@ -326,8 +330,8 @@
 
         }
         
-        function getBasinChars(siteId, workspaceId, requestURL) {
-            console.log('in get basin chars:',siteId, workspaceId, requestURL);
+        function getBasinChars(siteId, workspaceID, requestURL) {
+            console.log('in get basin chars:',siteId, workspaceID, requestURL);
 
             //get state/region code
             var site = siteLookup(siteId);
@@ -342,7 +346,7 @@
                 url: requestURL + streamStatsParametersEndPoint,
                 data: {
                     rcode: rcode,
-                    workspaceID: workspaceId,
+                    workspaceID: workspaceID,
                     includeparameters: true,
                     siteId: siteId
                 },
@@ -351,16 +355,26 @@
                     start_time = new Date().getTime();
                 },
                 success: function(response) {
-                    var workspaceId = this.url.split('workspaceId=')[1];
+
+                    //check for workspaceID, if none this indicates error
+                    var workspaceID = getParameterByName('workspaceID', this.url);
+
                     var siteId = this.url.split('siteId=')[1];
+
                     var templateId = 'card_' + siteId;
                     console.log('in getBasinChars success:', siteId, response)
                     
                     var request_time = (new Date().getTime() - start_time)/1000;
 
+                    //clear existing (if recalc this is needed)
+                    $('#' + templateId + ' .parameters-calc').remove();
+                    $('#' + templateId + ' .alert').remove();
+                    $('#' + templateId + ' .table').remove();
+                    $('#' + templateId + ' .parameter_progress').removeClass('bg-danger');  
+
                     //update progress bar and update time
                     $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');   
-                    $('#' + templateId + ' .parameter').append('<span class="timer">' + request_time + ' seconds</span></br><button type="button" class="show-table btn btn-success">Show parameter table</button></br></br>')
+                    $('#' + templateId + ' .parameter').append('<div class="parameters-calc"><span class="parameters timer">' + request_time + ' seconds</span><div class="row"><button type="button" class="show-table btn btn-success top-buffer left-buffer ">Show parameter table</button></div></div>')
 
                     //create blank table
                     $('#' + templateId + ' .parameter').append('<table id="table_' + siteId + '" class="table table-sm" style="display:none"><thead><tr><th>Parameter</th><th>Known Value</th><th>Computed Value</th><th>% Diff</th></tr></thead><tbody></tbody></table>');
@@ -397,9 +411,12 @@
                             if (ssValue.code === knownValue.Label) {
 
                                 if (ssValue.value == null) {
-                                    console.log('undefined',ssValue)
+                                    //console.log('param undefined:',ssValue.code)
                                     undefinedCount+=1;
                                 }
+                                
+                                //for testing
+                                //undefinedCount = 3;
 
                                 //calculate percent difference
                                 var percentDiff;
@@ -426,26 +443,45 @@
 
                     //if all params are undefined, show recalc button
                     if (undefinedCount > 0) {
+
                         $('#' + templateId + ' .show-table').removeClass('btn-success').addClass('btn-danger');
 
                         $('#' + templateId + ' .parameter_progress').removeClass('bg-success').addClass('bg-danger');
-                        $('#' + templateId + ' .parameter').append('</br></br><div class="alert alert-danger" role="alert"><strong>One or more parameters failed to compute</strong><br><button type="button" class="recalculate btn btn-danger">Retry</button></div>');
+                        $('#' + templateId + ' .parameter').append('<div class="alert alert-danger top-buffer" role="alert"><strong>One or more parameters failed to compute</strong><br><button type="button" class="recalculate btn btn-danger ">Retry</button></div></div>');
                         
                         $('#' + templateId + ' .recalculate').click(function() {
-                            getBasinChars(siteId, workspaceId, requestURL);
+                            $('#' + templateId + ' .recalculate').text('Retrying...');
+                            console.log('recalc:',siteId, workspaceID, requestURL);
+                            getBasinChars(siteId, workspaceID, requestURL);
                         });
                     }
+
+                    
+
+
                 },
                 error: function(request, status, error) {
                     console.error("Error calculating basin characteristics", request, status, error);
                     $('#' + templateId + ' .parameter_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                    $('#' + templateId + ' .parameter').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the parameter request</strong><br>HTTP Error: ' + error + '<button type="button" class="recalculate btn btn-danger">Retry</button></div>');
+                    $('#' + templateId + ' .parameter').append('<div class="alert-row row"><div class="alert alert-danger" role="alert"><strong>One or more parameters failed to compute</strong><br><button type="button" class="recalculate btn btn-danger">Retry</button></div></div>');
                     
                     $('#' + templateId + ' .recalculate').click(function() {
-                        getBasinChars(siteId, workspaceId, requestURL);
+                        $('#' + templateId + ' .recalculate').text('Retrying...');
+                        console.log('recalc:',siteId, workspaceID, requestURL);
+                        getBasinChars(siteId, workspaceID, requestURL);
                     });
                 }
             });
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
         //function for summing total request time
@@ -495,7 +531,7 @@
                     <div class="row">
                         <div class="delineation col">
                             <h6>Delineation</h6>
-                            <div class="progress">
+                            <div class="delineation_progress_parent">
                                 <div class="delineation_progress progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
                             </div>
                          </div>
