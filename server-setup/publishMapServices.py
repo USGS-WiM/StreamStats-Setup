@@ -25,12 +25,14 @@ except ImportError:
     password = getpass.getpass("Enter password: ")
     pass
 
-SERVERNAME = 'localhost'
+
+SERVERNAME = '34.228.162.244'
 SERVERPORT = 6080
-CONNECTIONFILE = os.path.join(os.path.dirname(sys.argv[0]), SERVERNAME + ".ags")
+SCRIPTPATH = os.path.dirname(os.path.abspath(__file__))
+CONNECTIONFILE = os.path.join(SCRIPTPATH,"connectionfile.ags")
 #SERVERURL = "http://" + SERVERNAME + ":" + str(SERVERPORT) + "/arcgis/admin"
 SERVERURL = "http://" + SERVERNAME + "/arcgis/admin"
-
+print CONNECTIONFILE
 MAINDATAPATH = 'e:\\data'
 SERVICELIST = [
     {'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
@@ -85,7 +87,7 @@ if __name__ == "__main__":
 
     # Create a connection file to the server            
     try:
-        arcpy.mapping.CreateGISServerConnectionFile("PUBLISH_GIS_SERVICES",os.curdir,SERVERNAME+".ags",SERVERURL,"ARCGIS_SERVER",username=username,password=password)
+        arcpy.mapping.CreateGISServerConnectionFile("PUBLISH_GIS_SERVICES",os.curdir,CONNECTIONFILE,SERVERURL,"ARCGIS_SERVER",username=username,password=password)
     except Exception, e:
             print e.message   
     if not os.path.isfile(CONNECTIONFILE):
@@ -95,13 +97,12 @@ if __name__ == "__main__":
     #first register main data path
     print "\nProcessing:",MAINDATAPATH
     DATASTORENAME = os.path.normpath(MAINDATAPATH).split(os.sep)[1]
-    add_data_store_item(DATASTORENAME,MAINDATAPATH)
+    #add_data_store_item(DATASTORENAME,MAINDATAPATH)
 
     #main loop over service items and do the work
     for serviceItem in SERVICELIST:
 
-        #variables
-        SCRIPTPATH = os.path.dirname(sys.argv[0])
+        #variables        
         MXDPATH = serviceItem['mxdPath']
         PATH = os.path.normpath(MXDPATH)
         PATHLIST = PATH.split(os.sep)
@@ -113,7 +114,7 @@ if __name__ == "__main__":
         print "\nProcessing:",MXDPATH
 
         # make sure the folder is registered with the server, if not, add it to the datastore
-        add_data_store_item(DATASTORENAME,WORKSPACE)
+        #add_data_store_item(DATASTORENAME,WORKSPACE)
         
         # Provide other service details
         MAPDOCUMENT = arcpy.mapping.MapDocument(MXDPATH)
@@ -121,7 +122,8 @@ if __name__ == "__main__":
         SD = os.path.join(SCRIPTPATH, SERVICENAME + '.sd')
 
         # Create service definition draft
-        arcpy.mapping.CreateMapSDDraft(MAPDOCUMENT, SDDRAFT, SERVICENAME, 'ARCGIS_SERVER', CONNECTIONFILE, False, FOLDERNAME, SERVICENAME, SERVICENAME)
+				
+        arcpy.mapping.CreateMapSDDraft(MAPDOCUMENT, SDDRAFT, SERVICENAME, 'ARCGIS_SERVER', CONNECTIONFILE, True, FOLDERNAME, SERVICENAME, SERVICENAME)
 
         # Analyze the service definition draft
         map_service_status = analyze_map_service(SDDRAFT)
@@ -129,6 +131,8 @@ if __name__ == "__main__":
         # Stage and upload the service if the analysis did not contain errors
         if map_service_status:
             # Execute StageService. This creates the service definition.
+            print SDDRAFT
+            print SD
             arcpy.StageService_server(SDDRAFT, SD)
 
             # Execute UploadServiceDefinition. This uploads the service definition and publishes the service.
