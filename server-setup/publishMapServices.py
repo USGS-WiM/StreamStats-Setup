@@ -32,10 +32,9 @@ SCRIPTPATH = os.path.dirname(os.path.abspath(__file__))
 CONNECTIONFILE = os.path.join(SCRIPTPATH,"connectionfile.ags")
 #SERVERURL = "http://" + SERVERNAME + ":" + str(SERVERPORT) + "/arcgis/admin"
 SERVERURL = "http://" + SERVERNAME + "/arcgis/admin"
-print CONNECTIONFILE
 MAINDATAPATH = 'e:\\data'
 SERVICELIST = [
-    {'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
+    #{'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
     {'mxdPath':'e:/mapservices/stateServices.mxd', 'serviceName':'stateServices', 'folderName':'StreamStats'},
     {'mxdPath':'e:/projects/data/INCoordinatedReachs/CoordinatedReaches.mxd', 'serviceName':'in', 'folderName':'coordinatedreaches'},
     {'mxdPath':'e:/projects/data/NSSRegions/nssRegions.mxd', 'serviceName':'regions', 'folderName':'nss'},  
@@ -85,9 +84,10 @@ def add_data_store_item(data_store_name=None,data_path=None):
 
 if __name__ == "__main__":
 
-    # Create a connection file to the server            
+    # Create a connection file to the server 
+
     try:
-        arcpy.mapping.CreateGISServerConnectionFile("PUBLISH_GIS_SERVICES",os.curdir,CONNECTIONFILE,SERVERURL,"ARCGIS_SERVER",username=username,password=password)
+        arcpy.mapping.CreateGISServerConnectionFile("PUBLISH_GIS_SERVICES",os.path.dirname(CONNECTIONFILE),os.path.basename(CONNECTIONFILE),SERVERURL,"ARCGIS_SERVER",username=username,password=password)
     except Exception, e:
             print e.message   
     if not os.path.isfile(CONNECTIONFILE):
@@ -131,8 +131,6 @@ if __name__ == "__main__":
         # Stage and upload the service if the analysis did not contain errors
         if map_service_status:
             # Execute StageService. This creates the service definition.
-            print SDDRAFT
-            print SD
             arcpy.StageService_server(SDDRAFT, SD)
 
             # Execute UploadServiceDefinition. This uploads the service definition and publishes the service.
