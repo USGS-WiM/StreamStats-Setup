@@ -28,25 +28,6 @@ import arcpy.da
 import argparse
 import logging
 
-# create logger
-log = logging.getLogger('StreamStats Batch Processor')
-log.setLevel(logging.DEBUG)
-
-# create formatter and add it to the handlers
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-
-# create file handler which logs even debug messages
-fh = logging.FileHandler(time.strftime(os.path.dirname(os.path.abspath(__file__)) + "/output/log%Y%m%d-%H%M%S.log"))
-fh.setLevel(logging.INFO)
-fh.setFormatter(formatter)
-log.addHandler(fh)
-
-# create console handler with a higher log level
-ch = logging.StreamHandler()
-ch.setLevel(logging.DEBUG)
-ch.setFormatter(formatter)
-log.addHandler(ch)
-
 def delineate_basin(state_code=None, x_coord=None, y_coord=None):
     """delineate_basin(state_code=None, x_coord=None, y_coord=None)
         Delineates streamstats basin based on state, x and y
@@ -163,21 +144,40 @@ if __name__ == "__main__":
     projectedsnappedpointsfc = os.path.join(outfolder, 'projectedPoints.shp')
     outfc = os.path.join(outfolder, 'results.shp')
 
-    #SET ARGUMENTS HERE
-    parser = argparse.ArgumentParser(description='Batch delineation script using StreamStats services')
-
-    parser.add_argument('--server', type=str, default='https://streamstats.usgs.gov/streamstatsservices/', help='server for streamstats services')
-    parser.add_argument('--snappedpoints', type=str, default='C:/NYBackup/batchDelineate/input/sample.shp', help='input shapefile of snapped points')
-    parser.add_argument('--idfield', type=str, default='SiteID', help='unique ID field')
-    parser.add_argument('--statefield', type=str, default='state', help='state field')
-    parser.add_argument('--parameters', type=str, default='false', help='comma seperated parameter list to be computed, "false" if none required, "true" for all')
-
-    args = parser.parse_args()
-
     #cleanup
     if os.path.exists(outfolder):
         shutil.rmtree(outfolder)
     os.makedirs(outfolder)
+
+    # create logger
+    log = logging.getLogger('StreamStats Batch Processor')
+    log.setLevel(logging.DEBUG)
+
+    # create formatter and add it to the handlers
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+    # create file handler which logs even debug messages
+    fh = logging.FileHandler(time.strftime(outfolder + "/log%Y%m%d-%H%M%S.log"))
+    fh.setLevel(logging.INFO)
+    fh.setFormatter(formatter)
+    log.addHandler(fh)
+
+    # create console handler with a higher log level
+    ch = logging.StreamHandler()
+    ch.setLevel(logging.DEBUG)
+    ch.setFormatter(formatter)
+    log.addHandler(ch)
+
+    #SET ARGUMENTS HERE
+    parser = argparse.ArgumentParser(description='Batch delineation script using StreamStats services')
+
+    parser.add_argument('--server', type=str, default='https://streamstats.usgs.gov/streamstatsservices/', help='server for streamstats services')
+    parser.add_argument('--snappedpoints', type=str, default='C:/NYBackup/GitHub/StreamStats-Setup/batchDelineate/input/sample.shp', help='input shapefile of snapped points')
+    parser.add_argument('--idfield', type=str, default='siteidfina', help='unique ID field')
+    parser.add_argument('--statefield', type=str, default='state', help='state field')
+    parser.add_argument('--parameters', type=str, default='false', help='comma seperated parameter list to be computed, "false" if none required, "true" for all')
+
+    args = parser.parse_args()
 
     # Start time recording
     starttime = time.time()
