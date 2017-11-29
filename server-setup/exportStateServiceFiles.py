@@ -11,6 +11,10 @@
 # ---------------------------------------------------------------------------
 
 import arcpy, os, shutil
+from arcpy.sa import *
+
+# Check out the ArcGIS Spatial Analyst extension license
+arcpy.CheckOutExtension("Spatial")
 
 #main
 if __name__ == "__main__":
@@ -30,7 +34,7 @@ if __name__ == "__main__":
         #find state based group layers
         if lyr.isGroupLayer: 
         
-            stateAbv = str(lyr)
+            stateAbv = str(lyr).lower()
         
             #set state path
             statePath = scriptPath + '/State/' + stateAbv + '/'
@@ -39,7 +43,7 @@ if __name__ == "__main__":
             if os.path.exists(statePath):
                 shutil.rmtree(statePath)
             os.makedirs(statePath)
-
+            
             #loop over single state layers inside of group
             for subLayer in lyr:
             
@@ -47,23 +51,36 @@ if __name__ == "__main__":
                 print 'This layer is in a group layer: ',stateAbv ,layerName
 
                 if layerName == 'StreamGrid':
-                    print '   Exporting stream grid raster...'
-                    rasterName = 'StreamGrid'
-                    raster = os.path.join(statePath, rasterName)
-                    print '      ',raster
-                    arcpy.CopyRaster_management(in_raster=subLayer, out_rasterdataset=raster, config_keyword="", background_value="", nodata_value="-128", onebit_to_eightbit="NONE", colormap_to_RGB="NONE", pixel_type="1_BIT", scale_pixel_value="NONE", RGB_to_Colormap="NONE", format="Esri Grid", transform="NONE")
+                
+                    #turn off pyramids
+                    arcpy.env.pyramid = "PYRAMIDS 0"
+                    
+                    #set raster compression
+                    #arcpy.env.compression = "CCITT_1D"
+                    
+                    raster = os.path.join(statePath, 'streamgrid.tif')
+                    
+                    print '   Reclassifying stream grid raster...', raster
+                    
+                    # Reclassiffy
+                    #using a tiff allows for 1 bit unsigned pixel depth, reducing file size
+                    arcpy.gp.Reclassify_sa(subLayer, "VALUE", "1 1", raster, "DATA")
+                                    
+                    #print '   Exporting stream grid raster...',raster
+                    #arcpy.CopyRaster_management(in_raster=tempRaster, out_rasterdataset=raster, config_keyword="", background_value="", nodata_value="-128", onebit_to_eightbit="NONE", colormap_to_RGB="NONE", pixel_type="1_BIT", scale_pixel_value="NONE", RGB_to_Colormap="NONE", format="TIFF", transform="NONE")
 
+                    #delete tempRaster
+                    #arcpy.Delete_management(tempRaster)
+                    
                     #delete pyramids
-                    if os.path.exists(statePath + 'StreamGrid.rrd'):
-                        print '      DELETING raster pyramids....'
-                        os.remove(statePath + 'StreamGrid.rrd')
+                    #if os.path.exists(statePath + 'StreamGrid.rrd'):
+                    #    print '      DELETING raster pyramids....'
+                    #    os.remove(statePath + 'StreamGrid.rrd')
                     
                 #check for other state layers
                 else:
-                    print '   Exporting other state layer...'
-                    shapeName = layerName + '.shp'
-                    shape = os.path.join(statePath, shapeName)
-                    print '      ', shape
+                    shape = os.path.join(statePath, layerName.lower() + '.shp')
+                    print '   Exporting other state layer:', shape
                     arcpy.management.CopyFeatures(subLayer, shape)
 
             #paise the loop
