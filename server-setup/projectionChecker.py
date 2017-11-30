@@ -1,25 +1,23 @@
 
 #------------------------------------------------------------------------------
-#----- DelineateWrapper.py ----------------------------------------------------
+#----- projectionChecker.py ----------------------------------------------------
 #------------------------------------------------------------------------------
 
 #-------1---------2---------3---------4---------5---------6---------7---------8
 #       01234567890123456789012345678901234567890123456789012345678901234567890
 #-------+---------+---------+---------+---------+---------+---------+---------+
 
-# copyright:   2016 WiM - USGS
+# copyright:   2017 WIM - USGS
 
 #    authors:  Jeremy K. Newson USGS Web Informatics and Mapping
 # 
 #   purpose:  Wrapper to delineate watershed using split catchement methods
 #          
-#discussion:  https://github.com/GeoJSON-Net/GeoJSON.Net/blob/master/src/GeoJSON.Net/Feature/Feature.cs
-#             http://pro.arcgis.com/en/pro-app/tool-reference/spatial-analyst/watershed.htm
-#             geojsonToShape: http://desktop.arcgis.com/en/arcmap/10.3/analyze/arcpy-functions/asshape.htm
+#discussion:  
 #       
 
 #region "Comments"
-#08.19.2015 jkn - Created
+#11.19.2017 jkn - Created
 #endregion
 
 #region "Imports"
@@ -46,8 +44,8 @@ class SpatialRefWrapper(object):
         try:
             parser = argparse.ArgumentParser()            
             parser.add_argument("-Directory", help="Parent directory", type=str, default="d:\data\ms")   
-            parser.add_argument("-FromSR",type=str,help="Name of Spatial Reference to project from", default='NAD_1983_Mississippi_TM')#NAD_1983_Transverse_Mercator
-            parser.add_argument("-ToSR",type=str,help="WKID or Name of Spatial Reference to project to", default=None)#'PROJCS["NAD_1983_Transverse_Mercator",GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137.0,298.257222101]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["False_Easting",500000.0],PARAMETER["False_Northing",1300000.0],PARAMETER["Central_Meridian",-89.75],PARAMETER["Scale_Factor",0.9998335],PARAMETER["Latitude_Of_Origin",32.5],UNIT["Meter",1.0]]') #3814 NAD_1983_Mississippi_TM'
+            parser.add_argument("-FromSR",type=str,help="Name of Spatial Reference to project from", default='NAD_1983_Mississippi_TM')
+            parser.add_argument("-ToSR",type=str,help="WKID or file name of Spatial Reference to project to", default=None)#NAD_1983_Transvers_Mercator.prj
             args = parser.parse_args()
 
             directory = args.Directory
