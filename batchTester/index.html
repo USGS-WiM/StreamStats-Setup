@@ -161,14 +161,18 @@
                     beforeSend: function (request, settings) {
                         start_time = new Date().getTime();
                     },
+                    xhrFields: {
+                        withCredentials: true
+                    },
                     success: function(response, status, xhr) {
 
                         //do hostname stuff
                         var serverName = xhr.getResponseHeader("usgswim-hostname");
                         $('#' + templateId + ' .hostname').text(serverName);
-                        var requestURL;
-                        //if using load balanced url, need to rewrite url for basin characteristic request
-                        (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+                        // var requestURL;
+                        // //if using load balanced url, need to rewrite url for basin characteristic request
+                        // (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+                        var requestURL = streamStatsURL;
 
                         var siteId = this.url.split('siteId=')[1];
                         var workspaceID = response.workspaceID;
@@ -250,14 +254,18 @@
                     beforeSend: function (request, settings) {
                         start_time = new Date().getTime();
                     },
+                    xhrFields: {
+                        withCredentials: true
+                    },
                     success: function(response, status, xhr) {
 
                         //do hostname stuff
                         var serverName = xhr.getResponseHeader("usgswim-hostname");
                         $('#' + templateId + ' .hostname').text(serverName);
-                        var requestURL;
-                        //if using load balanced url, need to rewrite url for basin characteristic request
-                        (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+                        // var requestURL;
+                        // //if using load balanced url, need to rewrite url for basin characteristic request
+                        // (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+                        var requestURL = streamStatsURL;
 
                         var siteId = this.url.split('siteId=')[1];
                         var workspaceID = response.workspaceID;
@@ -353,6 +361,9 @@
                 dataType: 'json',
                 beforeSend: function (request, settings) {
                     start_time = new Date().getTime();
+                },
+                xhrFields: {
+                    withCredentials: true
                 },
                 success: function(response) {
 

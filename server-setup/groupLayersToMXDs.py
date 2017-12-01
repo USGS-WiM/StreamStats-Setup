@@ -1,5 +1,5 @@
 # ---------------------------------------------------------------------------
-# Name: 1_groupLayersToMXDs.py
+# Name: groupLayersToMXDs.py
 # Description: Parses map document, breaks out group layers to individual
 #   new MXDs
 #
