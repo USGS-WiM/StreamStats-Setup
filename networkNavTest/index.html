@@ -92,7 +92,7 @@
 					onClick: function(control) {
 						//first configuration item is always start point
 						control.configuration = data.configuration;
-						addNavigationPoint(control, data.code, totalPointCount, totalOptionsCount);
+						addNavigationConfiguration(control, data.code, totalPointCount, totalOptionsCount);
 						control.state('start-point');
 					}
 				});
@@ -105,8 +105,7 @@
 							icon: '<span><i class="fa fa-map-marker"></i> Click ' + this.name + '</span>',
 							title: 'initial',
 							onClick: function(control) {
-								//addNavigationPoint(control,this);
-								//if (totalPointCount > 1) control.state('end-point')
+
 							}
 						}
 						easyButtonStates.push(stateObject)
@@ -117,7 +116,7 @@
 							icon: '<span><i class="fa fa-map-marker"></i> Click ' + this.name + '</span>',
 							title: 'initial',
 							onClick: function(control) {
-								//addNavigationPoint(control,this);
+
 							}
 						}
 						easyButtonStates.push(stateObject)
@@ -159,7 +158,7 @@
 			});
 		}
 		
-		function addNavigationPoint(control, navigationResource, totalPointCount, totalOptionsCount) {
+		function addNavigationConfiguration(control, navigationResource, totalPointCount, totalOptionsCount) {
 			console.log('control:',control)
 	
 			var currentPointCount = 0;
