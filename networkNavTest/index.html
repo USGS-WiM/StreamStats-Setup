@@ -276,7 +276,7 @@
 								var limitType = $('input[name=limit]:checked').val();
 								$(configuration.value).each(function(index,limit) {
 									if (limit.name.toLowerCase().includes(limitType) ) {
-										if (limitType === 'distance') limit.value = $('input[name=distanceValue]').val();
+										if (limitType === 'distance') limit.value = Number($('input[name=distanceValue]').val());
 										if (limitType === 'polygon') limit.value = $('textarea[name=polygonValue]').text()
 									}
 									else {
