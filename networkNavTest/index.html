@@ -7,10 +7,13 @@
 		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'/>
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css' />
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		
 		<script src='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js'></script>
 		<script src='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'></script>
 		<script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
+		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src='https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.1/dist/esri-leaflet.js'></script>
 			
 		<style>
@@ -27,14 +30,32 @@
 	<body>
 	
 	<div id='map'></div>
+
+	<div id="networkNavModal" class="modal fade" tabindex="-1" role="dialog">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title">Network Navigation Tool Configuration</h4>
+			</div>
+			<div class="modal-body">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button id="startNavigation" type="button" class="btn btn-primary">Start Navigation</button>
+			</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	
 	<script>
+
 		var servicesURL = 'https://test.streamstats.usgs.gov/navigationservices/navigation';
 		var requestObj = [];
 
 		var map = L.map('map').setView([42.5, -73], 13);
 	
 		L.esri.basemapLayer('DarkGray').addTo(map);
-		//L.esri.tiledMapLayer({url: 'https://basemap.nationalmap.gov/arcgis/rest/services/USGSHydroCached/MapServer'}).addTo(map);
 
 		//loop over navigation options
 		$.getJSON(servicesURL, function( data ) {
@@ -99,27 +120,6 @@
 						}
 						easyButtonStates.push(stateObject)
 					}
-					// if (this.name === 'Limit') {
-
-					// 	var stateObject = {
-					// 		stateName: 'limit',
-					// 		icon: '<i class="fa fa-check"></i><span> Set up limits</span>',
-					// 		title: 'limit',
-					// 		onClick: function(control) {
-					// 			//open Limits modal
-					// 			var txt;
-					// 			var person = prompt("Please enter your name:", "Harry Potter");
-					// 			if (person == null || person == "") {
-					// 				txt = "User cancelled the prompt.";
-					// 			} else {
-					// 				txt = "Hello " + person + "! How are you today?";
-					// 			}
-					// 			console.log(txt)
-					// 			//document.getElementById("demo").innerHTML = txt;
-					// 		}
-					// 	}
-					// 	easyButtonStates.push(stateObject);
-					// }
 				});
 				//push sbumit state
 				easyButtonStates.push({
@@ -152,7 +152,7 @@
 				var button = L.easyButton({states: easyButtonStates}).addTo(map);
 
 				//place to disable certain buttons
-				if (data.code === 'networktrace') button.disable();
+				//if (data.code === 'networktrace') button.disable();
 
 			});
 		}
@@ -186,9 +186,127 @@
 					map.off('click');
 				}
 
-				//check if we have some limit states and go to first
+				//check if we have some limit states and need to open modal
 				if (currentPointCount === totalPointCount && totalOptionsCount > 0) {
-					startNavigation(control, navigationResource);
+
+					$(control.configuration).each(function(index,configuration) {
+
+						//some validation
+						if (configuration.name != 'Start point location' && configuration.value.length > 1) {
+							
+							//direction
+							if (configuration.name === 'Direction') {
+								var optionBody = '';
+
+								$(configuration.value).each(function(index,option) {	
+									
+									//select first option by default
+									if (index === 0) {
+										checked = 'checked';
+									}
+									else {
+										checked = '';
+									}
+									optionBody += '<div class="radio"><label><input type="radio" name="' + configuration.name + '" ' + checked + ' value="' + option + '">' + option.charAt(0).toUpperCase() + option.slice(1) + '</label></div>';
+								});
+
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' + optionBody);
+							}
+
+							//Limit
+							if (configuration.name === 'Limit') {
+
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' );
+
+								$(configuration.value).each(function(index,limit) {
+
+									if (limit.name === 'Distance (km)') {
+
+										
+										var optionBody = '<div class="input-group" style="margin-bottom: 10px;"><span class="input-group-addon"><input type="radio" id="distanceRadio" name="limit" value="distance" checked></span><span class="input-group-addon" id="distance">' + limit.name + '</span><input type="text" class="form-control" aria-label="Username" aria-describedby="distance" name="distanceValue" value="10"></div>';
+						
+
+										$('#networkNavModal .modal-body').append(optionBody);
+									}
+
+									if (limit.name === 'Polygon geometry') {
+
+										var polygon = '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-72.95625686645508,42.43093236702533],[-72.8532600402832,42.43093236702533],[-72.8532600402832,42.50133894973025],[-72.95625686645508,42.50133894973025],[-72.95625686645508,42.43093236702533]]]}}]}'
+
+										var optionBody = '<div class="input-group"><span class="input-group-addon"><input type="radio" id="polygonRadio" name="limit" value="polygon"></span><span class="input-group-addon" id="distance">' + limit.name + '</span><textarea class="form-control" rows="3" name="polygonValue">' + polygon + '</textarea></div>';
+						
+
+										$('#networkNavModal .modal-body').append(optionBody);
+									}
+								});
+							}
+
+							//query source
+							if (configuration.name === 'Query Source') {
+								var optionBody = '';
+
+								$(configuration.value).each(function(index,option) {	
+									
+									optionBody += '<div class="checkbox"><label><input type="checkbox" name="querySource" value="' + option + '">' + option + '</label></div>';
+								});
+
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' + optionBody);
+							}
+						}
+					});
+
+					$('#networkNavModal').modal('show'); 
+					$('#startNavigation').on('click', function() {
+						
+						//make a copy of configuration object
+						var newConfig = JSON.parse(JSON.stringify(control.configuration));
+
+						//overwrite config based on selections
+						$(newConfig).each(function(index,configuration) {
+
+
+							//get selected direction
+							if (configuration.name === 'Direction') { 
+								configuration.value = $('input[name=Direction]:checked').val();
+							}
+
+							//get selected limit type
+							if (configuration.name === 'Limit') {
+
+								var limitType = $('input[name=limit]:checked').val();
+								$(configuration.value).each(function(index,limit) {
+									if (limit.name.toLowerCase().includes(limitType) ) {
+										if (limitType === 'distance') limit.value = $('input[name=distanceValue]').val();
+										if (limitType === 'polygon') limit.value = $('textarea[name=polygonValue]').text()
+									}
+									else {
+										//remove the limit not selected
+										configuration.value.splice(index,1)
+									}
+									
+								});
+							}
+
+							if (configuration.name === 'Query Source') { 
+								//get all selected query source checkbox values
+								var querySource = $('input[name=querySource]:checked').map(function() {
+									return this.value;
+								}).get();
+
+								configuration.value = querySource;
+							}
+							
+
+						});
+
+						console.log('new config string:',JSON.stringify(newConfig))
+						control.configuration = newConfig;
+						console.log('new config json:',control.configuration)
+
+						$('#networkNavModal').modal('hide'); 
+						startNavigation(control, navigationResource);
+
+					});
 				}
 
 				//otherwise were done adding points
@@ -225,7 +343,8 @@
 		}
 
 		function getCountByType(object,text) {
-			return object.filter(function(item){return item.valueType === text}).length;
+			return object.filter(function(item){return item.valueType.toLowerCase().includes(text)}).length;
+			//return object.filter(function(item){return item.valueType === text}).length;
 		}
 	</script>
 	</body>
