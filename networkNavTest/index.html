@@ -174,7 +174,7 @@
 				//iterate counter
 				currentPointCount += 1;
 
-				console.log('on configuration item #:',currentPointCount,'of',totalPointCount, 'options:',totalOptionsCount)
+				//console.log('on configuration item #:',currentPointCount,'of',totalPointCount, 'options:',totalOptionsCount)
 
 				//check if we need to add another point
 				if (totalPointCount > 1) {
@@ -211,20 +211,21 @@
 									optionBody += '<div class="radio"><label><input type="radio" name="' + configuration.name + '" ' + checked + ' value="' + option + '">' + option.charAt(0).toUpperCase() + option.slice(1) + '</label></div>';
 								});
 
-								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' + optionBody);
+								(configuration.required) ? required = '<small style="color:red">&nbsp;&nbsp;(Required)</small>' : required = "<small>&nbsp;&nbsp;(Optional)</small>"
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + required + '</h5>' + optionBody);
 							}
 
 							//Limit
 							if (configuration.name === 'Limit') {
 
-								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' );
+								(configuration.required) ? required = '<small style="color:red">&nbsp;&nbsp;(Required)</small>' : required = "<small>&nbsp;&nbsp;(Optional)</small>"
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + required +  '</h5>' );
 
 								$(configuration.value).each(function(index,limit) {
 
 									if (limit.name === 'Distance (km)') {
 
-										
-										var optionBody = '<div class="input-group" style="margin-bottom: 10px;"><span class="input-group-addon"><input type="radio" id="distanceRadio" name="limit" value="distance" checked></span><span class="input-group-addon" id="distance">' + limit.name + '</span><input type="text" class="form-control" aria-label="Username" aria-describedby="distance" name="distanceValue" value="10"></div>';
+										var optionBody = '<div class="input-group" style="margin-bottom: 10px;"><span class="input-group-addon"><input type="radio" id="distanceRadio" name="limit" value="distance" ></span><span class="input-group-addon" id="distance">' + limit.name + '</span><input type="text" class="form-control" aria-label="Username" aria-describedby="distance" name="distanceValue" value="10"></div>';
 						
 
 										$('#networkNavModal .modal-body').append(optionBody);
@@ -232,7 +233,10 @@
 
 									if (limit.name === 'Polygon geometry') {
 
-										var polygon = '{"type":"FeatureCollection","features":[{"type":"Feature","properties":{},"geometry":{"type":"Polygon","coordinates":[[[-72.95625686645508,42.43093236702533],[-72.8532600402832,42.43093236702533],[-72.8532600402832,42.50133894973025],[-72.95625686645508,42.50133894973025],[-72.95625686645508,42.43093236702533]]]}}]}'
+										//var polygon = JSON.stringify(limit.value);
+
+										//console.log('polygon',polygon)
+										var polygon = '{"type":"Polygon","coordinates":[[[-72.95625686645508,42.43093236702533],[-72.8532600402832,42.43093236702533],[-72.8532600402832,42.50133894973025],[-72.95625686645508,42.50133894973025],[-72.95625686645508,42.43093236702533]]]}';
 
 										var optionBody = '<div class="input-group"><span class="input-group-addon"><input type="radio" id="polygonRadio" name="limit" value="polygon"></span><span class="input-group-addon" id="distance">' + limit.name + '</span><textarea class="form-control" rows="3" name="polygonValue">' + polygon + '</textarea></div>';
 						
@@ -247,11 +251,17 @@
 								var optionBody = '';
 
 								$(configuration.value).each(function(index,option) {	
-									
-									optionBody += '<div class="checkbox"><label><input type="checkbox" name="querySource" value="' + option + '">' + option + '</label></div>';
+									if (index === 0) {
+										checked = 'checked';
+									}
+									else {
+										checked = '';
+									}
+									optionBody += '<div class="checkbox"><label><input type="checkbox" name="querySource" value="' + option + '" ' + checked + '>' + option + '</label></div>';
 								});
 
-								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + '</h5>' + optionBody);
+								(configuration.required) ? required = '<small style="color:red">&nbsp;&nbsp;(Required)</small>' : required = "<small>&nbsp;&nbsp;(Optional)</small>"
+								$('#networkNavModal .modal-body').append('<h5>' + configuration.name + required + '</h5>' + optionBody);
 							}
 						}
 					});
@@ -262,30 +272,48 @@
 						//make a copy of configuration object
 						var newConfig = JSON.parse(JSON.stringify(control.configuration));
 
-						//overwrite config based on selections
-						$(newConfig).each(function(index,configuration) {
+						var newConfig = [];
 
+						//overwrite config based on selections
+						$(control.configuration).each(function(index,configuration) {
+
+							//get start point
+							if (configuration.name === 'Start point location') {
+								newConfig.push(configuration);
+							}
 
 							//get selected direction
 							if (configuration.name === 'Direction') { 
 								configuration.value = $('input[name=Direction]:checked').val();
+								newConfig.push(configuration);
 							}
 
 							//get selected limit type
 							if (configuration.name === 'Limit') {
 
 								var limitType = $('input[name=limit]:checked').val();
-								$(configuration.value).each(function(index,limit) {
-									if (limit.name.toLowerCase().includes(limitType) ) {
-										if (limitType === 'distance') limit.value = Number($('input[name=distanceValue]').val());
-										if (limitType === 'polygon') limit.value = $('textarea[name=polygonValue]').text()
-									}
-									else {
-										//remove the limit not selected
-										configuration.value.splice(index,1)
-									}
-									
-								});
+								
+								//check if a limit is selected
+								if (limitType) {
+									$(configuration.value).each(function(index,limit) {
+										if (limit.name.toLowerCase().includes(limitType) ) {
+											if (limitType === 'distance') {
+												limit.value = Number($('input[name=distanceValue]').val());
+
+												//rewrite value list to the selected limit object
+												configuration.value = limit;
+											}
+											if (limitType === 'polygon') {
+												limit.value = JSON.parse($('textarea[name=polygonValue]').text());
+
+												//rewrite value list to the selected limit object
+												configuration.value = limit;
+											}
+										}									
+									});
+
+									newConfig.push(configuration);
+								}
 							}
 
 							if (configuration.name === 'Query Source') { 
@@ -294,15 +322,20 @@
 									return this.value;
 								}).get();
 
-								configuration.value = querySource;
-							}
-							
+								if (querySource.length === 0  && configuration.required) {
+									alert('One or more query sources are needed');
+									return;
+								}
 
+								configuration.value = querySource;
+								newConfig.push(configuration);
+							}
 						});
 
 						console.log('new config string:',JSON.stringify(newConfig))
+						console.log('new config json:',newConfig)
+
 						control.configuration = newConfig;
-						console.log('new config json:',control.configuration)
 
 						$('#networkNavModal').modal('hide'); 
 						startNavigation(control, navigationResource);

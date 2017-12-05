@@ -1,3 +1,4 @@
 /tiling/cache
 /batchDelineate/output
 /server-setup/secrets.py
+*.pyc
