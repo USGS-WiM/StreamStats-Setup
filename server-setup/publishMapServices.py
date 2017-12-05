@@ -1,6 +1,10 @@
 # --------------------------------------------------------------------------------------
 # publishMapServices.py
 # Created on: 08-22-2017
+# Updated: 12-05-2017
+#
+# NOTE: THIS SCRIPT MUST BE RUN WITH 32-BIT PYTHON
+#
 # Author: Martyn Smith USGS
 # Usage: publishMapServices
 # Description: Loops over set of input MXDs, checks to make sure data store is not 
@@ -91,8 +95,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     #first register main data path
-    print "\nProcessing:",MAINDATAPATH
-    DATASTORENAME = os.path.normpath(MAINDATAPATH).split(os.sep)[1]
+    #print "\nProcessing:",MAINDATAPATH
+    #DATASTORENAME = os.path.normpath(MAINDATAPATH).split(os.sep)[1]
     #add_data_store_item(DATASTORENAME,MAINDATAPATH)
 
     #main loop over service items and do the work
