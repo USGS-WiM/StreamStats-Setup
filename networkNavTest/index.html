@@ -10,13 +10,15 @@
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.css' />
 		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css'>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		
+		<link rel="stylesheet" href="https://txpub.usgs.gov/DSS/search_api/2.0/api/search_api.css"/>
+				
 		<script src='https://cdn.jsdelivr.net/npm/leaflet@1.2.0/dist/leaflet.js'></script>
 		<script src='https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js'></script>
 		<script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
 		<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<script src='https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.1/dist/esri-leaflet.js'></script>
+		<script src="https://txpub.usgs.gov/DSS/search_api/2.0/api/search_api.min.js"></script>
 			
 		<style>
 			html, body, #map { margin: 0; height: 100%; width: 100%; }
@@ -27,11 +29,21 @@
 			.leaflet-container.crosshair-cursor-enabled {
 				cursor:crosshair;
 			}
+            .map {
+                z-index : 1;
+            }
+            .search {
+                position : absolute;
+                top      : 10px;
+                right    : 10px;
+                z-index  : 2;
+            }
 		</style>
 	</head>
 	<body>
-	
-	<div id='map'></div>
+
+	<div id="map"    class="map"   ></div>
+	<div id="search" class="search"></div>
 
 	<div id="networkNavModal" class="modal fade" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
@@ -56,6 +68,25 @@
 		var requestObj = [];
 
 		var map = L.map('map').setView([42.47, -72.9], 13);
+
+		// create search_api widget in element "search1"
+		search_api.create( "search", {
+			on_result: function(o) {
+				// what to do when a location is found
+				// o.result is geojson point feature of location with properties
+				map
+					.fitBounds([ // zoom to location
+						[ o.result.properties.LatMin, o.result.properties.LonMin ],
+						[ o.result.properties.LatMax, o.result.properties.LonMax ]
+					])
+					.openPopup(  // open popup at location listing all properties
+						$.map( Object.keys(o.result.properties), function(property) {
+							return "<b>" + property + ": </b>" + o.result.properties[property];
+						}).join("<br/>"),
+						[ o.result.properties.Lat, o.result.properties.Lon ]
+					);
+			}
+		});
 	
 		L.esri.basemapLayer('DarkGray').addTo(map);
 
