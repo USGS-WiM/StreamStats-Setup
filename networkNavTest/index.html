@@ -55,7 +55,7 @@
 		var servicesURL = 'https://test.streamstats.usgs.gov/navigationservices/navigation';
 		var requestObj = [];
 
-		var map = L.map('map').setView([42.5, -73], 13);
+		var map = L.map('map').setView([42.47, -72.9], 13);
 	
 		L.esri.basemapLayer('DarkGray').addTo(map);
 
@@ -288,6 +288,21 @@
 								newConfig.push(configuration);
 							}
 
+							if (configuration.name === 'Query Source') { 
+								//get all selected query source checkbox values
+								var querySource = $('input[name=querySource]:checked').map(function() {
+									return this.value;
+								}).get();
+
+								if (querySource.length === 0  && configuration.required) {
+									alert('One or more query sources are needed');
+									return;
+								}
+
+								configuration.value = querySource;
+								newConfig.push(configuration);
+							}
+
 							//get selected limit type
 							if (configuration.name === 'Limit') {
 
@@ -308,27 +323,20 @@
 
 												//rewrite value list to the selected limit object
 												configuration.value = limit;
+
+												//add polygon to map
+												var geojsonFeature = {"type": "Feature","properties": {"name": "Limit Polygon"},"geometry": limit.value };
+												var geojson = L.geoJSON(geojsonFeature,{onEachFeature: function(feature,layer) {
+														layer.bindPopup(feature.properties.name);
+													}												
+												}).addTo(map);
+
 											}
 										}									
 									});
 
 									newConfig.push(configuration);
 								}
-							}
-
-							if (configuration.name === 'Query Source') { 
-								//get all selected query source checkbox values
-								var querySource = $('input[name=querySource]:checked').map(function() {
-									return this.value;
-								}).get();
-
-								if (querySource.length === 0  && configuration.required) {
-									alert('One or more query sources are needed');
-									return;
-								}
-
-								configuration.value = querySource;
-								newConfig.push(configuration);
 							}
 						});
 
