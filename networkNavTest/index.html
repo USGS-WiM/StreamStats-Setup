@@ -85,7 +85,12 @@
 						}).join("<br/>"),
 						[ o.result.properties.Lat, o.result.properties.Lon ]
 					);
-			}
+			},
+			include_usgs_sw:true,
+			include_usgs_gw:true,
+			include_usgs_sp:true,
+			include_usgs_at:true,
+			include_usgs_ot:true
 		});
 	
 		L.esri.basemapLayer('DarkGray').addTo(map);
