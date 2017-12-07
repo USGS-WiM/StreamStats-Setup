@@ -3,7 +3,7 @@
 # Created on: 08-22-2017
 # Updated: 12-05-2017
 #
-# NOTE: THIS SCRIPT MUST BE RUN WITH 32-BIT PYTHON
+# NOTE: THIS SCRIPT MUST BE RUN WITH 32-BIT PYTHON ie: 'C:\Python27\ArcGIS10.5\python.exe'
 #
 # Author: Martyn Smith USGS
 # Usage: publishMapServices
@@ -29,18 +29,18 @@ except ImportError:
     password = getpass.getpass("Enter password: ")
     pass
 
-SERVERNAME = '34.228.162.244'
+SERVERNAME = '34.194.77.209'  #ProdAGS
 SCRIPTPATH = os.path.dirname(os.path.abspath(__file__))
 CONNECTIONFILE = os.path.join(SCRIPTPATH,"connectionfile.ags")
 SERVERURL = "http://" + SERVERNAME + "/arcgis/admin"
 MAINDATAPATH = 'e:\\data'
 SERVICELIST = [
-    #{'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
+    {'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
     {'mxdPath':'e:/mapservices/stateServices.mxd', 'serviceName':'stateServices', 'folderName':'StreamStats'},
-    #{'mxdPath':'e:/projects/data/INCoordinatedReachs/CoordinatedReaches.mxd', 'serviceName':'in', 'folderName':'coordinatedreaches'},
-    #{'mxdPath':'e:/projects/data/NSSRegions/nssRegions.mxd', 'serviceName':'regions', 'folderName':'nss'},  
-    #{'mxdPath':'e:/projects/data/Regulation/CoDam/codams.mxd', 'serviceName':'co', 'folderName':'regulations'},
-    #{'mxdPath':'e:/projects/data/Regulation/MTDam/mtdams.mxd', 'serviceName':'mt', 'folderName':'regulations'}
+    {'mxdPath':'e:/projects/data/INCoordinatedReachs/CoordinatedReaches.mxd', 'serviceName':'in', 'folderName':'coordinatedreaches'},
+    {'mxdPath':'e:/projects/data/NSSRegions/nssRegions.mxd', 'serviceName':'regions', 'folderName':'nss'},  
+    {'mxdPath':'e:/projects/data/Regulation/CoDam/codams.mxd', 'serviceName':'co', 'folderName':'regulations'},
+    {'mxdPath':'e:/projects/data/Regulation/MTDam/mtdams.mxd', 'serviceName':'mt', 'folderName':'regulations'}
     ]
 
 def analyze_map_service(service_draft=None):
