@@ -10,7 +10,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.js"></script>
-    <script src="https://cdn.rawgit.com/gnarf/jquery-ajaxQueue/master/dist/jquery.ajaxQueue.js"></script> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
@@ -25,6 +24,8 @@
         //some globals
         var sitesFile = 'https://raw.githubusercontent.com/USGS-WiM/StreamStats-Setup/master/batchTester/testSites.geojson';
         var streamStatsURL;
+        var loadBalancerMethod;
+        var processType;
         var streamStatsServices = '/streamstatsservices';
         var streamStatsDelineationEndPoint = '/watershed.geojson';
         var streamStatsParametersEndPoint = '/parameters.json'
@@ -32,13 +33,30 @@
         var checkedValues;
 
         $(document).ready(function() {
-            
+
+            streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+
+            //show and hide load balancer method
+            $('#serverForm input[name=serverRadios]').change(function() {
+
+                //get URL from selected radio
+                streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+
+                if ($('#serverForm input[name=serverRadios]:checked').val() === 'https://streamstats.usgs.gov') {
+                    $('#loadBalancerForm ').show();
+                }
+                else {
+                    $('#loadBalancerForm ').hide(); 
+                }
+            });
+       
             $('#loadSites').click(function() {
                 //make sure this is only clicked one per session
                 if (!sitesLoaded) {
                     loadSites(sitesFile);          
                 }
             });
+
         });
 
         function loadSites(sitesFile) {
@@ -91,14 +109,23 @@
             //kick of delineations for each site only if something is checked
             if (checkedValues.length > 0) {
 
-                //get URL from selected radio
-                streamStatsURL = $('#serverForm input[name=serverRadios]:checked').val() + streamStatsServices;
+                loadBalancerMethod = $('#loadBalancerForm input[name=methodRadios]:checked').val();     
+                console.log('load Balancer method:',loadBalancerMethod);
+
+                if (loadBalancerMethod === 'xhr') {
+                    $.ajaxSetup({
+                        xhrFields: {
+                            withCredentials: true
+                        }
+                    });
+                }
 
                 //show selected server
                 $('#main').append('<p>Using server: <a href="' + streamStatsURL + '">' + streamStatsURL + '</a></p>');
 
+                var base = $.when({});
                 $.each(checkedValues, function(index, site) {
-                    delineateBasin(site.siteid);
+                    base = base.then(delineateBasin(site.siteid));
                 });
             }
             else {
@@ -147,32 +174,36 @@
             $('#' + templateId + ' .lat').text(siteInfo.ylocation)
             $('#' + templateId + ' .lng').text(siteInfo.xlocation)
 
-            //use ajaxQueue so all requests don't go at once: https://github.com/gnarf/jquery-ajaxQueue
+            processType = $('#processMethod input[name=processRadios]:checked').val();
+            console.log('process type:', processType);
 
-            var processType = $('#processMethod input[name=processRadios]:checked').val();
-            console.log('process type:', processType)
+            return function(){
 
-            if (processType === 'synchronous') {
-                $.ajaxQueue({
+                // wrap with a deferred
+                //http://www.jefferydurand.com/jquery/sequential/javascript/ajax/2015/04/13/jquery-sequential-ajax-promise-deferred.html
+                if (processType === 'synchronous') var defer = $.Deferred();
+
+                $.ajax({
                     url: streamStatsURL + streamStatsDelineationEndPoint,
                     data: siteInfo,
-                    //async: false,
                     dataType: 'json',
                     beforeSend: function (request, settings) {
                         start_time = new Date().getTime();
-                    },
-                    xhrFields: {
-                        withCredentials: true
                     },
                     success: function(response, status, xhr) {
 
                         //do hostname stuff
                         var serverName = xhr.getResponseHeader("usgswim-hostname");
                         $('#' + templateId + ' .hostname').text(serverName);
-                        // var requestURL;
-                        // //if using load balanced url, need to rewrite url for basin characteristic request
-                        // (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+
                         var requestURL = streamStatsURL;
+
+                        //if using load balanced url, need to rewrite url for basin characteristic request
+                        if (loadBalancerMethod === 'hack') {
+                            (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
+                        }
+
+                        console.log('requestURL:',requestURL)
 
                         var siteId = this.url.split('siteId=')[1];
                         var workspaceID = response.workspaceID;
@@ -182,7 +213,9 @@
                         var request_time = (new Date().getTime() - start_time)/1000;
 
                         //make sure we have a basin and point
-                        if (response.featurecollection.length === 2) {
+                        console.log('test',response.featurecollection)
+
+                        if (response.featurecollection.length === 2 && response.featurecollection[1].feature.features.length > 0) {
 
                             //update progress bar and update time
                             $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
@@ -218,7 +251,7 @@
                             });
 
                             //kick off parameter request using new URL
-                            getBasinChars(siteId, workspaceID, requestURL);
+                            getBasinChars(siteId, workspaceID, requestURL, defer);
                         }
 
                         else {
@@ -242,103 +275,13 @@
                     }
 
                 });
+
+                // return a promise so that we can chain properly in the each 
+                if (processType === 'synchronous') return defer.promise();
             }
-
-            //do it asynchronously
-            else {
-                $.ajax({
-                    url: streamStatsURL + streamStatsDelineationEndPoint,
-                    data: siteInfo,
-                    //async: false,
-                    dataType: 'json',
-                    beforeSend: function (request, settings) {
-                        start_time = new Date().getTime();
-                    },
-                    xhrFields: {
-                        withCredentials: true
-                    },
-                    success: function(response, status, xhr) {
-
-                        //do hostname stuff
-                        var serverName = xhr.getResponseHeader("usgswim-hostname");
-                        $('#' + templateId + ' .hostname').text(serverName);
-                        // var requestURL;
-                        // //if using load balanced url, need to rewrite url for basin characteristic request
-                        // (streamStatsURL === 'https://streamstats.usgs.gov/streamstatsservices') ? requestURL = 'https://' + serverName.toLowerCase() + '.streamstats.usgs.gov/streamstatsservices' : requestURL = streamStatsURL;
-                        var requestURL = streamStatsURL;
-
-                        var siteId = this.url.split('siteId=')[1];
-                        var workspaceID = response.workspaceID;
-                        console.log('in delineation success:', siteId, workspaceID, response,'feature collection length:',response.featurecollection.length)
-
-                        var request_time = (new Date().getTime() - start_time)/1000;
-
-                        //make sure we have a basin and point
-                        if (response.featurecollection.length === 2) {
-
-                            //update progress bar and update time
-                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-success');
-                            $('#' + templateId + ' .delineation').append('<span class="timer">' + request_time + ' seconds</span><div class="row"><button type="button" class="show-map btn btn-success top-buffer left-buffer">Show result on map</button></div>');
-
-                            //write out map
-                            $('#' + templateId + ' .show-map').click(function() {
-
-                                if ($('#map_' + siteId).length) {
-                                    if ($(this).text() === 'Show result on map') {
-                                        $(this).text('Hide Map');
-                                        $('#map_' + siteId).show();
-                                        return;
-                                    } 
-                                    else {
-                                        $(this).text('Show result on map');
-                                        $('#map_' + siteId).hide();
-                                    }  
-                                }
-                                else {
-                                    $(this).text('Hide Map');
-                                    $('#' + templateId + ' .delineation').append('<div style="height: 400px;" id="map_' + siteId + '" </div>');
-                                    var map = L.map('map_' + siteId,{scrollWheelZoom:false});
-                                    var CartoDB_Positron = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png', {
-                                        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
-                                        subdomains: 'abcd',
-                                        maxZoom: 19
-                                    }).addTo(map);
-                                    var watershed = L.geoJSON(response.featurecollection[1].feature).addTo(map);
-                                    var point = L.geoJSON(response.featurecollection[0].feature).addTo(map);
-                                    map.fitBounds(watershed.getBounds());
-                                }
-                            });
-
-                            //kick off parameter request using new URL
-                            getBasinChars(siteId, workspaceID, requestURL);
-                        }
-
-                        else {
-                            $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                            $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>A watershed was not returned</br><button type="button" class="redelineate btn btn-danger">Retry</button></div>');
-
-                            $('#' + templateId + ' .redelineate').click(function() {
-                                delineateBasin(siteId);
-                            });
-                            return;
-                        }
-                    },
-                    error: function (request, status, error) {
-                        console.error("Error delineating basin", request, status, error);
-                        $('#' + templateId + ' .delineation_progress').removeClass('progress-bar-animated').removeClass('progress-bar-striped').addClass('bg-danger');
-                        $('#' + templateId + ' .delineation').append('</br></br><div class="alert alert-danger" role="alert"><strong>There was a problem with the delineation</strong><br>HTTP Error: ' + error + '<button type="button" class="redelineate btn btn-danger">Retry</button></div>');
-                        
-                        $('#' + templateId + ' .redelineate').click(function() {
-                            delineateBasin(siteId);
-                        });
-                    }
-
-                });
-            }
-
         }
         
-        function getBasinChars(siteId, workspaceID, requestURL) {
+        function getBasinChars(siteId, workspaceID, requestURL, defer) {
             console.log('in get basin chars:',siteId, workspaceID, requestURL);
 
             //get state/region code
@@ -362,10 +305,10 @@
                 beforeSend: function (request, settings) {
                     start_time = new Date().getTime();
                 },
-                xhrFields: {
-                    withCredentials: true
-                },
                 success: function(response) {
+
+                    //resolve the original deffered so we can move to next basin
+                    if (processType === 'synchronous') defer.resolve();
 
                     //check for workspaceID, if none this indicates error
                     var workspaceID = getParameterByName('workspaceID', this.url);
@@ -414,7 +357,6 @@
 
                     var undefinedCount = 0
 
-                    //THIS NEEDS SOME WORK, NEED TO CHECK IF A VALUE IS OR ISNT IN ONE OR THE OTHER
                     $.each(site.testData, function(key,knownValue) {
                         $.each(response.parameters, function(key,ssValue) {
 
@@ -563,50 +505,41 @@
                 <legend>Select a server to use</legend>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios7" value="http://StreamStatsProdWebLB-491431070.us-east-1.elb.amazonaws.com">
-                        ProdWeb LB Streamstats (http://StreamStatsProdWebLB-491431070.us-east-1.elb.amazonaws.com)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios7" value="http://34.232.214.56">
-                        ProdWebB Streamstats (http://34.232.214.56)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios6" value="http://34.236.248.15">
-                        ProdWebA Streamstats (http://34.236.248.15)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios5" value="http://34.225.184.188">
-                        TestWeb Streamstats (http://34.225.184.188)
-                    </label>
-                </div>
-                <div class="form-check">
-                    <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios2" checked value="https://test.streamstats.usgs.gov">
+                        <input type="radio" class="form-check-input" name="serverRadios" checked value="https://test.streamstats.usgs.gov">
                         Test Streamstats (https://test.streamstats.usgs.gov)
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios1" value="https://streamstats.usgs.gov">
+                        <input type="radio" class="form-check-input" name="serverRadios"value="https://streamstats.usgs.gov">
                         Production Streamstats [Load Balancer] (https://streamstats.usgs.gov)
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios3" value="https://bigkerna.streamstats.usgs.gov">
-                        BigKernA Streamstats (https://bigkerna.streamstats.usgs.gov)
+                        <input type="radio" class="form-check-input" name="serverRadios"value="https://bigkerna.streamstats.usgs.gov">
+                        ProdWebA Streamstats (https://prodweba.streamstats.usgs.gov)
                     </label>
                 </div>
                 <div class="form-check">
                     <label class="form-check-label">
-                        <input type="radio" class="form-check-input" name="serverRadios" id="optionsRadios4" value="https://bigkernb.streamstats.usgs.gov">
-                        BigKernB Streamstats (https://bigkernb.streamstats.usgs.gov)
+                        <input type="radio" class="form-check-input" name="serverRadios" value="https://bigkernb.streamstats.usgs.gov">
+                        ProdWebB Streamstats (https://prodwebb.streamstats.usgs.gov)
+                    </label>
+                </div>
+            </fieldset>
+            <fieldset id="loadBalancerForm" class="form-group" style="display:none;">
+                <legend>Select a load balancer method to use</legend>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="methodRadios" value="xhr">
+                        XHR with credentials method
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="methodRadios" checked value="hack">
+                        Rewrite request URL method
                     </label>
                 </div>
             </fieldset>

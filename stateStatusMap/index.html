@@ -1,0 +1,67 @@
+<html>
+	<head>
+		<meta name="author" content="Martyn Smith - USGS NY WSC">
+		<link rel="icon" type="image/png" href="./favicon.png" />
+		<title>StreamStats status map</title>
+		<meta charset='utf-8' />
+		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+		
+		<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/leaflet@1.3.1/dist/leaflet.css' />	
+		<script src='https://cdn.jsdelivr.net/npm/leaflet@1.3.1/dist/leaflet.js'></script>
+		<script src='https://cdn.jsdelivr.net/npm/esri-leaflet@2.1.2/dist/esri-leaflet.js'></script>
+		<script src='https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js'></script>
+		<script src='https://rawgit.com/USGS-WiM/StreamStats/staging/dist/appConfig.js'></script>
+		
+		<style>
+			html, body, #map { margin: 0; height: 100%; width: 100%; }
+		</style>
+	</head>
+	<body>
+
+	<div id="map"></div>
+	<script>
+		var state_json = './gz_2010_us_040_00_20m.json';
+		var map = L.map('map').setView([42, -95], 4);
+		L.esri.basemapLayer('DarkGray').addTo(map);
+
+		console.log('Configuration:',configuration);
+
+		//loop over navigation options
+		$.getJSON(state_json, function( featureCollection ) {
+			console.log('state json:',featureCollection);
+
+			$(featureCollection.features).each(function(index, feature){
+				$(configuration.regions).each(function(index, region){
+					if (feature.properties.NAME == region.Name) {
+						feature.properties.regionEnabled = region.regionEnabled;
+						feature.properties.scenariosAvailable = region.ScenariosAvailable;
+					}
+				})
+			});
+
+			L.geoJSON(featureCollection, {
+				style: function(feature) {
+					if (feature.properties.regionEnabled && feature.properties.scenariosAvailable) return {color: "#27AE60"};
+					else if (feature.properties.regionEnabled && !feature.properties.scenariosAvailable) return {color: "#A569BD"};
+					else if (!feature.properties.regionEnabled && !feature.properties.scenariosAvailable) return {color: "#FCF3CF"};
+				},
+				onEachFeature: function (feature, layer) {
+					var popupContent = '';
+					$.each(feature.properties, function (key, value) {
+						if (['NAME','regionEnabled','scenariosAvailable'].indexOf(key) > -1) {
+							popupContent += '<strong>' + key + ': </strong>' + value + '</br>';
+						}
+					});
+					layer.bindPopup(popupContent);
+
+					if (feature.properties.NAME == 'Nebraska') {
+						console.log('here',feature)
+						layer.bringToFront();
+					}
+
+				},
+			}).addTo(map);
+		});
+	</script>
+	</body>
+	</html>

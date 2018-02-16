@@ -35,12 +35,12 @@ CONNECTIONFILE = os.path.join(SCRIPTPATH,"connectionfile.ags")
 SERVERURL = "http://" + SERVERNAME + "/arcgis/admin"
 MAINDATAPATH = 'e:\\data'
 SERVICELIST = [
-    {'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
+    #{'mxdPath':'e:/mapservices/nationalLayers.mxd', 'serviceName':'nationalLayers', 'folderName':'StreamStats'},
     {'mxdPath':'e:/mapservices/stateServices.mxd', 'serviceName':'stateServices', 'folderName':'StreamStats'},
-    {'mxdPath':'e:/projects/data/INCoordinatedReachs/CoordinatedReaches.mxd', 'serviceName':'in', 'folderName':'coordinatedreaches'},
-    {'mxdPath':'e:/projects/data/NSSRegions/nssRegions.mxd', 'serviceName':'regions', 'folderName':'nss'},  
-    {'mxdPath':'e:/projects/data/Regulation/CoDam/codams.mxd', 'serviceName':'co', 'folderName':'regulations'},
-    {'mxdPath':'e:/projects/data/Regulation/MTDam/mtdams.mxd', 'serviceName':'mt', 'folderName':'regulations'}
+    #{'mxdPath':'e:/projects/data/INCoordinatedReachs/CoordinatedReaches.mxd', 'serviceName':'in', 'folderName':'coordinatedreaches'},
+    #{'mxdPath':'e:/projects/data/NSSRegions/nssRegions.mxd', 'serviceName':'regions', 'folderName':'nss'},  
+    #{'mxdPath':'e:/projects/data/Regulation/CoDam/codams.mxd', 'serviceName':'co', 'folderName':'regulations'},
+    #{'mxdPath':'e:/projects/data/Regulation/MTDam/mtdams.mxd', 'serviceName':'mt', 'folderName':'regulations'}
     ]
 
 def analyze_map_service(service_draft=None):

@@ -28,10 +28,13 @@ import arcpy.da
 import argparse
 import logging
 
-def delineate_basin(state_code=None, x_coord=None, y_coord=None):
-    """delineate_basin(state_code=None, x_coord=None, y_coord=None)
+def delineate_basin(state_code=None, x_coord=None, y_coord=None, attempts=None):
+    """delineate_basin(state_code=None, x_coord=None, y_coord=None, attempts=None)
         Delineates streamstats basin based on state, x and y
     """
+
+    attempts += 1 
+    log.debug('Delineate Basin attempt #: %s', attempts)
     url = args.server + 'watershed.json?rcode=' + state_code + '&xlocation=' + str(x_coord) + '&ylocation=' + str(y_coord) + '&crs=4326&includeparameters=' + args.parameters + '&includefeatures=false'
     log.debug('Requesting watershed for [%s, %s] in %s', x_coord, y_coord, state_code)
     log.debug('Request URL: %s', url)
@@ -44,16 +47,18 @@ def delineate_basin(state_code=None, x_coord=None, y_coord=None):
         return workspace_id,hostname
         
     except urllib2.HTTPError, err:
-        log.error('HTTP Error code %s during delineation of points [%s, %s] in %s on server: %s', err.code, x_coord, y_coord, state_code, hostname)
+        log.error('HTTP Error code %s during delineation of points [%s, %s] in %s', err.code, x_coord, y_coord, state_code)
 
         #recursive retry
-        delineate_basin(state_code, x_coord, y_coord)
-        return False
+        return delineate_basin(state_code, x_coord, y_coord,attempts)
 
-def download_basin(workspace_id=None,hostname=None):
-    """download_basin(workspace_id=None,hostname=None)
+def download_basin(workspace_id=None,hostname=None, attempts=None):
+    """download_basin(workspace_id=None,hostname=None, attempts=None)
         Downloads streamstats basin using workspace_id and hostname
     """
+
+    attempts += 1 
+    log.debug('Download basin attempt #: %s', attempts)
     #make sure we rewrite the hostname
     url = args.server[:8] + hostname.lower() + '.' + args.server[8:] + 'download?workspaceID=' + workspace_id + '&format=SHAPE'
     log.debug('Requesting shapefile download for workspaceID: %s on server: %s', workspace_id, hostname)
@@ -64,16 +69,14 @@ def download_basin(workspace_id=None,hostname=None):
             os.remove(zipfilename)
         with open(zipfilename, "wb") as local_file:
             local_file.write(request.read())
+        return zipfilename
 
     except urllib2.HTTPError, err:
         log.error('HTTP Error code %s during shapefile download for workspace: %s on server %s', workspace_id, hostname)
         '  FAIL: HTTP error during download:', err.code
 
         #recursive retry
-        download_basin(workspace_id,hostname)
-        return False
-    
-    return zipfilename
+        return download_basin(workspace_id,hostnamem,attempts)
 
 def download_and_extract(state_code=None, x_coord=None, y_coord=None, site_id=None, basin_time=None, attempts=None):
     """download_and_extract(state_code=None, x_coord=None, y_coord=None, site_id=None, basin_time=None, attempts=None)
@@ -81,9 +84,9 @@ def download_and_extract(state_code=None, x_coord=None, y_coord=None, site_id=No
     """
     attempts += 1  
     if attempts <= 4:
-        log.debug('Delineation attempt #: %s', attempts)
-        workspace_id,hostname = delineate_basin(state_code, x_coord, y_coord)
-        input_zip = download_basin(workspace_id,hostname)
+        log.debug('Download and extract attempt #: %s', attempts)
+        workspace_id,hostname = delineate_basin(state_code, x_coord, y_coord,0)
+        input_zip = download_basin(workspace_id,hostname,0)
         with zipfile.ZipFile(input_zip, "r") as the_zip:
             zipfiles = the_zip.namelist()
 
@@ -172,10 +175,10 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Batch delineation script using StreamStats services')
 
     parser.add_argument('--server', type=str, default='https://streamstats.usgs.gov/streamstatsservices/', help='server for streamstats services')
-    parser.add_argument('--snappedpoints', type=str, default='C:/NYBackup/GitHub/StreamStats-Setup/batchDelineate/input/sample.shp', help='input shapefile of snapped points')
-    parser.add_argument('--idfield', type=str, default='siteidfina', help='unique ID field')
+    parser.add_argument('--snappedpoints', type=str, default='C:/NYBackup/GitHub/StreamStats-Setup/batchDelineate/input/yvonne/sites.shp', help='input shapefile of snapped points')
+    parser.add_argument('--idfield', type=str, default='site_id', help='unique ID field')
     parser.add_argument('--statefield', type=str, default='state', help='state field')
-    parser.add_argument('--parameters', type=str, default='false', help='comma seperated parameter list to be computed, "false" if none required, "true" for all')
+    parser.add_argument('--parameters', type=str, default='true', help='comma seperated parameter list to be computed, "false" if none required, "true" for all')
 
     args = parser.parse_args()
 
