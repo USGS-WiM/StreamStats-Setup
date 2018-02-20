@@ -3358,8 +3358,8 @@
         "geometry":{
            "type":"Point",
            "coordinates":[
-              -80.16606,
-              33.89995
+              -80.16566,
+              33.90003
            ]
         },
         "properties":{
@@ -3367,30 +3367,134 @@
            "state":"SC",
            "testData":[
               {
-                 "Label":"DRNAREA",
-                 "Value":111
+                "Label": "BSLDEM30FT",
+                "Value": 1.35
               },
               {
-                 "Label":"PCTREG1",
-                 "Value":0
+                "Label": "CSL10_85fm",
+                "Value": 4.2
               },
               {
-                 "Label":"PCTREG2",
-                 "Value":0
+                "Label": "DRNAREA",
+                "Value": 116
               },
               {
-                 "Label":"PCTREG3",
-                 "Value":4.329
+                "Label": "ELEV",
+                "Value": 173
               },
               {
-                 "Label":"PCTREG4",
-                 "Value":95.671
+                "Label": "ELEVMAX",
+                "Value": 353
               },
               {
-                 "Label":"PCTREG5",
-                 "Value":0
+                "Label": "I24H100Y",
+                "Value": 9.3
+              },
+              {
+                "Label": "I24H10Y",
+                "Value": 5.4
+              },
+              {
+                "Label": "I24H25Y",
+                "Value": 6.74
+              },
+              {
+                "Label": "I24H2Y",
+                "Value": 3.56
+              },
+              {
+                "Label": "I24H50Y",
+                "Value": 7.94
+              },
+              {
+                "Label": "LC01DEV",
+                "Value": 6.266
+              },
+              {
+                "Label": "LC01FOREST",
+                "Value": 4.877
+              },
+              {
+                "Label": "LC01IMP",
+                "Value": 0.91
+              },
+              {
+                "Label": "LC06DEV",
+                "Value": 6.32
+              },
+              {
+                "Label": "LC06FOREST",
+                "Value": 5.047
+              },
+              {
+                "Label": "LC06IMP",
+                "Value": 0.93
+              },
+              {
+                "Label": "LC11DEV",
+                "Value": 6.32
+              },
+              {
+                "Label": "LC11FOREST",
+                "Value": 4.727
+              },
+              {
+                "Label": "LC11IMP",
+                "Value": 0.94
+              },
+              {
+                "Label": "LFPLENGTH",
+                "Value": 33.664
+              },
+              {
+                "Label": "MINBELEV",
+                "Value": 97.5
+              },
+              {
+                "Label": "PCTREG1",
+                "Value": 0
+              },
+              {
+                "Label": "PCTREG2",
+                "Value": 0
+              },
+              {
+                "Label": "PCTREG3",
+                "Value": 5.627
+              },
+              {
+                "Label": "PCTREG4",
+                "Value": 94.373
+              },
+              {
+                "Label": "PCTREG5",
+                "Value": 0
+              },
+              {
+                "Label": "PRECIP",
+                "Value": 45.3
+              },
+              {
+                "Label": "SSURGOA",
+                "Value": 4.56
+              },
+              {
+                "Label": "SSURGOB",
+                "Value": 21.5
+              },
+              {
+                "Label": "SSURGOC",
+                "Value": 19.3
+              },
+              {
+                "Label": "SSURGOD",
+                "Value": 0.00793
+              },
+              {
+                "Label": "STORAGE",
+                "Value": 24.855
               }
-           ]
+            ]
         }
      },
      {
