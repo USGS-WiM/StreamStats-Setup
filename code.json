@@ -16,7 +16,7 @@
       ]
     },
 
-    "homepageURL": null,
+    "homepageURL": "https://streamstats.usgs.gov",
     "downloadURL": "https://github.com/USGS-WiM/StreamStats-Setup/archive/master.zip",
     "disclaimerURL": "https://github.com/USGS-WiM/StreamStats-Setup/blob/master/DISCLAIMER.md",
     "repositoryUrl": "https://github.com/USGS-WiM/StreamStats-Setup",
@@ -32,16 +32,17 @@
 
     "languages": [
       "html",
-      "css"
+      "css",
+      "python"
     ],
 
     "contact": {
-      "name": "Marty Smith",
-      "email": "marsmith@usgs.gov"
+      "name": "Jeremy Newson",
+      "email": "jknewson@usgs.gov"
     },
 
     "date": {
-      "metadataLastUpdated": "2018-02-16"
+      "metadataLastUpdated": "2019-04-19"
     }
   }
 ]
