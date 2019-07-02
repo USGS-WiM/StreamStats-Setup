@@ -5,7 +5,11 @@
 #    
 # Requirements:  ArcGIS 10.6.1
 #
-# Notes: pass in desired output cache location as sole argument:
+# Notes: (1) Download state streamgrid layer from here:
+# https://streamstatsags.cr.usgs.gov/ss_bp/
+# (2) Open ArcMap, add streamgrid layer and symbolize with blue
+# (3) Right click on symbolized raster layer and "Save as layer file (.lyr)"
+# This layer file will be the input used in the tilling process
 #
 # USAGE:
 # python generateTileCache.py
