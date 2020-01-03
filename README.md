@@ -2,7 +2,7 @@
 Setup scripts and information for StreamStats
 
 
-[Current setup document](https://docs.google.com/a/doi.gov/document/d/1Rlvlyw26U_7Epe0FKQAhC3ZRCsUnEqph_cj-Zo1ugbs/edit?usp=sharing)
+[Current setup document](https://doimspp.sharepoint.com/:w:/r/sites/StreamStatsTeam/_layouts/15/Doc.aspx?sourcedoc=%7BB5AE89E0-E8AF-40B2-AB71-7F56AEBBA84B%7D&file=StreamStats%20Cloud%20Server%20Setup.docx&action=default&mobileredirect=true)
 
 ## Contributing
 
