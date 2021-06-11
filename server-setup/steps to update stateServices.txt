@@ -1,0 +1,25 @@
+Update state data on S3 and TestWeb and TestGIS map services
+Martyn Smith
+3/30/2018
+---------------------------
+Last Updated 6/11/2021 - Katrin Jacobsen
+---------------------------
+
+LOG IN TO TESTWEB
+1.  Confirm necessary files (global.gdb, str grid) have been pushed to the staging server using KJ's GIS toolbox and the nightly script has pulled it down
+2.  Update sources or add items in 'stateservices_legacy.mxd'
+3.  Rename old state folder in \mapServices\sc ie: "sc_old" (we should change this to the server it's on e.g. sc_prod, sc_test)
+4.  Open 'exportStateServiceFiles.py' and update line 26 for specific states.  This script will do a special export of a consistent format of the items in stateservices_legacy for the selected state.
+5.  Run 'exportStateServiceFiles.py'
+6.  Verify contents in \mapServices\{region abbr} and delete "{region abbr}_old" -- UNLESS the changes aren't cleared for prod yet, then keep the old one just in case
+7. If adding new state, open stateservices.mxd and add new group layer and add the layers to publish.
+
+Option 1:
+8.  Edit 'publishMapServices.py' and comment/uncomment which service to update in "SERVICELIST" array - IMPORTANT: make sure to add/remove _test from the service name accordingly
+9.  Stop and delete old 'stateServices' map service on gis server (gis.streamstats.usgs.gov)
+10.  IMPORTANT:  'publishMapServices.py' must be run with 32-bit python ie: "c:\Python27\ArcGIS10.5\python.exe publishMapServices.py"  (This process takes 20-25 minutes for just stateServices)
+
+Option 2:
+8. Open stateServices.mxd, make sure everything that needs to be in there is in there (no red explamation point or greyed out layer toggle for the streamgrid or excludepolys layers)
+9. In ArcMap, go to File > Share As > Service > Overwrite an existing service > select the service you'd like to overwrite (e.g. stateServices_dev for the dev server, stateServices_test for the test server, stateServices for Prod)
+9.a) In the publish window, first run "analyze" to make sure there aren't any errors, then hit "publish".
