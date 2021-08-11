@@ -1108,7 +1108,7 @@
                     },
                     {
                         "Label": "LC06AGRI",
-                        "Value": 9.597
+                        "Value": 9.6
                     },
                     {
                         "Label": "LC06DEV",
@@ -1964,7 +1964,7 @@
                     },
                     {
                         "Label": "DRNAREA",
-                        "Value": 15.3
+                        "Value": 15.35
                     },
                     {
                         "Label": "ELEV",
@@ -2009,6 +2009,42 @@
                     {
                         "Label": "PRDECFEB90",
                         "Value": 13.0
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 6.74
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 4.54
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 7.58
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 5.41
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.19
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 8.7
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 6.06
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 3.91
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 2.424
                     }
                 ]
             }
@@ -3132,15 +3168,15 @@
                     },
                     {
                         "Label": "CSL10_85",
-                        "Value": 84.2
+                        "Value": 85.9
                     },
                     {
                         "Label": "CSL1085LO",
-                        "Value": 54.5
+                        "Value": 54.3
                     },
                     {
                         "Label": "CSL1085UP",
-                        "Value": 176
+                        "Value": 189.0
                     },
                     {
                         "Label": "DRNAREA",
@@ -3168,7 +3204,7 @@
                     },
                     {
                         "Label": "LAGFACTOR",
-                        "Value": 0.0744
+                        "Value": 0.0723
                     },
                     {
                         "Label": "LC11DEV",
@@ -3180,7 +3216,7 @@
                     },
                     {
                         "Label": "LENGTH",
-                        "Value": 7.37
+                        "Value": 7.41
                     },
                     {
                         "Label": "MAR",
@@ -3212,7 +3248,7 @@
                     },
                     {
                         "Label": "SLOPERATIO",
-                        "Value": 0.0791
+                        "Value": 0.0807
                     },
                     {
                         "Label": "SSURGOA",
@@ -3728,7 +3764,7 @@
                 "testData": [
                     {
                         "Label": "BASINPERIM",
-                        "Value": 82.7
+                        "Value": 82.8
                     },
                     {
                         "Label": "BSLDEM10M",
@@ -3736,7 +3772,7 @@
                     },
                     {
                         "Label": "CSL10_85fm",
-                        "Value": 64.6
+                        "Value": 64.59
                     },
                     {
                         "Label": "DRNAREA",
@@ -3748,7 +3784,7 @@
                     },
                     {
                         "Label": "ETPENMON",
-                        "Value": 1342.9	
+                        "Value": 1342.9
                     },
                     {
                         "Label": "I24H5Y",
@@ -3760,7 +3796,7 @@
                     },
                     {
                         "Label": "LFPLENGTH",
-                        "Value": 34.332
+                        "Value": 34.339
                     },
                     {
                         "Label": "MINBELEV",
@@ -3768,7 +3804,7 @@
                     },
                     {
                         "Label": "PRECIP",
-                        "Value": 78.2	
+                        "Value": 78.2
                     },
                     {
                         "Label": "ROCKDEP",
@@ -3776,7 +3812,7 @@
                     },
                     {
                         "Label": "SSURGOB",
-                        "Value": 10.6	
+                        "Value": 10.6
                     }
                 ]
             }
