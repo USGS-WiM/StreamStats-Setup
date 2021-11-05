@@ -3280,7 +3280,11 @@
                 "testData": [
                     {
                         "Label": "CENTROIDX",
-                        "Value": -2142251.4
+                        "Value": 334657.8
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4526944.2
                     },
                     {
                         "Label": "CSL1085LFP",
@@ -3311,8 +3315,12 @@
                         "Value": 0.35
                     },
                     {
+                        "Label": "LFPLENGTH",
+                        "Value": 30.9
+                    },
+                    {
                         "Label": "LONG_CENT",
-                        "Value": 82.9623
+                        "Value": -82.9623
                     },
                     {
                         "Label": "OHREGA",
@@ -3329,10 +3337,6 @@
                     {
                         "Label": "STREAM_VARG",
                         "Value": 0.68
-                    },
-                    {
-                        "Label": "LFPLENGTH",
-                        "Value": 30.9
                     }
                 ]
             }
