@@ -436,8 +436,8 @@
 			var regressionTypes;
 			var variables;
 			var studyAreas;
-			var selectedStudyAreaID;
-			var selectedStatisticID;
+			var selectedStudyAreaID = "";
+			var selectedStatisticID = "";
 
 			$.ajax({
 				type: "GET",
@@ -596,12 +596,6 @@
 				// if user selects None
 				if (statGroup == 'None') {
 					selectedStatisticID = "";
-					for (i in regressionTypes) {
-						addStatisticToTable(statTypeTable, regressionTypes[i]);
-					}
-					// Hide Loader
-					$("#usgsLoader").hide();
-					return;
 				}
 				$.ajax({
 					type: "GET",
@@ -631,19 +625,13 @@
 				// if user selects None
 				if (studyArea == 'None') {
 					selectedStudyAreaID = "";
-					for (i in regressionTypes) {
-						addStatisticToTable(statTypeTable, regressionTypes[i]);
-					}
-					// Hide Loader
-					$("#usgsLoader").hide();
-					return;
 				}
 				$.ajax({
 					type: "GET",
 					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedStudyAreaID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
-						
+
 						// comment out these if we get the gage stats stuff back in
 						data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
 						for (i in data) {
