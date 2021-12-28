@@ -435,7 +435,6 @@
 			var variableGroups = [];
 			var regressionTypes;
 			var variables;
-			var studyAreas;
 			var selectedStudyAreaID = "";
 			var selectedStatisticID = "";
 
@@ -501,7 +500,6 @@
 				url: "https://test.streamstats.usgs.gov/nssservices/regions",
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
-					studyAreas = data;
 					for (i in data) {
 						$('#studyAreaDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
 					}
@@ -554,7 +552,6 @@
 				$('#varTypeTable').empty();
 				var varTypeTable = document.getElementById('varTypeTable');
 				for (i=0; i<variables.length; i++) {
-					console.log(variables)
 					if (variables[i].statisticGroupType.code == statGroup || statGroup == 'None') addVariableToTable(varTypeTable, variables[i]);
 				}
 				
