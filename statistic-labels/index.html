@@ -422,7 +422,7 @@
 		    gtag('config', 'UA-61219868-27', {'page_title': 'Statistic Labels'});
 		</script>
 		<script>
-
+			var baseUrl = "https://test.streamstats.usgs.gov/";
 			// Add date for printing
 			var d = new Date();
 			var curMonth = d.getMonth();
@@ -440,7 +440,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes",
+				url: baseUrl + "nssservices/regressiontypes",
 				success: function(data) {
 					var statTypeTable = document.getElementById('statTypeTable');
 					data.sort(function (a,b) { return ('' + a.code).localeCompare(b.code) });
@@ -457,7 +457,7 @@
 			
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/variables",
+				url: baseUrl + "nssservices/variables",
 				success: function(data) {
 					var varTypeTable = document.getElementById('varTypeTable');
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
@@ -474,7 +474,7 @@
 			
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/statisticgroups",
+				url: baseUrl + "nssservices/statisticgroups",
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.name).localeCompare(b.name) });
 					for (i in data) {
@@ -497,7 +497,7 @@
 
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/regions",
+				url: baseUrl + "nssservices/regions",
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
 					for (i in data) {
@@ -596,7 +596,7 @@
 				}
 				$.ajax({
 					type: "GET",
-					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
+					url: baseUrl + "nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
 						
@@ -625,7 +625,7 @@
 				}
 				$.ajax({
 					type: "GET",
-					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
+					url: baseUrl + "nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
 
