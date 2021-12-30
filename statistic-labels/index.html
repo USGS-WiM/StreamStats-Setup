@@ -42,7 +42,7 @@
 			p{
 				font-size: 16px;
 				line-height: 26px;
-				max-width: 800px;
+				max-width: 100%;
 				padding: 10px 0;
 			}
 
@@ -306,7 +306,6 @@
 		</div>
 
 		<div class="page-body">
-
 			<h2>StreamStats Statistic Labels</h2>
 
 			<div id="printTypeHeader" class="stat-type">
@@ -327,6 +326,7 @@
 
 			<p class="showStatTypes">
 				The values below are used in StreamStats as statistic labels for at-site statistics for streamgages and regression-based scenarios at user-selected ungaged locations.
+				Not all statistic labels are available in all states. Use the "Filter by Region" drop-down box to view the statistic labels available for a specific state.
 			</p>
 			<p class="showVarTypes hidden">
 				The values below are used in StreamStats as labels for basin characteristics at streamgages and user-selected ungaged locations, and are also used as parameters in regression-based scenarios.
@@ -336,6 +336,12 @@
 			<div class="selectDiv showStatTypes">
 			  <label>Filter by Statistic Groups:</label>
 			  <select onChange="filterByStatGroup(this.value)" id="statTypeDropdown">
+				<option value="None">None</option>
+			  </select>
+			  <br>
+			  <br>
+			  <label>Filter by Region:</label>
+			  <select onChange="filterByRegion(this.value)" id="regionDropdown">
 				<option value="None">None</option>
 			  </select>
 			</div>
@@ -416,7 +422,7 @@
 		    gtag('config', 'UA-61219868-27', {'page_title': 'Statistic Labels'});
 		</script>
 		<script>
-
+			var baseUrl = "https://test.streamstats.usgs.gov/";
 			// Add date for printing
 			var d = new Date();
 			var curMonth = d.getMonth();
@@ -429,11 +435,12 @@
 			var variableGroups = [];
 			var regressionTypes;
 			var variables;
-
+			var selectedRegionID = "";
+			var selectedStatisticID = "";
 
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes",
+				url: baseUrl + "nssservices/regressiontypes",
 				success: function(data) {
 					var statTypeTable = document.getElementById('statTypeTable');
 					data.sort(function (a,b) { return ('' + a.code).localeCompare(b.code) });
@@ -450,7 +457,7 @@
 			
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/variables",
+				url: baseUrl + "nssservices/variables",
 				success: function(data) {
 					var varTypeTable = document.getElementById('varTypeTable');
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
@@ -467,7 +474,7 @@
 			
 			$.ajax({
 				type: "GET",
-				url: "https://test.streamstats.usgs.gov/nssservices/statisticgroups",
+				url: baseUrl + "nssservices/statisticgroups",
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.name).localeCompare(b.name) });
 					for (i in data) {
@@ -481,6 +488,21 @@
 						}
 					}
 					
+
+					// Hide Loader
+					$("#usgsLoader").hide()
+					
+				}
+			});
+
+			$.ajax({
+				type: "GET",
+				url: baseUrl + "nssservices/regions",
+				success: function(data) {
+					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
+					for (i in data) {
+						$('#regionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+					}
 
 					// Hide Loader
 					$("#usgsLoader").hide()
@@ -566,21 +588,15 @@
 				$("#usgsLoader").show();
 				$('#statTypeTable').empty();
 				var filteredRegressionTypes = [];
-				var gageStatsDone = false; var nssDone = false;
 				var statTypeTable = document.getElementById('statTypeTable');
-				
+				selectedStatisticID = statGroup;
 				// if user selects None
 				if (statGroup == 'None') {
-					for (i in regressionTypes) {
-						addStatisticToTable(statTypeTable, regressionTypes[i]);
-					}
-					// Hide Loader
-					$("#usgsLoader").hide();
-					return;
+					selectedStatisticID = "";
 				}
 				$.ajax({
 					type: "GET",
-					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?statisticgroups=" + statGroup,
+					url: baseUrl + "nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
 						
@@ -591,25 +607,35 @@
 						}
 						// Hide Loader
 						$("#usgsLoader").hide();
-						
-						// I forgot this is done differently because of how the sidebar works in gagestats...
-						/*$.ajax({
-							type: "GET",
-							url: "https://test.streamstats.usgs.gov/gagestatsservices/regressiontypes?statisticgroups=" + statGroup,
-							success: function(data) {
-								for (i in data) {
-									if (!filteredRegressionTypes.some(rt => rt.code = data[i].code)) filteredRegressionTypes.push(data[i]);
-								}
-								filteredRegressionTypes.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
-								for (i in filteredRegressionTypes) {
-									addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
-								}
-								
-								// Hide Loader
-								$("#usgsLoader").hide();
-								
-							}
-						});*/
+					}
+				});
+			}
+
+			function filterByRegion(region) {
+				// Show Loader
+				$("#usgsLoader").show();
+				$('#statTypeTable').empty();
+				var filteredRegressionTypes = [];
+				var statTypeTable = document.getElementById('statTypeTable');
+				selectedRegionID = region;
+
+				// if user selects None
+				if (region == 'None') {
+					selectedRegionID = "";
+				}
+				$.ajax({
+					type: "GET",
+					url: baseUrl + "nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
+					success: function(data) {
+						filteredRegressionTypes = data;
+
+						// comment out these if we get the gage stats stuff back in
+						data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
+						for (i in data) {
+							addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
+						}
+						// Hide Loader
+						$("#usgsLoader").hide();
 					}
 				});
 			}
