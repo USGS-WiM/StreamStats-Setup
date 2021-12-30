@@ -42,7 +42,7 @@
 			p{
 				font-size: 16px;
 				line-height: 26px;
-				max-width: 800px;
+				max-width: 100%;
 				padding: 10px 0;
 			}
 
@@ -306,7 +306,6 @@
 		</div>
 
 		<div class="page-body">
-
 			<h2>StreamStats Statistic Labels</h2>
 
 			<div id="printTypeHeader" class="stat-type">
@@ -327,7 +326,7 @@
 
 			<p class="showStatTypes">
 				The values below are used in StreamStats as statistic labels for at-site statistics for streamgages and regression-based scenarios at user-selected ungaged locations.
-				Not all statistic labels are available in certain states.
+				Not all statistic labels are available in all states. Use the "Filter by Region" drop-down box to view the statistic labels available for a specific state.
 			</p>
 			<p class="showVarTypes hidden">
 				The values below are used in StreamStats as labels for basin characteristics at streamgages and user-selected ungaged locations, and are also used as parameters in regression-based scenarios.
@@ -340,8 +339,9 @@
 				<option value="None">None</option>
 			  </select>
 			  <br>
-			  <label>Filter by Study Area:</label>
-			  <select onChange="filterByStudyArea(this.value)" id="studyAreaDropdown">
+			  <br>
+			  <label>Filter by Region:</label>
+			  <select onChange="filterByRegion(this.value)" id="regionDropdown">
 				<option value="None">None</option>
 			  </select>
 			</div>
@@ -435,7 +435,7 @@
 			var variableGroups = [];
 			var regressionTypes;
 			var variables;
-			var selectedStudyAreaID = "";
+			var selectedRegionID = "";
 			var selectedStatisticID = "";
 
 			$.ajax({
@@ -501,7 +501,7 @@
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
 					for (i in data) {
-						$('#studyAreaDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+						$('#regionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
 					}
 
 					// Hide Loader
@@ -596,7 +596,7 @@
 				}
 				$.ajax({
 					type: "GET",
-					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedStudyAreaID +"&statisticgroups="+ selectedStatisticID,
+					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
 						
@@ -611,21 +611,21 @@
 				});
 			}
 
-			function filterByStudyArea(studyArea) {
+			function filterByRegion(region) {
 				// Show Loader
 				$("#usgsLoader").show();
 				$('#statTypeTable').empty();
 				var filteredRegressionTypes = [];
 				var statTypeTable = document.getElementById('statTypeTable');
-				selectedStudyAreaID = studyArea;
+				selectedRegionID = region;
 
 				// if user selects None
-				if (studyArea == 'None') {
-					selectedStudyAreaID = "";
+				if (region == 'None') {
+					selectedRegionID = "";
 				}
 				$.ajax({
 					type: "GET",
-					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedStudyAreaID +"&statisticgroups="+ selectedStatisticID,
+					url: "https://test.streamstats.usgs.gov/nssservices/regressiontypes?regions=" + selectedRegionID +"&statisticgroups="+ selectedStatisticID,
 					success: function(data) {
 						filteredRegressionTypes = data;
 
