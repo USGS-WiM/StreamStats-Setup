@@ -1,0 +1,1 @@
+aws s3 sync D:\ClientData s3://ss-error-logs/ClientLogs/A
