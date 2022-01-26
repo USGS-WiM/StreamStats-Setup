@@ -1,0 +1,1 @@
+SCHTASKS /CREATE /SC HOURLY /TN "CopyLogs" /TR "D:\logCopy\copyClientLogs.bat" /ST 05:00 /RU ScriptRunner /RP "5mRKp:QY*w?LzjIr.lZl" /RL HIGHEST

@@ -1,0 +1,5 @@
+Location of logs: s3://ss-error-logs/ClientLogs
+
+Copy .aws folder to ScriptRunner's user profile C:\Users\ScriptRunner and update credentials from keepass.
+Run createSchTask.bat.
+Double check Task Scheduler.
