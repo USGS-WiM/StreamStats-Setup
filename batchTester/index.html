@@ -384,7 +384,7 @@
                                 }
 
                                 //add warning class to button if percent diff >1 or any param undefined
-                                if (percentDiff > 1 || ssValue.value === 'undefined') {
+                                if (percentDiff > 0 || ssValue.value === 'undefined') {
                                     $('#' + templateId + ' .show-table').removeClass('btn-success').addClass('btn-warning');
                                 }
 
