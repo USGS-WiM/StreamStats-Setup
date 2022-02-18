@@ -967,36 +967,40 @@
                 "state": "DE",
                 "testData": [
                     {
-                        "Label": "BSLDEM10M",
-                        "Value": 0.58
+                        "Label": "BSLDEM3M",
+                        "Value": 2.36
                     },
                     {
                         "Label": "DRNAREA",
-                        "Value": 5.21
+                        "Value": 5.17
                     },
                     {
-                        "Label": "FOREST",
-                        "Value": 10.9389
+                        "Label": "HSNGTOT10",
+                        "Value": 302
                     },
                     {
-                        "Label": "IMPNLCD01",
-                        "Value": 2.6051
+                        "Label": "IMPERV",
+                        "Value": 4.26
                     },
                     {
-                        "Label": "LC11DEV",
-                        "Value": 15
+                        "Label": "PRECIP",
+                        "Value": 1150
                     },
                     {
-                        "Label": "LC11IMP",
-                        "Value": 3.9
+                        "Label": "RELIEF",
+                        "Value": 46
                     },
                     {
                         "Label": "SOILA",
-                        "Value": 38.4521
+                        "Value": 27.618
+                    },
+                    {
+                        "Label": "SOILD",
+                        "Value": 53.1347
                     },
                     {
                         "Label": "STORNHD",
-                        "Value": 0
+                        "Value": 3.0108
                     }
                 ]
             }
@@ -2360,7 +2364,7 @@
                 "testData": [
                     {
                         "Label": "BSHAPE",
-                        "Value": 13.87
+                        "Value": 13.88
                     },
                     {
                         "Label": "CSL10_85",
@@ -3048,11 +3052,16 @@
                 "testData": [
                     {
                         "Label": "APRAVPRE",
-                        "Value": 3.8
+                        "Value": 3.87
+                    },
+                    
+                    {
+                        "Label": "CONLENLDR",
+                        "Value": 11200000
                     },
                     {
                         "Label": "CSL10_85",
-                        "Value": 4.99
+                        "Value": 4.9
                     },
                     {
                         "Label": "DRNAREA",
@@ -3060,19 +3069,11 @@
                     },
                     {
                         "Label": "FOREST",
-                        "Value": 57.2
+                        "Value": 47.7
                     },
                     {
                         "Label": "JUNAVPRE",
                         "Value": 3.78
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 14
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 3.01
                     },
                     {
                         "Label": "PERMSSUR",
@@ -3080,11 +3081,15 @@
                     },
                     {
                         "Label": "POPDENS",
-                        "Value": 286
+                        "Value": 285
+                    },
+                    {
+                        "Label": "SLOPLAGPER",
+                        "Value": 3.39
                     },
                     {
                         "Label": "STORAGE",
-                        "Value": 28.8
+                        "Value": 28.9
                     }
                 ]
             }
