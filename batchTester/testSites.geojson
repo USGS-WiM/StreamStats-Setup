@@ -15,10 +15,6 @@
                 "state": "AL",
                 "testData": [
                     {
-                        "Label": "URBAN",
-                        "Value": 2.52
-                    },
-                    {
                         "Label": "CONTDA",
                         "Value": 5.388
                     },
