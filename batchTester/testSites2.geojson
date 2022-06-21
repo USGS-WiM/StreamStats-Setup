@@ -16,12 +16,16 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "URBAN",
-                        "Value": 2.52
+                        "Label": "AL_SVI2020",
+                        "Value": 0.592
                     },
                     {
                         "Label": "CONTDA",
                         "Value": 5.388
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 5.39
                     },
                     {
                         "Label": "LC06DEV",
@@ -36,14 +40,6 @@
                         "Value": 2.88
                     },
                     {
-                        "Label": "AL_SVI2020",
-                        "Value": 0.592
-                    },
-                    {
-                        "Label": "DRNAREA",
-                        "Value": 5.39
-                    },
-                    {
                         "Label": "L3_PIEDMNT",
                         "Value": 0.0
                     },
@@ -54,6 +50,10 @@
                     {
                         "Label": "PRECPRIS10",
                         "Value": 57.21
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 2.52
                     }
                 ]
             }
@@ -128,6 +128,7 @@
             "properties": {
                 "siteid": "15294010",
                 "state": "AK",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
