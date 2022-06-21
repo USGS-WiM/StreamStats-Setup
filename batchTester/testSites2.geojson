@@ -1,0 +1,4961 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -87.48516,
+                    33.52127
+                ]
+            },
+            "properties": {
+                "siteid": "02462600",
+                "state": "AL",
+                "pointType": "local",
+                "testData": [
+                    {
+                        "Label": "URBAN",
+                        "Value": 2.52
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 5.388
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 2.52
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 2.88
+                    },
+                    {
+                        "Label": "AL_SVI2020",
+                        "Value": 0.592
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 5.39
+                    },
+                    {
+                        "Label": "L3_PIEDMNT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "L3_SE_PLNS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 57.21
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    33.11668,
+                    -85.561043
+                ]
+            },
+            "properties": {
+                "siteid": "02414500",
+                "state": "AL",
+                "pointType": "global",
+                "testData": [
+                    
+                    {
+                        "Label": "AL_SVI2020",
+                        "Value": 0.346
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 1674.672
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1670
+                    },
+                    {
+                        "Label": "L3_PIEDMNT",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "L3_SE_PLNS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 6.37
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.46
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.28
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 53.55
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 6.37
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -149.93971,
+                    61.74746
+                ]
+            },
+            "properties": {
+                "siteid": "15294010",
+                "state": "AK",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 48.8
+                    },
+                    {
+                        "Label": "PRECPRIS00",
+                        "Value": 25
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.84307,
+                    34.92178
+                ]
+            },
+            "properties": {
+                "siteid": "09502750",
+                "state": "AZ",
+                "testData": [
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 0.99
+                    },
+                    {
+                        "Label": "APRAVTMP",
+                        "Value": 49
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 3.1
+                    },
+                    {
+                        "Label": "AUGAVTMP",
+                        "Value": 69.5
+                    },
+                    {
+                        "Label": "AZ_HIPERMA",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "AZ_HIPERMG",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 39.22
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 24.58
+                    },
+                    {
+                        "Label": "CH92_01DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CH92_01FOR",
+                        "Value": 22
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 1.6
+                    },
+                    {
+                        "Label": "DECAVTMP",
+                        "Value": 35.9
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 36.18
+                    },
+                    {
+                        "Label": "DRNDENSITY",
+                        "Value": 2.95
+                    },
+                    {
+                        "Label": "EL5000",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "EL6000",
+                        "Value": 45
+                    },
+                    {
+                        "Label": "EL7500",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 5976.64
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 7253.18
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 2.8
+                    },
+                    {
+                        "Label": "FEBAVTMP",
+                        "Value": 38.4
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 4.92
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 3.23
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 5.43
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 3.87
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 6.13
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 4.39
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 2.73
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "JANAVPRE",
+                        "Value": 2.55
+                    },
+                    {
+                        "Label": "JANAVTMP",
+                        "Value": 35.4
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 2.1
+                    },
+                    {
+                        "Label": "JULYAVTMP",
+                        "Value": 71.2
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 0.5
+                    },
+                    {
+                        "Label": "JUNEAVTMP",
+                        "Value": 66.1
+                    },
+                    {
+                        "Label": "LAT_CENT",
+                        "Value": 34.9094
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 75
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC92DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC92FOREST",
+                        "Value": 53
+                    },
+                    {
+                        "Label": "LONG_CENT",
+                        "Value": -112.917
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 2.3
+                    },
+                    {
+                        "Label": "MARAVTMP",
+                        "Value": 42.4
+                    },
+                    {
+                        "Label": "MAXBSLOP",
+                        "Value": 211.36
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 0.8
+                    },
+                    {
+                        "Label": "MAYAVTMP",
+                        "Value": 56.6
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 5160.42
+                    },
+                    {
+                        "Label": "MINBSLOP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "NFSL30_10M",
+                        "Value": 11
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 1.9
+                    },
+                    {
+                        "Label": "NOVAVTMP",
+                        "Value": 42.2
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.6
+                    },
+                    {
+                        "Label": "OCTAVTMP",
+                        "Value": 53.2
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 5160.46
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 22.1
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 2092.75
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 53.36
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 1.6
+                    },
+                    {
+                        "Label": "SEPAVTMP",
+                        "Value": 63.6
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 34
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 106.74
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 51.96
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 36.18
+                    },
+                    {
+                        "Label": "FD_Region",
+                        "Value": 1623.0
+                    },
+                    {
+                        "Label": "LU92DEV",
+                        "Value": 0.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.87265,
+                    35.32482
+                ]
+            },
+            "properties": {
+                "siteid": "07260673",
+                "state": "AR",
+                "testData": [
+                    {
+                        "Label": "BSHAPE",
+                        "Value": 0.24
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 20.593
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 222
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 751
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1715.0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 4.08
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.49
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 35.98
+                    },
+                    {
+                        "Label": "LOWREG",
+                        "Value": 1439
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 5.04
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 4.49
+                    },
+                    {
+                        "Label": "ORDOMISS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 49.8
+                    },
+                    {
+                        "Label": "PREMARAPR",
+                        "Value": 9.32
+                    },
+                    {
+                        "Label": "PRENOVDEC",
+                        "Value": 8.89
+                    },
+                    {
+                        "Label": "PRNOVAPR00",
+                        "Value": 25.9
+                    },
+                    {
+                        "Label": "PRNOVAPR90",
+                        "Value": 24.5
+                    },
+                    {
+                        "Label": "PZNSSREGNO",
+                        "Value": 1446
+                    },
+                    {
+                        "Label": "SOILINDEX",
+                        "Value": 2.75
+                    },
+                    {
+                        "Label": "TAU_ANN_G",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "TAU_SPR_G",
+                        "Value": 12
+                    },
+                    {
+                        "Label": "TAU_WIN_G",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "ALVM",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "BFI",
+                        "Value": 0.24
+                    },
+                    {
+                        "Label": "BSHAPELFP",
+                        "Value": 5.842
+                    },
+                    {
+                        "Label": "CSL1085ADJ",
+                        "Value": 20.593
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 19.2
+                    },
+                    {
+                        "Label": "CSL1085RAW",
+                        "Value": 19.2
+                    },
+                    {
+                        "Label": "CSLBlue",
+                        "Value": 46.2
+                    },
+                    {
+                        "Label": "LC11DVOPN",
+                        "Value": 3.15
+                    },
+                    {
+                        "Label": "LC11PAST",
+                        "Value": 19.6
+                    },
+                    {
+                        "Label": "TRUN0711",
+                        "Value": 3.83
+                    },
+                    {
+                        "Label": "UPZ",
+                        "Value": 100.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -118.45159,
+                    35.90158
+                ]
+            },
+            "properties": {
+                "siteid": "11186500",
+                "state": "CA",
+                "testData": [
+                    {
+                        "Label": "ALTIND",
+                        "Value": 6.61
+                    },
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 35.5
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 30.5
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": -1982584
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 1661931
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 24.7
+                    },
+                    {
+                        "Label": "EL6000",
+                        "Value": 96.7
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 7966
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 9972
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 32
+                    },
+                    {
+                        "Label": "JANMAXTMP",
+                        "Value": 41.01
+                    },
+                    {
+                        "Label": "JANMINTMP",
+                        "Value": 24.92
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.1
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 12
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 4163
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 4167
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 30
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 5809
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 164
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -106.57539,
+                    39.33418
+                ]
+            },
+            "properties": {
+                "siteid": "09078200",
+                "state": "CO",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 7.2
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 31.85
+                    },
+                    {
+                        "Label": "I6H100Y",
+                        "Value": 1.67
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 10891.0
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 38
+                    },
+                    {
+                        "Label": "EL7500",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 9566
+                    },
+                    {
+                        "Label": "STATSCLAY",
+                        "Value": 11.32
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 485.7
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 12300.0
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 2.94
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 1.33
+                    },
+                    {
+                        "Label": "I6H2Y",
+                        "Value": 0.81
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 39.334178
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 12.1
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 70.6
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 16.1
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.3
+                    },
+                    {
+                        "Label": "LC11SHRUB",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "LC11SNOIC",
+                        "Value": 0.2
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 5.04
+                    },
+                    {
+                        "Label": "LONG_OUT",
+                        "Value": -106.575388
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 9560.0
+                    },
+                    {
+                        "Label": "RCN",
+                        "Value": 98.0
+                    },
+                    {
+                        "Label": "RUNCO_CO",
+                        "Value": 0.42
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 0.1
+                    },
+                    {
+                        "Label": "TOC",
+                        "Value": 0.49
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.90583,
+                    41.87217
+                ]
+            },
+            "properties": {
+                "siteid": "01187680",
+                "state": "CT",
+                "testData": [
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 8.11
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 900
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 9.1
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 5.58
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 6.98
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.12
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 8.04
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.11
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.56
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 4.4
+                    },
+                    {
+                        "Label": "PRCWINTER",
+                        "Value": 3.9
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 0.38
+                    },
+                    {
+                        "Label": "CAT1ROADS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CAT2ROADS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CAT3ROADS",
+                        "Value": 5.92
+                    },
+                    {
+                        "Label": "CAT4ROADS",
+                        "Value": 14.3
+                    },
+                    {
+                        "Label": "CROSCOUNT1",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CROSCOUNT2",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CROSCOUNT3",
+                        "Value": 8.0
+                    },
+                    {
+                        "Label": "CROSCOUNT4",
+                        "Value": 18.0
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 72.0
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 10.9
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 13.28
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 4.52
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 7.92
+                    },
+                    {
+                        "Label": "MAPM",
+                        "Value": 50.924
+                    },
+                    {
+                        "Label": "SGSL",
+                        "Value": 3.25
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 3.558
+                    },
+                    {
+                        "Label": "SSURGOCCDD",
+                        "Value": 0.3586
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 23.9
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.38778,
+                    42.35456
+                ]
+            },
+            "properties": {
+                "siteid": "01174600",
+                "state": "CRB",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 126400
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 901986.4
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 0.62
+                    },
+                    {
+                        "Label": "MAPM",
+                        "Value": 48.971
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 126855
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 900835
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.34192,
+                    38.63876
+                ]
+            },
+            "properties": {
+                "siteid": "01484500",
+                "state": "DE",
+                "testData": [
+                    {
+                        "Label": "BSLDEM3M",
+                        "Value": 2.36
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 5.17
+                    },
+                    {
+                        "Label": "HSNGTOT10",
+                        "Value": 302
+                    },
+                    {
+                        "Label": "IMPERV",
+                        "Value": 4.26
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 45.38
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 46
+                    },
+                    {
+                        "Label": "SOILA",
+                        "Value": 27.618
+                    },
+                    {
+                        "Label": "SOILD",
+                        "Value": 53.1347
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 3.0108
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -75.74262,
+                    40.33951
+                ]
+            },
+            "properties": {
+                "siteid": "01471875",
+                "state": "DRB",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 1691767.9
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 2113372.2
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 56.8
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 0.38
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 1693235.0
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 2106165.0
+                    },
+                    {
+                        "Label": "PRDECFEB10",
+                        "Value": 3.25
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 47.2
+                    },
+                    {
+                        "Label": "SSURGOKSAT",
+                        "Value": 21.3
+                    },
+                    {
+                        "Label": "SSURGPDRN",
+                        "Value": 15.2
+                    },
+                    {
+                        "Label": "SSURGSAND",
+                        "Value": 31.9
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.1929,
+                    32.84997
+                ]
+            },
+            "properties": {
+                "siteid": "02223190",
+                "state": "GA",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 6.995
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 7.72
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 157.0
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 443
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 7.78
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 5.14
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 6.14
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 6.94
+                    },
+                    {
+                        "Label": "LC06AGRI",
+                        "Value": 9.6
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 5.619
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 60.136
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 0.9
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 7.1
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.02
+                    },
+                    {
+                        "Label": "PCTREG1",
+                        "Value": 24.343
+                    },
+                    {
+                        "Label": "PCTREG2",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG3",
+                        "Value": 74.801
+                    },
+                    {
+                        "Label": "PCTREG4",
+                        "Value": 0.856
+                    },
+                    {
+                        "Label": "PCTREG5",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 50
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 691.0
+                    },
+                    {
+                        "Label": "GWHEAD",
+                        "Value": 194.0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 249.0
+                    },
+                    {
+                        "Label": "PRECPRIS00",
+                        "Value": 46.9
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 442.0
+                    },
+                    {
+                        "Label": "RRMEAN",
+                        "Value": 0.44
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -155.84609,
+                    19.41153
+                ]
+            },
+            "properties": {
+                "siteid": "16759800",
+                "state": "HI",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 11.8
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 13.7
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 2149117.8
+                    },
+                    {
+                        "Label": "COMPRAT",
+                        "Value": 3.24
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 601
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1.06
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 4440
+                    },
+                    {
+                        "Label": "ELEV10FT",
+                        "Value": 3300
+                    },
+                    {
+                        "Label": "ELEV10FT3D",
+                        "Value": 3300
+                    },
+                    {
+                        "Label": "ELEV85FT",
+                        "Value": 5660
+                    },
+                    {
+                        "Label": "ELEV85FT3D",
+                        "Value": 5660
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 6090
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 8.32
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 5.16
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 6.36
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.24
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 10.9
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 7.32
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 4.31
+                    },
+                    {
+                        "Label": "I48H100Y",
+                        "Value": 9.45
+                    },
+                    {
+                        "Label": "I48H10Y",
+                        "Value": 5.9
+                    },
+                    {
+                        "Label": "I48H25Y",
+                        "Value": 7.24
+                    },
+                    {
+                        "Label": "I48H2Y",
+                        "Value": 3.76
+                    },
+                    {
+                        "Label": "I48H500Y",
+                        "Value": 12.4
+                    },
+                    {
+                        "Label": "I48H50Y",
+                        "Value": 8.33
+                    },
+                    {
+                        "Label": "I48H5Y",
+                        "Value": 4.95
+                    },
+                    {
+                        "Label": "I60M100Y",
+                        "Value": 2.68
+                    },
+                    {
+                        "Label": "I60M10Y",
+                        "Value": 1.87
+                    },
+                    {
+                        "Label": "I60M25Y",
+                        "Value": 2.2
+                    },
+                    {
+                        "Label": "I60M2Y",
+                        "Value": 1.28
+                    },
+                    {
+                        "Label": "I60M500Y",
+                        "Value": 3.23
+                    },
+                    {
+                        "Label": "I60M50Y",
+                        "Value": 2.44
+                    },
+                    {
+                        "Label": "I60M5Y",
+                        "Value": 1.62
+                    },
+                    {
+                        "Label": "I6H100Y",
+                        "Value": 5.55
+                    },
+                    {
+                        "Label": "I6H10Y",
+                        "Value": 3.46
+                    },
+                    {
+                        "Label": "I6H25Y",
+                        "Value": 4.24
+                    },
+                    {
+                        "Label": "I6H2Y",
+                        "Value": 2.25
+                    },
+                    {
+                        "Label": "I6H500Y",
+                        "Value": 7.3
+                    },
+                    {
+                        "Label": "I6H50Y",
+                        "Value": 4.88
+                    },
+                    {
+                        "Label": "I6H5Y",
+                        "Value": 2.91
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.49
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "lc01crop",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 3.08
+                    },
+                    {
+                        "Label": "LC01DEVHI",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01DEVMD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01EVERG",
+                        "Value": 73
+                    },
+                    {
+                        "Label": "LC01OPNLO",
+                        "Value": 3
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 5.23
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 2900
+                    },
+                    {
+                        "Label": "PERM12IN",
+                        "Value": 11.9
+                    },
+                    {
+                        "Label": "PERM24IN",
+                        "Value": 13
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 43.7
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 3190
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 269
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "SLPFM3D",
+                        "Value": 610
+                    },
+                    {
+                        "Label": "LC01CROP",
+                        "Value": 0.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -115.69721,
+                    45.27617
+                ]
+            },
+            "properties": {
+                "siteid": "13314500",
+                "state": "ID",
+                "testData": [
+                    {
+                        "Label": "AG_OF_DA",
+                        "Value": 0.0312
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 30
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 27.5
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 177
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 184
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 39.04
+                    },
+                    {
+                        "Label": "DV_OF_DA",
+                        "Value": 0.61
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 7000
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 8530
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 85
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.11
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 0.00435
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 5840
+                    },
+                    {
+                        "Label": "NFSL30_10M",
+                        "Value": 15
+                    },
+                    {
+                        "Label": "NFSL30_30M",
+                        "Value": 14
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 34.5
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 2690
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 46
+                    },
+                    {
+                        "Label": "SLOP30_30M",
+                        "Value": 40.8
+                    },
+                    {
+                        "Label": "SLOP50",
+                        "Value": 5.39
+                    },
+                    {
+                        "Label": "VOLCANIC",
+                        "Value": 95.2
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 46.7
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 35.3
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.80526,
+                    39.98889
+                ]
+            },
+            "properties": {
+                "siteid": "05572450",
+                "state": "IL",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 91.52
+                    },
+                    {
+                        "Label": "BASLENAH",
+                        "Value": 16.5
+                    },
+                    {
+                        "Label": "BASLENRAW",
+                        "Value": 16.002446
+                    },
+                    {
+                        "Label": "BHC2010",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 4.18
+                    },
+                    {
+                        "Label": "CSL1085RAW",
+                        "Value": 4.179
+                    },
+                    {
+                        "Label": "DRCLASS1A",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 114.05
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 757
+                    },
+                    {
+                        "Label": "FLC11DVLMH",
+                        "Value": 0.022
+                    },
+                    {
+                        "Label": "FSSURGDC78",
+                        "Value": 0.002
+                    },
+                    {
+                        "Label": "ILREG1",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG3",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG5",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG6",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG7",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 5.61
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.01
+                    },
+                    {
+                        "Label": "LC11URB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 637
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 120
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 1.31
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 1.043
+                    },
+                    {
+                        "Label": "URBTHE2010",
+                        "Value": 0.01
+                    },
+                    {
+                        "Label": "WATWET",
+                        "Value": 0.007
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -85.35111,
+                    40.42201
+                ]
+            },
+            "properties": {
+                "siteid": "03326070",
+                "state": "IN",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 28.964
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 6.48
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1008
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 2.0
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 0.91
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 28.964
+                    },
+                    {
+                        "Label": "BFREGNO",
+                        "Value": 1566
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.13
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.69
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 1.63
+                    },
+                    {
+                        "Label": "INSINKHOLE",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "INSINKING",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "K1INDNR",
+                        "Value": 13.0
+                    },
+                    {
+                        "Label": "K2INDNR",
+                        "Value": 17.0
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 40.422025
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 7.6
+                    },
+                    {
+                        "Label": "LOWREG",
+                        "Value": 1729.0
+                    },
+                    {
+                        "Label": "QSSPERMTHK",
+                        "Value": 116.64
+                    },
+                    {
+                        "Label": "ST2INDNR",
+                        "Value": 1688.0
+                    },
+                    {
+                        "Label": "T2INDNR",
+                        "Value": 1421.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -93.15235,
+                    42.31502
+                ]
+            },
+            "properties": {
+                "siteid": "05451210",
+                "state": "IA",
+                "testData": [
+                    {
+                        "Label": "BASLENAH",
+                        "Value": 34.61
+                    },
+                    {
+                        "Label": "BFI",
+                        "Value": 0.546695
+                    },
+                    {
+                        "Label": "BSHAPE",
+                        "Value": 5.33
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 1.96
+                    },
+                    {
+                        "Label": "CCM",
+                        "Value": 0.89
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 3.87
+                    },
+                    {
+                        "Label": "CSL100",
+                        "Value": 4.71
+                    },
+                    {
+                        "Label": "DESMOIN",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 225
+                    },
+                    {
+                        "Label": "DRNFREQ",
+                        "Value": 0.6
+                    },
+                    {
+                        "Label": "FOSTREAM",
+                        "Value": 135
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "HYSEP",
+                        "Value": 55.27
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 4.4
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 88.4
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.71
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.84
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 33.91
+                    },
+                    {
+                        "Label": "PRJULDEC10",
+                        "Value": 2.89
+                    },
+                    {
+                        "Label": "RSD",
+                        "Value": 0.47
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 1.05
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 98.4
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 0.55
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOKSAT",
+                        "Value": 10.12
+                    },
+                    {
+                        "Label": "STREAM_VARG",
+                        "Value": 0.61
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 252.815
+                    },
+                    {
+                        "Label": "TAU_ANN_G",
+                        "Value": 21.15
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -84.94215,
+                    38.29797
+                ]
+            },
+            "properties": {
+                "siteid": "03290000",
+                "state": "KY",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 5.65
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 38.297977
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 805
+                    },
+                    {
+                        "Label": "KVARIND10",
+                        "Value": 1.25
+                    },
+                    {
+                        "Label": "KVARIND93",
+                        "Value": 1.35
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.57
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 5.68
+                    },
+                    {
+                        "Label": "KYVARIND10",
+                        "Value": 1.25
+                    },
+                    {
+                        "Label": "KYVARIND93",
+                        "Value": 1.35
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -70.31683,
+                    45.07907
+                ]
+            },
+            "properties": {
+                "siteid": "01046800",
+                "state": "ME",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 22
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 393506.34
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4987503.75
+                    },
+                    {
+                        "Label": "COASTDIST",
+                        "Value": 118.0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 15.35
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 2775.1
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 4234.4
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 2.01
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.26
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 59.7
+                    },
+                    {
+                        "Label": "SANDGRAVAF",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SANDGRAVAP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSGOA",
+                        "Value": 12.8
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 3.14
+                    },
+                    {
+                        "Label": "PRDECFEB90",
+                        "Value": 13.0
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 6.74
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 4.54
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 7.58
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 5.41
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.19
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 8.7
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 6.06
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 3.91
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 2.424
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -73.15899,
+                    42.70045
+                ]
+            },
+            "properties": {
+                "siteid": "01332500",
+                "state": "MA",
+                "testData": [
+                    {
+                        "Label": "ACRSDFT",
+                        "Value": 13.3
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 17.76
+                    },
+                    {
+                        "Label": "BSLDEM250",
+                        "Value": 13.424
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 67661
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 935091.4
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 10.16
+                    },
+                    {
+                        "Label": "DRFTPERSTR",
+                        "Value": 0.0584
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 126
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1610
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 72.92
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 1.11
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 9.28
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.93
+                    },
+                    {
+                        "Label": "MAREGION",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "MAXTEMPC",
+                        "Value": 12.1
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 64075.0
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 940195
+                    },
+                    {
+                        "Label": "PCTSNDGRV",
+                        "Value": 10.16
+                    },
+                    {
+                        "Label": "PRECPRIS00",
+                        "Value": 49.8
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 228
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 3.06
+                    },
+                    {
+                        "Label": "CAT1ROADS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CAT2ROADS",
+                        "Value": 18.0
+                    },
+                    {
+                        "Label": "CAT3ROADS",
+                        "Value": 26.2
+                    },
+                    {
+                        "Label": "CAT4ROADS",
+                        "Value": 311.0
+                    },
+                    {
+                        "Label": "CROSCOUNT1",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CROSCOUNT2",
+                        "Value": 36.0
+                    },
+                    {
+                        "Label": "CROSCOUNT3",
+                        "Value": 39.0
+                    },
+                    {
+                        "Label": "CROSCOUNT4",
+                        "Value": 274.0
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 16.4
+                    },
+                    {
+                        "Label": "LC06STOR",
+                        "Value": 2.45
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 25.8
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -76.3729,
+                    39.51997
+                ]
+            },
+            "properties": {
+                "siteid": "01581700",
+                "state": "MD",
+                "testData": [
+                    {
+                        "Label": "ADJCOEFF",
+                        "Value": 0.34
+                    },
+                    {
+                        "Label": "BSLDEM10ff",
+                        "Value": 0.0702
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 34.6
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 32
+                    },
+                    {
+                        "Label": "FOREST_MD",
+                        "Value": 25.9
+                    },
+                    {
+                        "Label": "IMPERV",
+                        "Value": 13
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 25.8
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.71
+                    },
+                    {
+                        "Label": "LIME",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 47.2
+                    },
+                    {
+                        "Label": "SOILCorD",
+                        "Value": 22.3
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 0.59
+                    },
+                    {
+                        "Label": "STATSGOA",
+                        "Value": 5.06
+                    },
+                    {
+                        "Label": "STATSGOD",
+                        "Value": 5.96
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.27639,
+                    44.59412
+                ]
+            },
+            "properties": {
+                "siteid": "05311300",
+                "state": "MN",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 4.34
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 38
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 3.82
+                    },
+                    {
+                        "Label": "GENRO",
+                        "Value": 3.11
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06CROP",
+                        "Value": 79.5
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 0.28
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.0615
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.3
+                    },
+                    {
+                        "Label": "LOGDA",
+                        "Value": 0.58
+                    },
+                    {
+                        "Label": "PFLATLOW",
+                        "Value": 4.92
+                    },
+                    {
+                        "Label": "PMPE",
+                        "Value": -19.9
+                    },
+                    {
+                        "Label": "SOILA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 33.3
+                    },
+                    {
+                        "Label": "SSURGOM",
+                        "Value": 0.25
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 1.5
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.77203,
+                    39.41615
+                ]
+            },
+            "properties": {
+                "siteid": "06906470",
+                "state": "MO",
+                "testData": [
+                    {
+                        "Label": "BSHAPE",
+                        "Value": 13.88
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 3.98
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 201
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 52.79
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 7.3936
+                    },
+                    {
+                        "Label": "STREAM_VARG",
+                        "Value": 0.81
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -89.77118,
+                    33.19411
+                ]
+            },
+            "properties": {
+                "siteid": "07289350",
+                "state": "MS",
+                "testData": [
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 2.19
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1010
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 671
+                    },
+                    {
+                        "Label": "LAT_CENT",
+                        "Value": 33.4263
+                    },
+                    {
+                        "Label": "LC11ADEV",
+                        "Value": 50.19
+                    },
+                    {
+                        "Label": "LC11ADEVHI",
+                        "Value": 0.39
+                    },
+                    {
+                        "Label": "LC11ADEVLO",
+                        "Value": 4.68
+                    },
+                    {
+                        "Label": "LC11ADEVMD",
+                        "Value": 1.3
+                    },
+                    {
+                        "Label": "LC11ADVOPN",
+                        "Value": 43.83
+                    },
+                    {
+                        "Label": "LC11AWATER",
+                        "Value": 4.53
+                    },
+                    {
+                        "Label": "LC11AWETL",
+                        "Value": 127.76
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 4.97
+                    },
+                    {
+                        "Label": "LC11DEVLMH",
+                        "Value": 0.63
+                    },
+                    {
+                        "Label": "LC11DINT",
+                        "Value": 0.67
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 49.4
+                    },
+                    {
+                        "Label": "LC11STOR",
+                        "Value": 13.1
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0.45
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 12.6
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 79.5
+                    },
+                    {
+                        "Label": "LONG_CENT",
+                        "Value": 89.4723
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 251
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -112.96042,
+                    47.10339
+                ]
+            },
+            "properties": {
+                "siteid": "12337900",
+                "state": "MT",
+                "testData": [
+                    {
+                        "Label": "CONTDA",
+                        "Value": 218.2
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 6652.3
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 36.33
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 9393
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 4558
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 4835
+                    },
+                    {
+                        "Label": "EL5000",
+                        "Value": 99
+                    },
+                    {
+                        "Label": "EL6000",
+                        "Value": 79.6
+                    },
+                    {
+                        "Label": "IRRIGAT_MT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LAKESNHDH",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 39.5
+                    },
+                    {
+                        "Label": "SLOP30_30M",
+                        "Value": 67.3
+                    },
+                    {
+                        "Label": "NFSL30_30M",
+                        "Value": 20.7
+                    },
+                    {
+                        "Label": "SLOP50_30M",
+                        "Value": 29.6
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 39.1
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 71
+                    },
+                    {
+                        "Label": "ET0306MOD",
+                        "Value": 1.63
+                    },
+                    {
+                        "Label": "ET0710MOD",
+                        "Value": 1.44
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.43971,
+                    35.8548
+                ]
+            },
+            "properties": {
+                "siteid": "02117030",
+                "state": "NC",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 6.22
+                    },
+                    {
+                        "Label": "BSLDEM30FT",
+                        "Value": 7.93
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 69.21
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1.07
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 764
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 824
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 6.41
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 25.1
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 5.8
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 62.4
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 3.3
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.58
+                    },
+                    {
+                        "Label": "LC01SHRUB",
+                        "Value": 3.4
+                    },
+                    {
+                        "Label": "LC01WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 7.8
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 65.9
+                    },
+                    {
+                        "Label": "LC06GRASS",
+                        "Value": 3.3
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 0.86
+                    },
+                    {
+                        "Label": "LC06PLANT",
+                        "Value": 20.4
+                    },
+                    {
+                        "Label": "LC06SHRUB",
+                        "Value": 2.6
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 20.4
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 7.8
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 59.4
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 5.1
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.9
+                    },
+                    {
+                        "Label": "LC11SHRUB",
+                        "Value": 7.3
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC92FOREST",
+                        "Value": 75.7
+                    },
+                    {
+                        "Label": "LU92BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LU92DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LU92PLANT",
+                        "Value": 24.3
+                    },
+                    {
+                        "Label": "LU92WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LU92WETLN",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 693
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 703
+                    },
+                    {
+                        "Label": "PCTREG1",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "PCTREG2",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG3",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG4",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG5",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 44.9
+                    },
+                    {
+                        "Label": "PROTECTED",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 96.2
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 3.6
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 1.772
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -100.75175,
+                    46.19347
+                ]
+            },
+            "properties": {
+                "siteid": "06354815",
+                "state": "ND",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 219
+                    },
+                    {
+                        "Label": "AG_OF_DA",
+                        "Value": 6.89
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 6.77
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 7.09
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1968
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 17
+                    },
+                    {
+                        "Label": "SLOPERAT",
+                        "Value": 0.0198
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 2.84
+                    },
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 104
+                    },
+                    {
+                        "Label": "COMPRAT",
+                        "Value": 1.99
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 60.3
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 572
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2548
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 1653
+                    },
+                    {
+                        "Label": "RUGGED",
+                        "Value": 2330
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.11
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "ISOLAKEDA",
+                        "Value": 0.18
+                    },
+                    {
+                        "Label": "ISOLAKESUM",
+                        "Value": 0.39
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 0.0028
+                    },
+                    {
+                        "Label": "LAKEAREASU",
+                        "Value": 0.00615
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.79158,
+                    43.35519
+                ]
+            },
+            "properties": {
+                "siteid": "NHtestSite",
+                "state": "NH",
+                "testData": [
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 3.817
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 17.822
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 941645.9
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 314710.9
+                    },
+                    {
+                        "Label": "CONIF",
+                        "Value": 10.2136
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 359
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 4.34
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2923.955
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.26
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.0189
+                    },
+                    {
+                        "Label": "MINTEMP_W",
+                        "Value": 12.959
+                    },
+                    {
+                        "Label": "MIXFOR",
+                        "Value": 26.9862
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 951015
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 311715
+                    },
+                    {
+                        "Label": "PREBC_1112",
+                        "Value": 9.25
+                    },
+                    {
+                        "Label": "PREBC0103",
+                        "Value": 8.9
+                    },
+                    {
+                        "Label": "PRECIPCENT",
+                        "Value": 48
+                    },
+                    {
+                        "Label": "PRECIPOUT",
+                        "Value": 43.9
+                    },
+                    {
+                        "Label": "PREG_03_05",
+                        "Value": 9.3
+                    },
+                    {
+                        "Label": "PREG_06_10",
+                        "Value": 18.1
+                    },
+                    {
+                        "Label": "SNOFALL",
+                        "Value": 96.281
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 44.063
+                    },
+                    {
+                        "Label": "TEMP_06_10",
+                        "Value": 60.275
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 0.2073
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.68437,
+                    39.97016
+                ]
+            },
+            "properties": {
+                "siteid": "01467000",
+                "state": "NJ",
+                "testData": [
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 3.87
+                    },
+                    
+                    {
+                        "Label": "CONLENLDR",
+                        "Value": 11200000
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 4.9
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 118
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 47.7
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 3.78
+                    },
+                    {
+                        "Label": "PERMSSUR",
+                        "Value": 10.6
+                    },
+                    {
+                        "Label": "POPDENS",
+                        "Value": 285
+                    },
+                    {
+                        "Label": "SLOPLAGPER",
+                        "Value": 3.39
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 28.9
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -107.33346,
+                    35.11893
+                ]
+            },
+            "properties": {
+                "siteid": "08349800",
+                "state": "NM",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 113
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 7713
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 13.2
+                    },
+                    {
+                        "Label": "PREC10to4",
+                        "Value": 5.74
+                    },
+                    {
+                        "Label": "BSLDEM30ff",
+                        "Value": 0.12
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 3.5
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1097
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 5824
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -74.66236,
+                    42.36118
+                ]
+            },
+            "properties": {
+                "siteid": "01421648",
+                "state": "NY",
+                "testData": [
+                    {
+                        "Label": "BSLOPCM",
+                        "Value": 1060
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 532497.4
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4690184.3
+                    },
+                    {
+                        "Label": "CONTOUR",
+                        "Value": 151.98
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 85.9
+                    },
+                    {
+                        "Label": "CSL1085LO",
+                        "Value": 54.3
+                    },
+                    {
+                        "Label": "CSL1085UP",
+                        "Value": 189.0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 14.3
+                    },
+                    {
+                        "Label": "EL1200",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 74.4
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 4.11
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 4.08
+                    },
+                    {
+                        "Label": "JUNMAXTMP",
+                        "Value": 71.3
+                    },
+                    {
+                        "Label": "LAGFACTOR",
+                        "Value": 0.0723
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 1.88
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.11
+                    },
+                    {
+                        "Label": "LENGTH",
+                        "Value": 7.41
+                    },
+                    {
+                        "Label": "MAR",
+                        "Value": 25.8
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 4.39
+                    },
+                    {
+                        "Label": "MXSNO",
+                        "Value": 16.4
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 527805
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 4689935
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 45.2
+                    },
+                    {
+                        "Label": "PRJUNAUG00",
+                        "Value": 11.9
+                    },
+                    {
+                        "Label": "SLOPERATIO",
+                        "Value": 0.0807
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 0.39
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 3.19
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -83.15299,
+                    40.82617
+                ]
+            },
+            "properties": {
+                "siteid": "04196200",
+                "state": "OH",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 334657.8
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4526944.2
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 4.46
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 83.6
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 9.24
+                    },
+                    {
+                        "Label": "LAT_CENT",
+                        "Value": 40.8769
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.15
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.78
+                    },
+                    {
+                        "Label": "LC92STOR",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 30.9
+                    },
+                    {
+                        "Label": "LONG_CENT",
+                        "Value": -82.9623
+                    },
+                    {
+                        "Label": "OHREGA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "OHREGC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 36.2
+                    },
+                    {
+                        "Label": "STREAM_VARG",
+                        "Value": 0.68
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -94.95591,
+                    36.6969
+                ]
+            },
+            "properties": {
+                "siteid": "07189700",
+                "state": "OK",
+                "testData": [
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 767
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 6.56
+                    },
+                    {
+                        "Label": "PREG_06_10",
+                        "Value": 20.5
+                    },
+                    {
+                        "Label": "PREG_11_05",
+                        "Value": 24.2
+                    },
+                    {
+                        "Label": "PRECIPOUT",
+                        "Value": 44.66
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 22.66
+                    },
+                    {
+                        "Label": "DAUNREG",
+                        "Value": 22.66
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 4.74
+                    },
+                    {
+                        "Label": "NRCSPCT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 5.37
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 2.11
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 3.86
+                    },
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 4.13
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 2.73
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 10.64
+                    },
+                    {
+                        "Label": "CANOPY_PCT",
+                        "Value": 1.02
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 1.83
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 44.68
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 802
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 0.44
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 1
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -122.37267,
+                    43.76221
+                ]
+            },
+            "properties": {
+                "siteid": "14146500",
+                "state": "OR",
+                "testData": [
+                    {
+                        "Label": "BSLOPD",
+                        "Value": 18.2
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1.04
+                    },
+                    {
+                        "Label": "DRNDENSITY",
+                        "Value": 0.91
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 3070
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 4580
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 97.7
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 2.46
+                    },
+                    {
+                        "Label": "IMPERV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "JANMAXT2K",
+                        "Value": 46.7
+                    },
+                    {
+                        "Label": "JANMAXTMP",
+                        "Value": 44.4
+                    },
+                    {
+                        "Label": "JANMINT2K",
+                        "Value": 33.3
+                    },
+                    {
+                        "Label": "JANMINTMP",
+                        "Value": 29.8
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEVHI",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVLO",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVMD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVOPN",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11FORSHB",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "LC11HERB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.0416
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MAJ_ROADS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MAXBSLOPD",
+                        "Value": 39.6
+                    },
+                    {
+                        "Label": "MAXTEMP",
+                        "Value": 59.7
+                    },
+                    {
+                        "Label": "MIN_ROADS",
+                        "Value": 2.58
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 1470
+                    },
+                    {
+                        "Label": "MINBSLOPD",
+                        "Value": 1.46
+                    },
+                    {
+                        "Label": "MINTEMP",
+                        "Value": 39
+                    },
+                    {
+                        "Label": "OR_HIPERMA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "OR_HIPERMG",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "ORREG2",
+                        "Value": 10001
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 50.6
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 3100
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 1.73
+                    },
+                    {
+                        "Label": "STATE_HWY",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 1.52
+                    },
+                    {
+                        "Label": "WATCAPORC",
+                        "Value": 0.13
+                    },
+                    {
+                        "Label": "WATCAPORR",
+                        "Value": 0.13
+                    },
+                    {
+                        "Label": "ASPECT",
+                        "Value": 251.0
+                    },
+                    {
+                        "Label": "JANAVPRE2K",
+                        "Value": 8.5
+                    },
+                    {
+                        "Label": "JULAVPRE2K",
+                        "Value": 0.65
+                    },
+                    {
+                        "Label": "STATSGODEP",
+                        "Value": 45.3
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.26763,
+                    40.84919
+                ]
+            },
+            "properties": {
+                "siteid": "01542000",
+                "state": "PA",
+                "testData": [
+                    {
+                        "Label": "BSLOPD",
+                        "Value": 6.1626
+                    },
+                    {
+                        "Label": "BSLOPDRAW",
+                        "Value": 6.3742
+                    },
+                    {
+                        "Label": "CARBON",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CENTROXA83",
+                        "Value": -26895.9552
+                    },
+                    {
+                        "Label": "CENTROYA83",
+                        "Value": 200656.4613
+                    },
+                    {
+                        "Label": "DRN",
+                        "Value": 3.4
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 68.7
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1819.0
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 81.4391
+                    },
+                    {
+                        "Label": "GLACIATED",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.8824
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 8.6872
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 8.7823
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.9868
+                    },
+                    {
+                        "Label": "LONG_OUT",
+                        "Value": -78.267574
+                    },
+                    {
+                        "Label": "MAXTEMP",
+                        "Value": 56.7
+                    },
+                    {
+                        "Label": "OUTLETXA83",
+                        "Value": -22560.2722
+                    },
+                    {
+                        "Label": "OUTLETYA83",
+                        "Value": 205344.973
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 39
+                    },
+                    {
+                        "Label": "ROCKDEP",
+                        "Value": 4.6
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 0.22
+                    },
+                    {
+                        "Label": "STRDEN",
+                        "Value": 1.41
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 96.92
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 2.4781
+                    },
+                    {
+                        "Label": "BSLPDRPA20",
+                        "Value": 6.6124
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2629.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -66.45962,
+                    18.32206
+                ]
+            },
+            "properties": {
+                "siteid": "50035000",
+                "state": "PR",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 82.8
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 47.7
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 64.59
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 134
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1900
+                    },
+                    {
+                        "Label": "ETPENMON",
+                        "Value": 1342.9
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 7.8
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.9
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 34.339
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 137
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 78.2
+                    },
+                    {
+                        "Label": "ROCKDEP",
+                        "Value": 2.2
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 10.6
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -92.82115,
+                    47.69071
+                ]
+            },
+            "properties": {
+                "siteid": "05131000",
+                "state": "RRB",
+                "testData": [
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 12
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 56.1
+                    },
+                    {
+                        "Label": "MAR",
+                        "Value": 7.23
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 28.1
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 30.4
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 37.9
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 19.8
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 10.5
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -71.15094,
+                    41.54368
+                ]
+            },
+            "properties": {
+                "siteid": "01106100",
+                "state": "RI",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1.17
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 3.35
+                    },
+                    {
+                        "Label": "STRDEN",
+                        "Value": 2.86
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 43.0
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 2.76
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 54.9
+                    },
+                    {
+                        "Label": "WATER",
+                        "Value": 0.13
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 23.5
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 113
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CROPS",
+                        "Value": 4.96
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 5.62
+                    },
+                    {
+                        "Label": "STRMTOTED",
+                        "Value": 3.35
+                    },
+                    {
+                        "Label": "STRDENED",
+                        "Value": 2.86
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.21
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 8.75
+                    },
+                    {
+                        "Label": "CAT1ROADS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CAT2ROADS",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CAT3ROADS",
+                        "Value": 0.5
+                    },
+                    {
+                        "Label": "CAT4ROADS",
+                        "Value": 4.39
+                    },
+                    {
+                        "Label": "CROSCOUNT1",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CROSCOUNT2",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "CROSCOUNT3",
+                        "Value": 1.0
+                    },
+                    {
+                        "Label": "CROSCOUNT4",
+                        "Value": 2.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -80.16566,
+                    33.90003
+                ]
+            },
+            "properties": {
+                "siteid": "02135500",
+                "state": "SC",
+                "testData": [
+                    {
+                        "Label": "BSLDEM30FT",
+                        "Value": 1.35
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 4.2
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 116
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 173
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 353
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 9.3
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 5.4
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 6.7
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.6
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 7.9
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 6.3
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 4.9
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.91
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 6.3
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 5.0
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 0.93
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.3
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 4.7
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.94
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 33.664
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 97.5
+                    },
+                    {
+                        "Label": "PCTREG1",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG2",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG3",
+                        "Value": 5.6
+                    },
+                    {
+                        "Label": "PCTREG4",
+                        "Value": 94.4
+                    },
+                    {
+                        "Label": "PCTREG5",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 45.3
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 4.6
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 21.5
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 19.3
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 24.9
+                    },
+                    {
+                        "Label": "LC16DEV",
+                        "Value": 6.7
+                    },
+                    {
+                        "Label": "LC16FOREST",
+                        "Value": 6.7
+                    },
+                    {
+                        "Label": "LC16IMP",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "LC16STOR",
+                        "Value": 25.7
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -96.8365,
+                    43.84802
+                ]
+            },
+            "properties": {
+                "siteid": "06481480",
+                "state": "SD",
+                "testData": [
+                    {
+                        "Label": "PII_SD",
+                        "Value": 1.12
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 261.97
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 5.18
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 249.61
+                    },
+                    {
+                        "Label": "NONCONTDA",
+                        "Value": 12.36
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 2.7
+                    },
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 152.86
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 45.2
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 1877.0
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 313
+                    },
+                    {
+                        "Label": "COMPRAT",
+                        "Value": 2.66
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 2.05
+                    },
+                    {
+                        "Label": "LIME",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LAKESNWI",
+                        "Value": 4.483
+                    },
+                    {
+                        "Label": "WETLNDNWI",
+                        "Value": 6.009
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 10.492
+                    },
+                    {
+                        "Label": "SD_LSTLZ",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_LSTHW",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_CC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_AS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_ASLZ",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_BHEXT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_SNDHLS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SLOPERAT",
+                        "Value": 1.9
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1712.0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 1565
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 1565.0
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 12.8
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -88.15859,
+                    35.41836
+                ]
+            },
+            "properties": {
+                "siteid": "035941625",
+                "state": "TN",
+                "testData": [
+                    {
+                        "Label": "CLIMFAC2YR",
+                        "Value": 2.4
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 18.77
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 12.62
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 18.77
+                    },
+                    {
+                        "Label": "PERMGTE2IN",
+                        "Value": 40.317
+                    },
+                    {
+                        "Label": "RECESS",
+                        "Value": 64
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 1.106
+                    },
+                    {
+                        "Label": "TNCLFACT2",
+                        "Value": 2.4
+                    },
+                    {
+                        "Label": "TNSOILFAC",
+                        "Value": 40
+                    },
+                    {
+                        "Label": "HA1PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "HA2PCT",
+                        "Value": 100.0
+                    },
+                    {
+                        "Label": "HA3PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "HA4PCT",
+                        "Value": 0.0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -110.50349,
+                    37.99983
+                ]
+            },
+            "properties": {
+                "siteid": "09333900",
+                "state": "UT",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 13.9
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 5170
+                    },
+                    {
+                        "Label": "LU92HRBN",
+                        "Value": 41.1
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 7.1
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 28.3
+                    },
+                    {
+                        "Label": "JANAVPRE",
+                        "Value": 0.74
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 0.48
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 0.78
+                    },
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 0.61
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 0.64
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 0.32
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 0.87
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 0.82
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 0.85
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.16
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 0.67
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 0.53
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 0.01
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 36.5
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -78.47418,
+                    37.84016
+                ]
+            },
+            "properties": {
+                "siteid": "02029500",
+                "state": "VA",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 104
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 693.13
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2387.45
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 308.58
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 2080
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 46.694
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.659
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.6
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 0.59
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.63
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 6.23
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 6.22
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.2
+                    },
+                    {
+                        "Label": "LC01WATER",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LC01WETLND",
+                        "Value": 0.02
+                    },
+                    {
+                        "Label": "LC06WETLND",
+                        "Value": 0.02
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0.06
+                    },
+                    {
+                        "Label": "LC01FORSHB",
+                        "Value": 69.38
+                    },
+                    {
+                        "Label": "LC06FORSHB",
+                        "Value": 68.7
+                    },
+                    {
+                        "Label": "LC11FORSHB",
+                        "Value": 67.8
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 23.93
+                    },
+                    {
+                        "Label": "LC06CRPHAY",
+                        "Value": 23.63
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 23.58
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC06GRASS",
+                        "Value": 0.99
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 1.93
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 0.09
+                    },
+                    {
+                        "Label": "LC06BARE",
+                        "Value": 0.09
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0.08
+                    },
+                    {
+                        "Label": "BRMETA",
+                        "Value": 95.93
+                    },
+                    {
+                        "Label": "CPSED",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PDIGMET",
+                        "Value": 2.22
+                    },
+                    {
+                        "Label": "MESZOIC",
+                        "Value": 1.85
+                    },
+                    {
+                        "Label": "VRPLSLC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "VRCARB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSWATCP",
+                        "Value": 0.134
+                    },
+                    {
+                        "Label": "STATSPERM",
+                        "Value": 2.555
+                    },
+                    {
+                        "Label": "STATSGODEP",
+                        "Value": 60.15
+                    },
+                    {
+                        "Label": "STATSCLAY10",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSCLY20",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSCLY30",
+                        "Value": 98.3
+                    },
+                    {
+                        "Label": "STATSCLY40",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSCLY50",
+                        "Value": 1.7
+                    },
+                    {
+                        "Label": "STATSCLY60",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSOM0_5",
+                        "Value": 53.69
+                    },
+                    {
+                        "Label": "STATSOM2_6",
+                        "Value": 46.31
+                    },
+                    {
+                        "Label": "STATSOM7_3",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATOM19_8",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATOM55_7",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LFREGNO",
+                        "Value": 1545
+                    },
+                    {
+                        "Label": "PKREGNO",
+                        "Value": 1551
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -72.68117,
+                    43.93176
+                ]
+            },
+            "properties": {
+                "siteid": "01142400",
+                "state": "VT",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 485106.8
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 160544.4
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 0.82
+                    },
+                    {
+                        "Label": "EL1200",
+                        "Value": 56.5
+                    },
+                    {
+                        "Label": "LC06STOR",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.23
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.58
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 485455
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 159075.0
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 44.2
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -90.1183,
+                    44.48291
+                ]
+            },
+            "properties": {
+                "siteid": "05401800",
+                "state": "WI",
+                "testData": [
+                    {
+                        "Label": "CLIFAC100Y",
+                        "Value": 2.7
+                    },
+                    {
+                        "Label": "CLIFAC25Y",
+                        "Value": 2.5
+                    },
+                    {
+                        "Label": "CLIMFAC2YR",
+                        "Value": 1.8
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 21.4
+                    },
+                    {
+                        "Label": "DEVNLCD01",
+                        "Value": 4.62
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 7.01
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 36.73
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 6.15
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 3.933
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 4.6
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 2.7
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 5.298
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 3.4
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 57.45
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 0.09
+                    },
+                    {
+                        "Label": "LC01WATER",
+                        "Value": 0.1
+                    },
+                    {
+                        "Label": "LC11EMWET",
+                        "Value": 0.25
+                    },
+                    {
+                        "Label": "LC11WDWET",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 32.423
+                    },
+                    {
+                        "Label": "SNOFALL",
+                        "Value": 46.085
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 9.114
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 0.6
+                    },
+                    {
+                        "Label": "SSURGOKSAT",
+                        "Value": 9.114
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -120.89424,
+                    48.69355
+                ]
+            },
+            "properties": {
+                "siteid": "12173000",
+                "state": "WA",
+                "testData": [
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 58.8
+                    },
+                    {
+                        "Label": "CANOPY_PCT",
+                        "Value": 59.8
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 70.02
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 5250
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 8940
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 2080
+                    },
+                    {
+                        "Label": "NFSL30",
+                        "Value": 21.6
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 83.2
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 6860
+                    },
+                    {
+                        "Label": "SLOP30_30M",
+                        "Value": 90.4
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 56.6
+                    }
+                ]
+            }
+        }
+    ]
+}
