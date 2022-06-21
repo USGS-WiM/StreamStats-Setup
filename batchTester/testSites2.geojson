@@ -63,8 +63,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    33.11668,
-                    -85.561043
+                    -85.561043,
+                    33.11668
                 ]
             },
             "properties": {
@@ -137,6 +137,31 @@
                     {
                         "Label": "PRECPRIS00",
                         "Value": 25
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -150.517408,
+                    61.546454
+                ]
+            },
+            "properties": {
+                "siteid": "15294350",
+                "state": "AK",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 19360
+                    },
+                    {
+                        "Label": "PRECPRIS00",
+                        "Value": 35
                     }
                 ]
             }
