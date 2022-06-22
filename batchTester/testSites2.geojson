@@ -2188,12 +2188,12 @@
                         "Value": 27.5
                     },
                     {
-                        "Label": "CSL10_85",
-                        "Value": 177
-                    },
-                    {
                         "Label": "CSL1085LFP",
                         "Value": 184
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 177
                     },
                     {
                         "Label": "DRNAREA",
@@ -2228,6 +2228,10 @@
                         "Value": 0
                     },
                     {
+                        "Label": "LC11FOREST",
+                        "Value": 46.7
+                    },
+                    {
                         "Label": "MINBELEV",
                         "Value": 5840
                     },
@@ -2242,6 +2246,10 @@
                     {
                         "Label": "PRECIP",
                         "Value": 34.5
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 35.3
                     },
                     {
                         "Label": "RELIEF",
@@ -2262,14 +2270,6 @@
                     {
                         "Label": "VOLCANIC",
                         "Value": 95.2
-                    },
-                    {
-                        "Label": "LC11FOREST",
-                        "Value": 46.7
-                    },
-                    {
-                        "Label": "PRECPRIS10",
-                        "Value": 35.3
                     }
                 ]
             }
