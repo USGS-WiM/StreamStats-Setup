@@ -2099,7 +2099,7 @@
                         "Value": 0
                     },
                     {
-                        "Label": "lc01crop",
+                        "Label": "LC01CROP",
                         "Value": 0
                     },
                     {
@@ -2157,10 +2157,6 @@
                     {
                         "Label": "SLPFM3D",
                         "Value": 610
-                    },
-                    {
-                        "Label": "LC01CROP",
-                        "Value": 0.0
                     }
                 ]
             }
