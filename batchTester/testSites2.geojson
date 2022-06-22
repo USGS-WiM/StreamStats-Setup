@@ -178,6 +178,7 @@
             "properties": {
                 "siteid": "09502750",
                 "state": "AZ",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "APRAVPRE",
@@ -455,6 +456,235 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -113.92436,
+                    36.891432
+                ]
+            },
+            "properties": {
+                "siteid": "09502750",
+                "state": "AZ",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "APRAVTMP",
+                        "Value": 51.5
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 1.5
+                    },
+                    {
+                        "Label": "AUGAVTMP",
+                        "Value": 74.5
+                    },
+                    {
+                        "Label": "AZ_HIPERMA",
+                        "Value": 9.22
+                    },
+                    {
+                        "Label": "AZ_HIPERMG",
+                        "Value": 6.15
+                    },
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 606.77
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 22.47
+                    },
+                    {
+                        "Label": "CH92_01DEV",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "CH92_01FOR",
+                        "Value": 7.4
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 4813.82
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 4813.82
+                    },
+                    {
+                        "Label": "DRNDENSITY",
+                        "Value": 3.13
+                    },
+                    {
+                        "Label": "EL5000",
+                        "Value": 55.38
+                    },
+                    {
+                        "Label": "EL6000",
+                        "Value": 23.17
+                    },
+                    {
+                        "Label": "EL7500",
+                        "Value": 6.3
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 5161.515
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 9117.41
+                    },
+                    {
+                        "Label": "FD_Region",
+                        "Value": 9620
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 1.7
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.3
+                    },
+                    {
+                        "Label": "JANAVPRE",
+                        "Value": 1.59
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "JULYAVTMP",
+                        "Value": 76.1
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 0.4
+                    },
+                    {
+                        "Label": "JUNEAVTMP",
+                        "Value": 70.3
+                    },
+                    {
+                        "Label": "LAT_CENT",
+                        "Value": 37.0754
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 2
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 1.2
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 29.8
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 6.5
+                    },
+                    {
+                        "Label": "LC92FOREST",
+                        "Value": 22.4
+                    },
+                    {
+                        "Label": "LONG_CENT",
+                        "Value": -113.369
+                    },
+                    {
+                        "Label": "LU92DEV",
+                        "Value": 0.2
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 2
+                    },
+                    {
+                        "Label": "MARAVTMP",
+                        "Value": 44.8
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 0.8
+                    },
+                    {
+                        "Label": "MAYAVTMP",
+                        "Value": 60.4
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 2372.13
+                    },
+                    {
+                        "Label": "NFSL30_10M",
+                        "Value": 7.36
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 1.2
+                    },
+                    {
+                        "Label": "NOVAVTMP",
+                        "Value": 43.3
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.2
+                    },
+                    {
+                        "Label": "OCTAVTMP",
+                        "Value": 55.8
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 1777.84
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 14.3
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 8841.77
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 14.57
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "SEPAVTMP",
+                        "Value": 67.1
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 26.74
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 15056.97	
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 54.61
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -92.87265,
                     35.32482
                 ]
@@ -462,6 +692,7 @@
             "properties": {
                 "siteid": "07260673",
                 "state": "AR",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSHAPE",
@@ -610,6 +841,7 @@
             "properties": {
                 "siteid": "11186500",
                 "state": "CA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "ALTIND",
@@ -710,6 +942,7 @@
             "properties": {
                 "siteid": "09078200",
                 "state": "CO",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -866,6 +1099,7 @@
             "properties": {
                 "siteid": "01187680",
                 "state": "CT",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CRSDFT",
@@ -1006,6 +1240,7 @@
             "properties": {
                 "siteid": "01174600",
                 "state": "CRB",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CENTROIDX",
@@ -1050,6 +1285,7 @@
             "properties": {
                 "siteid": "01484500",
                 "state": "DE",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM3M",
@@ -1102,6 +1338,7 @@
             "properties": {
                 "siteid": "01471875",
                 "state": "DRB",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CENTROIDX",
@@ -1162,6 +1399,7 @@
             "properties": {
                 "siteid": "02223190",
                 "state": "GA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM10M",
@@ -1282,6 +1520,7 @@
             "properties": {
                 "siteid": "16759800",
                 "state": "HI",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BASINPERIM",
@@ -1530,6 +1769,7 @@
             "properties": {
                 "siteid": "13314500",
                 "state": "ID",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "AG_OF_DA",
@@ -1642,6 +1882,7 @@
             "properties": {
                 "siteid": "05572450",
                 "state": "IL",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BASINPERIM",
@@ -1758,6 +1999,7 @@
             "properties": {
                 "siteid": "03326070",
                 "state": "IN",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -1854,6 +2096,7 @@
             "properties": {
                 "siteid": "05451210",
                 "state": "IA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BASLENAH",
@@ -1974,6 +2217,7 @@
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "pointType": "local",
                 "coordinates": [
                     -84.94215,
                     38.29797
@@ -2034,6 +2278,7 @@
             "properties": {
                 "siteid": "01046800",
                 "state": "ME",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM10M",
@@ -2150,6 +2395,7 @@
             "properties": {
                 "siteid": "01332500",
                 "state": "MA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "ACRSDFT",
@@ -2294,6 +2540,7 @@
             "properties": {
                 "siteid": "01581700",
                 "state": "MD",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "ADJCOEFF",
@@ -2366,6 +2613,7 @@
             "properties": {
                 "siteid": "05311300",
                 "state": "MN",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM10M",
@@ -2446,6 +2694,7 @@
             "properties": {
                 "siteid": "06906470",
                 "state": "MO",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSHAPE",
@@ -2490,6 +2739,7 @@
             "properties": {
                 "siteid": "07289350",
                 "state": "MS",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CSL10_85fm",
@@ -2590,6 +2840,7 @@
             "properties": {
                 "siteid": "12337900",
                 "state": "MT",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CONTDA",
@@ -2690,6 +2941,7 @@
             "properties": {
                 "siteid": "02117030",
                 "state": "NC",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BASINPERIM",
@@ -2922,6 +3174,7 @@
             "properties": {
                 "siteid": "06354815",
                 "state": "ND",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -3022,6 +3275,7 @@
             "properties": {
                 "siteid": "NHtestSite",
                 "state": "NH",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "APRAVPRE",
@@ -3134,6 +3388,7 @@
             "properties": {
                 "siteid": "01467000",
                 "state": "NJ",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "APRAVPRE",
@@ -3191,6 +3446,7 @@
             "properties": {
                 "siteid": "08349800",
                 "state": "NM",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -3239,6 +3495,7 @@
             "properties": {
                 "siteid": "01421648",
                 "state": "NY",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLOPCM",
@@ -3367,6 +3624,7 @@
             "properties": {
                 "siteid": "04196200",
                 "state": "OH",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CENTROIDX",
@@ -3443,6 +3701,7 @@
             "properties": {
                 "siteid": "07189700",
                 "state": "OK",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "OUTLETELEV",
@@ -3543,6 +3802,7 @@
             "properties": {
                 "siteid": "14146500",
                 "state": "OR",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLOPD",
@@ -3735,6 +3995,7 @@
             "properties": {
                 "siteid": "01542000",
                 "state": "PA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLOPD",
@@ -3855,6 +4116,7 @@
             "properties": {
                 "siteid": "50035000",
                 "state": "PR",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BASINPERIM",
@@ -3923,6 +4185,7 @@
             "properties": {
                 "siteid": "05131000",
                 "state": "RRB",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CSL10_85",
@@ -3971,6 +4234,7 @@
             "properties": {
                 "siteid": "01106100",
                 "state": "RI",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -4083,6 +4347,7 @@
             "properties": {
                 "siteid": "02135500",
                 "state": "SC",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM30FT",
@@ -4243,6 +4508,7 @@
             "properties": {
                 "siteid": "06481480",
                 "state": "SD",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "PII_SD",
@@ -4375,6 +4641,7 @@
             "properties": {
                 "siteid": "035941625",
                 "state": "TN",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CLIMFAC2YR",
@@ -4443,6 +4710,7 @@
             "properties": {
                 "siteid": "09333900",
                 "state": "UT",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -4543,6 +4811,7 @@
             "properties": {
                 "siteid": "02029500",
                 "state": "VA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "DRNAREA",
@@ -4771,6 +5040,7 @@
             "properties": {
                 "siteid": "01142400",
                 "state": "VT",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CENTROIDX",
@@ -4827,6 +5097,7 @@
             "properties": {
                 "siteid": "05401800",
                 "state": "WI",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "CLIFAC100Y",
@@ -4935,6 +5206,7 @@
             "properties": {
                 "siteid": "12173000",
                 "state": "WA",
+                "pointType": "local",
                 "testData": [
                     {
                         "Label": "BSLDEM30M",
