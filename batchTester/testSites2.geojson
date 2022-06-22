@@ -2617,12 +2617,12 @@
                         "Value": 28.964
                     },
                     {
-                        "Label": "DRNAREA",
-                        "Value": 28.964
-                    },
-                    {
                         "Label": "CSL10_85",
                         "Value": 6.48
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 28.964
                     },
                     {
                         "Label": "HIGHREG",
@@ -2645,20 +2645,20 @@
                         "Value": 17.0
                     },
                     {
-                        "Label": "LC11IMP",
-                        "Value": 1.13
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 6.69
-                    },
-                    {
                         "Label": "LAT_OUT",
                         "Value": 40.422025
                     },
                     {
                         "Label": "LC01FOREST",
                         "Value": 7.6
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.69
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.13
                     },
                     {
                         "Label": "LOWREG",
@@ -2912,42 +2912,6 @@
                         "Value": 4234.4
                     },
                     {
-                        "Label": "LC06WATER",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 2.01
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 0.26
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 59.7
-                    },
-                    {
-                        "Label": "SANDGRAVAF",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "SANDGRAVAP",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "STATSGOA",
-                        "Value": 12.8
-                    },
-                    {
-                        "Label": "STORNWI",
-                        "Value": 3.14
-                    },
-                    {
-                        "Label": "PRDECFEB90",
-                        "Value": 13.0
-                    },
-                    {
                         "Label": "I24H100Y",
                         "Value": 6.74
                     },
@@ -2978,6 +2942,42 @@
                     {
                         "Label": "I24H5Y",
                         "Value": 3.91
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 2.01
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.26
+                    },
+                    {
+                        "Label": "PRDECFEB90",
+                        "Value": 13.0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 59.7
+                    },
+                    {
+                        "Label": "SANDGRAVAF",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SANDGRAVAP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSGOA",
+                        "Value": 12.8
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 3.14
                     },
                     {
                         "Label": "STORAGE",
@@ -3011,78 +3011,6 @@
                     {
                         "Label": "BSLDEM250",
                         "Value": 13.424
-                    },
-                    {
-                        "Label": "CENTROIDX",
-                        "Value": 67661
-                    },
-                    {
-                        "Label": "CENTROIDY",
-                        "Value": 935091.4
-                    },
-                    {
-                        "Label": "CRSDFT",
-                        "Value": 10.16
-                    },
-                    {
-                        "Label": "DRFTPERSTR",
-                        "Value": 0.0584
-                    },
-                    {
-                        "Label": "DRNAREA",
-                        "Value": 126
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 1610
-                    },
-                    {
-                        "Label": "FOREST",
-                        "Value": 72.92
-                    },
-                    {
-                        "Label": "LAKEAREA",
-                        "Value": 1.11
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 9.28
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 2.93
-                    },
-                    {
-                        "Label": "MAREGION",
-                        "Value": 1
-                    },
-                    {
-                        "Label": "MAXTEMPC",
-                        "Value": 12.1
-                    },
-                    {
-                        "Label": "OUTLETX",
-                        "Value": 64075.0
-                    },
-                    {
-                        "Label": "OUTLETY",
-                        "Value": 940195
-                    },
-                    {
-                        "Label": "PCTSNDGRV",
-                        "Value": 10.16
-                    },
-                    {
-                        "Label": "PRECPRIS00",
-                        "Value": 49.8
-                    },
-                    {
-                        "Label": "STRMTOT",
-                        "Value": 228
-                    },
-                    {
-                        "Label": "WETLAND",
-                        "Value": 3.06
                     },
                     {
                         "Label": "CAT1ROADS",
@@ -3121,13 +3049,85 @@
                         "Value": 16.4
                     },
                     {
+                        "Label": "CENTROIDX",
+                        "Value": 67661
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 935091.4
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 10.16
+                    },
+                    {
+                        "Label": "DRFTPERSTR",
+                        "Value": 0.0584
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 126
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1610
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 72.92
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 1.11
+                    },
+                    {
                         "Label": "LC06STOR",
                         "Value": 2.45
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 9.28
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.93
                     },
                     {
                         "Label": "LFPLENGTH",
                         "Value": 25.8
                     }
+                    {
+                        "Label": "MAREGION",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "MAXTEMPC",
+                        "Value": 12.1
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 64075.0
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 940195
+                    },
+                    {
+                        "Label": "PCTSNDGRV",
+                        "Value": 10.16
+                    },
+                    {
+                        "Label": "PRECPRIS00",
+                        "Value": 49.8
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 228
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 3.06
+                    },
                 ]
             }
         },
