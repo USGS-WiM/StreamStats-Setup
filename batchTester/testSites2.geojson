@@ -770,6 +770,147 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -92.026465,
+                    33.700799
+                ]
+            },
+            "properties": {
+                "siteid": "07363500",
+                "state": "AR",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "ALVM",
+                        "Value": 3.48
+                    },
+                    {
+                        "Label": "BFI",
+                        "Value": 0.31
+                    },
+                    {
+                        "Label": "BSHAPELFP",
+                        "Value": 19.644
+                    },
+                    {
+                        "Label": "CSL1085ADJ",
+                        "Value": 2.612
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 2.23
+                    },
+                    {
+                        "Label": "CSL1085RAW",
+                        "Value": 2.23
+                    },
+                    {
+                        "Label": "CSLBlue",
+                        "Value": 4.02
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 2090
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 360
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1717
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.94
+                    },
+                    {
+                        "Label": "LC11DVOPN",
+                        "Value": 3.19
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.37
+                    },
+                    {
+                        "Label": "LC11PAST",
+                        "Value": 4.68
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 202.734
+                    },
+                    {
+                        "Label": "LOWREG",
+                        "Value": 1439
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 5.28
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 5.06
+                    },
+                    {
+                        "Label": "ORDOMISS",
+                        "Value": 35.4
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 54.2
+                    },
+                    {
+                        "Label": "PREMARAPR",
+                        "Value": 10.4
+                    },
+                    {
+                        "Label": "PRENOVDEC",
+                        "Value": 10.2
+                    },
+                    {
+                        "Label": "PRNOVAPR00",
+                        "Value": 29.2
+                    },
+                    {
+                        "Label": "PRNOVAPR90",
+                        "Value": 28.3
+                    },
+                    {
+                        "Label": "PZNSSREGNO",
+                        "Value": 1446
+                    },
+                    {
+                        "Label": "SOILINDEX",
+                        "Value": 3.07
+                    },
+                    {
+                        "Label": "TAU_ANN_G",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "TAU_SPR_G",
+                        "Value": 8
+                    },
+                    {
+                        "Label": "TAU_WIN_G",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "TRUN0711",
+                        "Value": 3.61
+                    },
+                    {
+                        "Label": "UPZ",
+                        "Value": 5.11
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -118.45159,
                     35.90158
                 ]
