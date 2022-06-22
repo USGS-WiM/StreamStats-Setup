@@ -181,10 +181,6 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "APRAVPRE",
-                        "Value": 0.99
-                    },
-                    {
                         "Label": "APRAVTMP",
                         "Value": 49
                     },
@@ -221,12 +217,12 @@
                         "Value": 22
                     },
                     {
-                        "Label": "DECAVPRE",
-                        "Value": 1.6
+                        "Label": "CONTDA",
+                        "Value": 36.18
                     },
                     {
-                        "Label": "DECAVTMP",
-                        "Value": 35.9
+                        "Label": "DECAVPRE",
+                        "Value": 1.6
                     },
                     {
                         "Label": "DRNAREA",
@@ -257,40 +253,12 @@
                         "Value": 7253.18
                     },
                     {
+                        "Label": "FD_Region",
+                        "Value": 1623
+                    },
+                    {
                         "Label": "FEBAVPRE",
                         "Value": 2.8
-                    },
-                    {
-                        "Label": "FEBAVTMP",
-                        "Value": 38.4
-                    },
-                    {
-                        "Label": "I24H100Y",
-                        "Value": 4.92
-                    },
-                    {
-                        "Label": "I24H10Y",
-                        "Value": 3.23
-                    },
-                    {
-                        "Label": "I24H200Y",
-                        "Value": 5.43
-                    },
-                    {
-                        "Label": "I24H25Y",
-                        "Value": 3.87
-                    },
-                    {
-                        "Label": "I24H500Y",
-                        "Value": 6.13
-                    },
-                    {
-                        "Label": "I24H50Y",
-                        "Value": 4.39
-                    },
-                    {
-                        "Label": "I24H5Y",
-                        "Value": 2.73
                     },
                     {
                         "Label": "IMPNLCD01",
@@ -299,10 +267,6 @@
                     {
                         "Label": "JANAVPRE",
                         "Value": 2.55
-                    },
-                    {
-                        "Label": "JANAVTMP",
-                        "Value": 35.4
                     },
                     {
                         "Label": "JULAVPRE",
@@ -341,10 +305,6 @@
                         "Value": 0
                     },
                     {
-                        "Label": "LC92DEV",
-                        "Value": 0
-                    },
-                    {
                         "Label": "LC92FOREST",
                         "Value": 53
                     },
@@ -353,16 +313,16 @@
                         "Value": -112.917
                     },
                     {
+                        "Label": "LU92DEV",
+                        "Value": 0
+                    },
+                    {
                         "Label": "MARAVPRE",
                         "Value": 2.3
                     },
                     {
                         "Label": "MARAVTMP",
                         "Value": 42.4
-                    },
-                    {
-                        "Label": "MAXBSLOP",
-                        "Value": 211.36
                     },
                     {
                         "Label": "MAYAVPRE",
@@ -375,10 +335,6 @@
                     {
                         "Label": "MINBELEV",
                         "Value": 5160.42
-                    },
-                    {
-                        "Label": "MINBSLOP",
-                        "Value": 0
                     },
                     {
                         "Label": "NFSL30_10M",
@@ -402,7 +358,7 @@
                     },
                     {
                         "Label": "OUTLETELEV",
-                        "Value": 5160.46
+                        "Value": 5160.78
                     },
                     {
                         "Label": "PRECIP",
@@ -430,23 +386,11 @@
                     },
                     {
                         "Label": "STRMTOT",
-                        "Value": 106.74
+                        "Value": 106.73
                     },
                     {
                         "Label": "TEMP",
                         "Value": 51.96
-                    },
-                    {
-                        "Label": "CONTDA",
-                        "Value": 36.18
-                    },
-                    {
-                        "Label": "FD_Region",
-                        "Value": 1623.0
-                    },
-                    {
-                        "Label": "LU92DEV",
-                        "Value": 0.0
                     }
                 ]
             }
