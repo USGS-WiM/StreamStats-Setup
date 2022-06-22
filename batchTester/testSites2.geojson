@@ -2692,6 +2692,103 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -86.721259,
+                    39.327476
+                ]
+            },
+            "properties": {
+                "siteid": "INglobal",
+                "state": "IN",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BFREGNO",
+                        "Value": 1567
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 3.78
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 	2957.171
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 2.52
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 2957.465
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 1006
+                    },
+                    {
+                        "Label": "INSINKHOLE",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "INSINKING",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "K1INDNR",
+                        "Value": 24
+                    },
+                    {
+                        "Label": "K2INDNR",
+                        "Value": 26
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 39.327476
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 17.1
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 26
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 7.55
+                    },
+                    {
+                        "Label": "LOWREG",
+                        "Value": 1730
+                    },
+                    {
+                        "Label": "QSSPERMTHK",
+                        "Value": 1442.39
+                    },
+                    {
+                        "Label": "ST2INDNR",
+                        "Value": 2240
+                    },
+                    {
+                        "Label": "T2INDNR",
+                        "Value": 2138
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 10.8
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 1.75
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -93.15235,
                     42.31502
                 ]
