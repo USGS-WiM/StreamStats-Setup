@@ -1830,6 +1830,14 @@
                         "Value": 443
                     },
                     {
+                        "Label": "ELEVMAX",
+                        "Value": 691.0
+                    },
+                    {
+                        "Label": "GWHEAD",
+                        "Value": 194.0
+                    },
+                    {
                         "Label": "I24H100Y",
                         "Value": 7.78
                     },
@@ -1870,6 +1878,10 @@
                         "Value": 1.02
                     },
                     {
+                        "Label": "MINBELEV",
+                        "Value": 249.0
+                    },
+                    {
                         "Label": "PCTREG1",
                         "Value": 24.343
                     },
@@ -1888,22 +1900,6 @@
                     {
                         "Label": "PCTREG5",
                         "Value": 0
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 50
-                    },
-                    {
-                        "Label": "ELEVMAX",
-                        "Value": 691.0
-                    },
-                    {
-                        "Label": "GWHEAD",
-                        "Value": 194.0
-                    },
-                    {
-                        "Label": "MINBELEV",
-                        "Value": 249.0
                     },
                     {
                         "Label": "PRECPRIS00",
