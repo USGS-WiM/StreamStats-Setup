@@ -2494,6 +2494,107 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -88.257739,
+                    37.677407
+                ]
+            },
+            "properties": {
+                "siteid": "ILglobal",
+                "state": "IL",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 262.63
+                    },
+                    {
+                        "Label": "BASLENAH",
+                        "Value": 48.53
+                    },
+                    {
+                        "Label": "CSL1085RAW",
+                        "Value": 3.31
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 3.351
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1056.91
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 1050
+                    },
+                    {
+                        "Label": "FLC11DVLMH",
+                        "Value": 0.026
+                    },
+                    {
+                        "Label": "FSSURGDC78",
+                        "Value": 0.041
+                    },
+                    {
+                        "Label": "ILREG1",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG3",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG5",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG6",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "ILREG7",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 9.26
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.4
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 343
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 708
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 2.7
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 0.887
+                    },
+                    {
+                        "Label": "URBTHE2010",
+                        "Value": 0.032
+                    },
+                    {
+                        "Label": "WATWET",
+                        "Value": 1.956
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -85.35111,
                     40.42201
                 ]
