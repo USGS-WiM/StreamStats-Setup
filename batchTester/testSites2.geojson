@@ -1157,6 +1157,163 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -102.484082,
+                    38.114191
+                ]
+            },
+            "properties": {
+                "siteid": "07134100",
+                "state": "CO",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 2.08
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 12.3
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 3220
+                    },
+                    {
+                        "Label": "EL7500",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 4872
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 7290
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 2072.56
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 828.02
+                    },
+                    {
+                        "Label": "I6H100Y",
+                        "Value": 4.23
+                    },
+                    {
+                        "Label": "I6H2Y",
+                        "Value": 665.24
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 38.114191
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0.2
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 11.9
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 3.2
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 1.3
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 74.9
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 5.5
+                    },
+                    {
+                        "Label": "LC11SHRUB",
+                        "Value": 5.2
+                    },
+                    {
+                        "Label": "LC11SNOIC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0.6
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 228
+                    },
+                    {
+                        "Label": "LONG_OUT",
+                        "Value": -102.484082	
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 3550
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 3548	
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 15.49
+                    },
+                    {
+                        "Label": "RCN",
+                        "Value": 60.22
+                    },
+                    {
+                        "Label": "RUNCO_CO",
+                        "Value": 0.26
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 22
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 32.4
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 31.6
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 11.7
+                    },
+                    {
+                        "Label": "STATSCLAY",
+                        "Value": 21.21
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 0.3
+                    },
+                    {
+                        "Label": "TOC",
+                        "Value": 184.25
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.90583,
                     41.87217
                 ]
