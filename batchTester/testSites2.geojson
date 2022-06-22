@@ -2411,24 +2411,12 @@
                         "Value": 16.5
                     },
                     {
-                        "Label": "BASLENRAW",
-                        "Value": 16.002446
-                    },
-                    {
-                        "Label": "BHC2010",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "CSL10_85",
-                        "Value": 4.18
-                    },
-                    {
                         "Label": "CSL1085RAW",
                         "Value": 4.179
                     },
                     {
-                        "Label": "DRCLASS1A",
-                        "Value": 0
+                        "Label": "CSL10_85",
+                        "Value": 4.18
                     },
                     {
                         "Label": "DRNAREA",
@@ -2475,10 +2463,6 @@
                         "Value": 1.01
                     },
                     {
-                        "Label": "LC11URB",
-                        "Value": 0
-                    },
-                    {
                         "Label": "MINBELEV",
                         "Value": 637
                     },
@@ -2520,6 +2504,18 @@
                 "pointType": "local",
                 "testData": [
                     {
+                        "Label": "BFREGNO",
+                        "Value": 1566
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 1.63
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 28.964
+                    },
+                    {
                         "Label": "DRNAREA",
                         "Value": 28.964
                     },
@@ -2530,34 +2526,6 @@
                     {
                         "Label": "HIGHREG",
                         "Value": 1008
-                    },
-                    {
-                        "Label": "URBAN",
-                        "Value": 2.0
-                    },
-                    {
-                        "Label": "WETLAND",
-                        "Value": 0.91
-                    },
-                    {
-                        "Label": "CONTDA",
-                        "Value": 28.964
-                    },
-                    {
-                        "Label": "BFREGNO",
-                        "Value": 1566
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 1.13
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 6.69
-                    },
-                    {
-                        "Label": "BSLDEM10M",
-                        "Value": 1.63
                     },
                     {
                         "Label": "INSINKHOLE",
@@ -2574,6 +2542,14 @@
                     {
                         "Label": "K2INDNR",
                         "Value": 17.0
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.13
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 6.69
                     },
                     {
                         "Label": "LAT_OUT",
@@ -2598,6 +2574,14 @@
                     {
                         "Label": "T2INDNR",
                         "Value": 1421.0
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 2.0
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 0.91
                     }
                 ]
             }
@@ -2750,10 +2734,6 @@
                         "Value": 5.65
                     },
                     {
-                        "Label": "LAT_OUT",
-                        "Value": 38.297977
-                    },
-                    {
                         "Label": "ELEV",
                         "Value": 805
                     },
@@ -2766,20 +2746,24 @@
                         "Value": 1.35
                     },
                     {
-                        "Label": "LC11IMP",
-                        "Value": 0.57
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 5.68
-                    },
-                    {
                         "Label": "KYVARIND10",
                         "Value": 1.25
                     },
                     {
                         "Label": "KYVARIND93",
                         "Value": 1.35
+                    },
+                    {
+                        "Label": "LAT_OUT",
+                        "Value": 38.297977
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.57
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 5.68
                     }
                 ]
             }
