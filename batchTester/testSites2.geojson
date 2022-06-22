@@ -639,12 +639,32 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "BSHAPE",
+                        "Label": "ALVM",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "BFI",
                         "Value": 0.24
                     },
                     {
-                        "Label": "CSL10_85",
-                        "Value": 20.593
+                        "Label": "BSHAPELFP",
+                        "Value": 5.845
+                    },
+                    {
+                        "Label": "CSL1085ADJ",
+                        "Value": 20.585
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 19.2
+                    },
+                    {
+                        "Label": "CSL1085RAW",
+                        "Value": 19.2
+                    },
+                    {
+                        "Label": "CSLBlue",
+                        "Value": 46.2
                     },
                     {
                         "Label": "DRNAREA",
@@ -656,19 +676,27 @@
                     },
                     {
                         "Label": "HIGHREG",
-                        "Value": 1715.0
+                        "Value": 1715
                     },
                     {
                         "Label": "LC11DEV",
                         "Value": 4.08
                     },
                     {
+                        "Label": "LC11DVOPN",
+                        "Value": 3.15
+                    },
+                    {
                         "Label": "LC11IMP",
                         "Value": 0.49
                     },
                     {
+                        "Label": "LC11PAST",
+                        "Value": 19.6
+                    },
+                    {
                         "Label": "LFPLENGTH",
-                        "Value": 35.98
+                        "Value": 35.989
                     },
                     {
                         "Label": "LOWREG",
@@ -727,48 +755,12 @@
                         "Value": 10
                     },
                     {
-                        "Label": "ALVM",
-                        "Value": 0.0
-                    },
-                    {
-                        "Label": "BFI",
-                        "Value": 0.24
-                    },
-                    {
-                        "Label": "BSHAPELFP",
-                        "Value": 5.842
-                    },
-                    {
-                        "Label": "CSL1085ADJ",
-                        "Value": 20.593
-                    },
-                    {
-                        "Label": "CSL1085LFP",
-                        "Value": 19.2
-                    },
-                    {
-                        "Label": "CSL1085RAW",
-                        "Value": 19.2
-                    },
-                    {
-                        "Label": "CSLBlue",
-                        "Value": 46.2
-                    },
-                    {
-                        "Label": "LC11DVOPN",
-                        "Value": 3.15
-                    },
-                    {
-                        "Label": "LC11PAST",
-                        "Value": 19.6
-                    },
-                    {
                         "Label": "TRUN0711",
                         "Value": 3.83
                     },
                     {
                         "Label": "UPZ",
-                        "Value": 100.0
+                        "Value": 100
                     }
                 ]
             }
