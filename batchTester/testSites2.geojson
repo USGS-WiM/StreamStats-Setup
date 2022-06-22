@@ -1010,44 +1010,28 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "DRNAREA",
-                        "Value": 7.2
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 31.85
-                    },
-                    {
-                        "Label": "I6H100Y",
-                        "Value": 1.67
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 10891.0
-                    },
-                    {
                         "Label": "BSLDEM10M",
                         "Value": 38
-                    },
-                    {
-                        "Label": "EL7500",
-                        "Value": 100
-                    },
-                    {
-                        "Label": "OUTLETELEV",
-                        "Value": 9566
-                    },
-                    {
-                        "Label": "STATSCLAY",
-                        "Value": 11.32
                     },
                     {
                         "Label": "CSL1085LFP",
                         "Value": 485.7
                     },
                     {
+                        "Label": "DRNAREA",
+                        "Value": 7.2
+                    },
+                    {
+                        "Label": "EL7500",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 10891
+                    },
+                    {
                         "Label": "ELEVMAX",
-                        "Value": 12300.0
+                        "Value": 12300
                     },
                     {
                         "Label": "I24H100Y",
@@ -1056,6 +1040,10 @@
                     {
                         "Label": "I24H2Y",
                         "Value": 1.33
+                    },
+                    {
+                        "Label": "I6H100Y",
+                        "Value": 1.67
                     },
                     {
                         "Label": "I6H2Y",
@@ -1071,11 +1059,11 @@
                     },
                     {
                         "Label": "LC11CRPHAY",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "LC11DEV",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "LC11FOREST",
@@ -1091,7 +1079,7 @@
                     },
                     {
                         "Label": "LC11SHRUB",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "LC11SNOIC",
@@ -1099,7 +1087,7 @@
                     },
                     {
                         "Label": "LC11WATER",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "LC11WETLND",
@@ -1111,15 +1099,23 @@
                     },
                     {
                         "Label": "LONG_OUT",
-                        "Value": -106.575388
+                        "Value": -106.575388	
                     },
                     {
                         "Label": "MINBELEV",
-                        "Value": 9560.0
+                        "Value": 9560
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 9566
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 31.85
                     },
                     {
                         "Label": "RCN",
-                        "Value": 98.0
+                        "Value": 98
                     },
                     {
                         "Label": "RUNCO_CO",
@@ -1127,19 +1123,23 @@
                     },
                     {
                         "Label": "SSURGOA",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "SSURGOB",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "SSURGOC",
-                        "Value": 0.0
+                        "Value": 0
                     },
                     {
                         "Label": "SSURGOD",
-                        "Value": 0.0
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSCLAY",
+                        "Value": 11.32
                     },
                     {
                         "Label": "STORNHD",
