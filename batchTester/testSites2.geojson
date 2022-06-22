@@ -1603,7 +1603,7 @@
                 "testData": [
                     {
                         "Label": "CENTROIDX",
-                        "Value": 126400
+                        "Value": 126401.7
                     },
                     {
                         "Label": "CENTROIDY",
@@ -1627,7 +1627,7 @@
                     },
                     {
                         "Label": "OUTLETY",
-                        "Value": 900835
+                        "Value": 900825
                     }
                 ]
             }
