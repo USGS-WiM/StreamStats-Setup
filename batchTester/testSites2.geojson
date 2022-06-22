@@ -1690,6 +1690,59 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -75.26828,
+                    38.585793
+                ]
+            },
+            "properties": {
+                "siteid": "DEglobal",
+                "state": "DE",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM3M",
+                        "Value": 2.18
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 64.7
+                    },
+                    {
+                        "Label": "HSNGTOT10",
+                        "Value": 5910
+                    },
+                    {
+                        "Label": "IMPERV",
+                        "Value": 3.61
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 45.35
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 75
+                    },
+                    {
+                        "Label": "SOILA",
+                        "Value": 53.3664	
+                    },
+                    {
+                        "Label": "SOILD",
+                        "Value": 33.7648
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 3.4887
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -75.74262,
                     40.33951
                 ]
