@@ -921,24 +921,12 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "ALTIND",
-                        "Value": 6.61
-                    },
-                    {
                         "Label": "BASINPERIM",
                         "Value": 35.5
                     },
                     {
                         "Label": "BSLDEM30M",
                         "Value": 30.5
-                    },
-                    {
-                        "Label": "CENTROIDX",
-                        "Value": -1982584
-                    },
-                    {
-                        "Label": "CENTROIDY",
-                        "Value": 1661931
                     },
                     {
                         "Label": "DRNAREA",
