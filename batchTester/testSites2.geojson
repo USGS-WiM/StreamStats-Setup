@@ -28,24 +28,24 @@
                         "Value": 5.39
                     },
                     {
-                        "Label": "LC06DEV",
-                        "Value": 2.52
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 0.35
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 2.88
-                    },
-                    {
                         "Label": "L3_PIEDMNT",
                         "Value": 0.0
                     },
                     {
                         "Label": "L3_SE_PLNS",
                         "Value": 0.0
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 2.52
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 2.88
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.35
                     },
                     {
                         "Label": "PRECPRIS10",
