@@ -1455,6 +1455,143 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.067425,
+                    41.525216
+                ]
+            },
+            "properties": {
+                "siteid": "CTglobal",
+                "state": "CT",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "CAT1ROADS",
+                        "Value": 58
+                    },
+                    {
+                        "Label": "CAT2ROADS",
+                        "Value": 50.6
+                    },
+                    {
+                        "Label": "CAT3ROADS",
+                        "Value": 258
+                    },
+                    {
+                        "Label": "CAT4ROADS",
+                        "Value": 1490
+                    },
+                    {
+                        "Label": "CROSCOUNT1",
+                        "Value": 358
+                    },
+                    {
+                        "Label": "CROSCOUNT2",
+                        "Value": 181
+                    },
+                    {
+                        "Label": "CROSCOUNT3",
+                        "Value": 860
+                    },
+                    {
+                        "Label": "CROSCOUNT4",
+                        "Value": 3680
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 16.3
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 11.4
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1260
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 543
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 7.81
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 4.99
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 9.01
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 6.11
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 3.03
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 10.6
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 6.96
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 4.15
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 11.3
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.65
+                    },
+                    {
+                        "Label": "MAPM",
+                        "Value": 48.892
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 4.6
+                    },
+                    {
+                        "Label": "PRCWINTER",
+                        "Value": 4
+                    },
+                    {
+                        "Label": "SGSL",
+                        "Value": 361
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 4.695
+                    },
+                    {
+                        "Label": "SSURGOCCDD",
+                        "Value": 23.9402
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 1550
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 4.98
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -72.38778,
                     42.35456
                 ]
