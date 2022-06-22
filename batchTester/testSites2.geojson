@@ -2274,6 +2274,120 @@
                 ]
             }
         },
+        
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -111.09985,
+                    42.18192
+                ]
+            },
+            "properties": {
+                "siteid": "IDglobal",
+                "state": "ID",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "AG_OF_DA",
+                        "Value": 5.94
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 26
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 23.8
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 22.3
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 27.2
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 712.27
+                    },
+                    {
+                        "Label": "DV_OF_DA",
+                        "Value": 0.0682
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 7250
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 10800
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 19
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0.22
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 0.86
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 23.5
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 6050
+                    },
+                    {
+                        "Label": "NFSL30_10M",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "NFSL30_30M",
+                        "Value": 9
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 23
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 23.1
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 4740
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 40
+                    },
+                    {
+                        "Label": "SLOP30_30M",
+                        "Value": 34.8
+                    },
+                    {
+                        "Label": "SLOP50",
+                        "Value": 9.65
+                    },
+                    {
+                        "Label": "VOLCANIC",
+                        "Value": 2.34
+                    }
+                ]
+            }
+        },
         {
             "type": "Feature",
             "geometry": {
