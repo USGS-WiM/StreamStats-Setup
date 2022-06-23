@@ -2490,46 +2490,46 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -88.257739,
-                    37.677407
+                    -88.156374,
+                    38.092532
                 ]
             },
             "properties": {
-                "siteid": "ILglobal",
+                "siteid": "03381495",
                 "state": "IL",
                 "pointType": "global",
                 "testData": [
                     {
                         "Label": "BASINPERIM",
-                        "Value": 262.63
+                        "Value": 459.86
                     },
                     {
                         "Label": "BASLENAH",
-                        "Value": 48.53
+                        "Value": -10162.75
                     },
                     {
                         "Label": "CSL1085RAW",
-                        "Value": 3.31
+                        "Value": 1.074
                     },
                     {
                         "Label": "CSL10_85",
-                        "Value": 3.351
+                        "Value": 1.152
                     },
                     {
                         "Label": "DRNAREA",
-                        "Value": 1056.91
+                        "Value": 3087.71
                     },
                     {
                         "Label": "ELEVMAX",
-                        "Value": 1050
+                        "Value": 775
                     },
                     {
                         "Label": "FLC11DVLMH",
-                        "Value": 0.026
+                        "Value": 0.019
                     },
                     {
                         "Label": "FSSURGDC78",
-                        "Value": 0.041
+                        "Value": 0.024
                     },
                     {
                         "Label": "ILREG1",
@@ -2552,36 +2552,28 @@
                         "Value": 1
                     },
                     {
-                        "Label": "LC11DEV",
-                        "Value": 9.26
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 1.4
-                    },
-                    {
                         "Label": "MINBELEV",
-                        "Value": 343
+                        "Value": 360
                     },
                     {
                         "Label": "RELIEF",
-                        "Value": 708
+                        "Value": 415
                     },
                     {
                         "Label": "RELRELF",
-                        "Value": 2.7
+                        "Value": 0.9
                     },
                     {
                         "Label": "SOILPERM",
-                        "Value": 0.887
+                        "Value": 0.688
                     },
                     {
                         "Label": "URBTHE2010",
-                        "Value": 0.032
+                        "Value": 0.021
                     },
                     {
                         "Label": "WATWET",
-                        "Value": 1.956
+                        "Value": 0.711
                     }
                 ]
             }
