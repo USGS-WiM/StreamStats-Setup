@@ -3607,6 +3607,10 @@
                         "Value": 0.3
                     },
                     {
+                        "Label": "LFPLENGTH",
+                        "Value": 3.79
+                    },
+                    {
                         "Label": "LOGDA",
                         "Value": 0.58
                     },
