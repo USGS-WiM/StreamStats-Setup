@@ -7494,6 +7494,75 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -85.695201,
+                    35.777103
+                ]
+            },
+            "properties": {
+                "siteid": "TNglobal",
+                "state": "TN",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "CLIMFAC2YR",
+                        "Value": 2.305
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 754.5
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 18.45
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 754.5
+                    },
+                    {
+                        "Label": "HA1PCT",
+                        "Value": 31
+                    },
+                    {
+                        "Label": "HA2PCT",
+                        "Value": 69
+                    },
+                    {
+                        "Label": "HA3PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "HA4PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "PERMGTE2IN",
+                        "Value": 47.241
+                    },
+                    {
+                        "Label": "RECESS",
+                        "Value": 83
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 2.19
+                    },
+                    {
+                        "Label": "TNCLFACT2",
+                        "Value": 2.305
+                    },
+                    {
+                        "Label": "TNSOILFAC",
+                        "Value": 47
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -110.50349,
                     37.99983
                 ]
@@ -7504,6 +7573,22 @@
                 "pointType": "local",
                 "testData": [
                     {
+                        "Label": "APRAVPRE",
+                        "Value": 0.61
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 0.82
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 28.3
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 0.53
+                    },
+                    {
                         "Label": "DRNAREA",
                         "Value": 13.9
                     },
@@ -7512,80 +7597,64 @@
                         "Value": 5170
                     },
                     {
-                        "Label": "LU92HRBN",
-                        "Value": 41.1
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 7.1
-                    },
-                    {
-                        "Label": "BSLDEM10M",
-                        "Value": 28.3
-                    },
-                    {
-                        "Label": "JANAVPRE",
-                        "Value": 0.74
-                    },
-                    {
                         "Label": "FEBAVPRE",
                         "Value": 0.48
-                    },
-                    {
-                        "Label": "MARAVPRE",
-                        "Value": 0.78
-                    },
-                    {
-                        "Label": "APRAVPRE",
-                        "Value": 0.61
-                    },
-                    {
-                        "Label": "MAYAVPRE",
-                        "Value": 0.64
-                    },
-                    {
-                        "Label": "JUNAVPRE",
-                        "Value": 0.32
-                    },
-                    {
-                        "Label": "JULAVPRE",
-                        "Value": 0.87
-                    },
-                    {
-                        "Label": "AUGAVPRE",
-                        "Value": 0.82
-                    },
-                    {
-                        "Label": "SEPAVPRE",
-                        "Value": 0.85
-                    },
-                    {
-                        "Label": "OCTAVPRE",
-                        "Value": 1.16
-                    },
-                    {
-                        "Label": "NOVAVPRE",
-                        "Value": 0.67
-                    },
-                    {
-                        "Label": "DECAVPRE",
-                        "Value": 0.53
                     },
                     {
                         "Label": "FOREST",
                         "Value": 0.01
                     },
                     {
-                        "Label": "SLOP30_10M",
-                        "Value": 36.5
+                        "Label": "JANAVPRE",
+                        "Value": 0.74
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 0.87
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 0.32
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0
                     },
                     {
                         "Label": "LC11IMP",
                         "Value": 0
                     },
                     {
-                        "Label": "LC11DEV",
-                        "Value": 0
+                        "Label": "LU92HRBN",
+                        "Value": 41.1
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 0.78
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 0.64
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 0.67
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.16
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 7.1
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 0.85
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 36.5
                     }
                 ]
             }
