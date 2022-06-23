@@ -358,7 +358,7 @@
                     },
                     {
                         "Label": "OUTLETELEV",
-                        "Value": 5160.78
+                        "Value": 5160.46
                     },
                     {
                         "Label": "PRECIP",
@@ -386,7 +386,7 @@
                     },
                     {
                         "Label": "STRMTOT",
-                        "Value": 106.73
+                        "Value": 106.74
                     },
                     {
                         "Label": "TEMP",
