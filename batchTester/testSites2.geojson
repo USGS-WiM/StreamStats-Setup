@@ -6701,6 +6701,10 @@
                         "Value": 56.1
                     },
                     {
+                        "Label": "LAKEAREA",
+                        "Value": 10.5
+                    },
+                    {
                         "Label": "MAR",
                         "Value": 7.23
                     },
@@ -6709,20 +6713,12 @@
                         "Value": 28.1
                     },
                     {
-                        "Label": "STORAGE",
-                        "Value": 30.4
-                    },
-                    {
                         "Label": "TEMP",
                         "Value": 37.9
                     },
                     {
                         "Label": "WETLAND",
                         "Value": 19.8
-                    },
-                    {
-                        "Label": "LAKEAREA",
-                        "Value": 10.5
                     }
                 ]
             }
