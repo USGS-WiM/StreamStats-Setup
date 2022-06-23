@@ -8581,16 +8581,77 @@
                         "Value": 83.2
                     },
                     {
+                        "Label": "PRECPRIS10",
+                        "Value": 56.6
+                    },
+                    {
                         "Label": "RELIEF",
                         "Value": 6860
                     },
                     {
                         "Label": "SLOP30_30M",
                         "Value": 90.4
+                    }
+                ]
+            }
+        }
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -117.227523,
+                    46.03785
+                ]
+            },
+            "properties": {
+                "siteid": "WAglobal",
+                "state": "WA",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 
+                    },
+                    {
+                        "Label": "CANOPY_PCT",
+                        "Value": 
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 
+                    },
+                    {
+                        "Label": "NFSL30",
+                        "Value": 
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 
                     },
                     {
                         "Label": "PRECPRIS10",
-                        "Value": 56.6
+                        "Value": 
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 
+                    },
+                    {
+                        "Label": "SLOP30_30M",
+                        "Value": 
                     }
                 ]
             }
