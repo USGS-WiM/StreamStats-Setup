@@ -8419,16 +8419,12 @@
                         "Value": 46.085
                     },
                     {
-                        "Label": "SOILPERM",
+                        "Label": "SSURGOKSAT",
                         "Value": 9.114
                     },
                     {
                         "Label": "WETLAND",
                         "Value": 0.6
-                    },
-                    {
-                        "Label": "SSURGOKSAT",
-                        "Value": 9.114
                     }
                 ]
             }
