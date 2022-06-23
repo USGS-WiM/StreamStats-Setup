@@ -8611,47 +8611,47 @@
                 "testData": [
                     {
                         "Label": "BSLDEM30M",
-                        "Value": 
+                        "Value": 24.7
                     },
                     {
                         "Label": "CANOPY_PCT",
-                        "Value": 
+                        "Value": 42.5
                     },
                     {
                         "Label": "DRNAREA",
-                        "Value": 
+                        "Value": 3493.25
                     },
                     {
                         "Label": "ELEV",
-                        "Value": 
+                        "Value": 4360	
                     },
                     {
                         "Label": "ELEVMAX",
-                        "Value": 
+                        "Value": 9810
                     },
                     {
                         "Label": "MINBELEV",
-                        "Value": 
+                        "Value": 1210
                     },
                     {
                         "Label": "NFSL30",
-                        "Value": 
+                        "Value": 6.83
                     },
                     {
                         "Label": "PRECIP",
-                        "Value": 
+                        "Value": 31
                     },
                     {
                         "Label": "PRECPRIS10",
-                        "Value": 
+                        "Value": 28.5
                     },
                     {
                         "Label": "RELIEF",
-                        "Value": 
+                        "Value": 8600
                     },
                     {
                         "Label": "SLOP30_30M",
-                        "Value": 
+                        "Value": 32.3
                     }
                 ]
             }
