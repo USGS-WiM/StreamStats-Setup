@@ -7799,39 +7799,31 @@
                         "Value": 3.659
                     },
                     {
-                        "Label": "LC01IMP",
-                        "Value": 0.6
+                        "Label": "LC01BARE",
+                        "Value": 0.09
                     },
                     {
-                        "Label": "LC06IMP",
-                        "Value": 0.59
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 0.63
+                        "Label": "LC01CRPHAY",
+                        "Value": 23.93
                     },
                     {
                         "Label": "LC01DEV",
                         "Value": 6.23
                     },
                     {
-                        "Label": "LC06DEV",
-                        "Value": 6.22
+                        "Label": "LC01FORSHB",
+                        "Value": 69.38
                     },
                     {
-                        "Label": "LC11DEV",
-                        "Value": 6.2
+                        "Label": "LC01HERB",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.6
                     },
                     {
                         "Label": "LC01WATER",
-                        "Value": 0.35
-                    },
-                    {
-                        "Label": "LC06WATER",
-                        "Value": 0.35
-                    },
-                    {
-                        "Label": "LC11WATER",
                         "Value": 0.35
                     },
                     {
@@ -7839,100 +7831,104 @@
                         "Value": 0.02
                     },
                     {
-                        "Label": "LC06WETLND",
-                        "Value": 0.02
-                    },
-                    {
-                        "Label": "LC11WETLND",
-                        "Value": 0.06
-                    },
-                    {
-                        "Label": "LC01FORSHB",
-                        "Value": 69.38
-                    },
-                    {
-                        "Label": "LC06FORSHB",
-                        "Value": 68.7
-                    },
-                    {
-                        "Label": "LC11FORSHB",
-                        "Value": 67.8
-                    },
-                    {
-                        "Label": "LC01CRPHAY",
-                        "Value": 23.93
+                        "Label": "LC06BARE",
+                        "Value": 0.09
                     },
                     {
                         "Label": "LC06CRPHAY",
                         "Value": 23.63
                     },
                     {
-                        "Label": "LC11CRPHAY",
-                        "Value": 23.58
+                        "Label": "LC06DEV",
+                        "Value": 6.22
                     },
                     {
-                        "Label": "LC01HERB",
-                        "Value": 0
+                        "Label": "LC06FORSHB",
+                        "Value": 68.7
                     },
                     {
                         "Label": "LC06GRASS",
                         "Value": 0.99
                     },
                     {
-                        "Label": "LC11GRASS",
-                        "Value": 1.93
+                        "Label": "LC06IMP",
+                        "Value": 0.59
                     },
                     {
-                        "Label": "LC01BARE",
-                        "Value": 0.09
+                        "Label": "LC06WATER",
+                        "Value": 0.35
                     },
                     {
-                        "Label": "LC06BARE",
-                        "Value": 0.09
+                        "Label": "LC06WETLND",
+                        "Value": 0.02
                     },
                     {
                         "Label": "LC11BARE",
                         "Value": 0.08
                     },
                     {
-                        "Label": "PDIGMET",
-                        "Value": 2.22
+                        "Label": "LC11CRPHAY",
+                        "Value": 23.58
                     },
                     {
-                        "Label": "MINBELEV",
-                        "Value": 308.58
+                        "Label": "LC11DEV",
+                        "Value": 6.2
+                    },
+                    {
+                        "Label": "LC11FORSHB",
+                        "Value": 67.8
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 1.93
+                    },
+					{
+                        "Label": "LC11IMP",
+                        "Value": 0.63
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0.35
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0.06
+                    },
+                    {
+                        "Label": "LFREGNO",
+                        "Value": 1545
                     },
                     {
                         "Label": "MESZOIC",
                         "Value": 1.85
                     },
                     {
-                        "Label": "VRPLSLC",
-                        "Value": 0
+                        "Label": "MINBELEV",
+                        "Value": 308.58
                     },
                     {
-                        "Label": "RELIEF",
-                        "Value": 2080
+                        "Label": "PDIGMET",
+                        "Value": 2.22
+                    },
+                    {
+                        "Label": "PKREGNO",
+                        "Value": 1551
                     },
                     {
                         "Label": "PRECIP",
                         "Value": 46.694
                     },
                     {
-                        "Label": "VRCARB",
+                        "Label": "RELIEF",
+                        "Value": 2080
+                    },
+                    {
+                        "Label": "STATOM19_8",
                         "Value": 0
                     },
                     {
-                        "Label": "STATSWATCP",
-                        "Value": 0.134
-                    },
-                    {
-                        "Label": "STATSPERM",
-                        "Value": 2.555
-                    },
-                    {
-                        "Label": "STATSGODEP",
-                        "Value": 60.15
+                        "Label": "STATOM55_7",
+                        "Value": 0
                     },
                     {
                         "Label": "STATSCLAY10",
@@ -7959,6 +7955,10 @@
                         "Value": 0
                     },
                     {
+                        "Label": "STATSGODEP",
+                        "Value": 60.15
+                    },
+                    {
                         "Label": "STATSOM0_5",
                         "Value": 53.69
                     },
@@ -7971,20 +7971,20 @@
                         "Value": 0
                     },
                     {
-                        "Label": "STATOM19_8",
+                        "Label": "STATSPERM",
+                        "Value": 2.555
+                    },
+                    {
+                        "Label": "STATSWATCP",
+                        "Value": 0.134
+                    },
+                    {
+                        "Label": "VRCARB",
                         "Value": 0
                     },
                     {
-                        "Label": "STATOM55_7",
+                        "Label": "VRPLSLC",
                         "Value": 0
-                    },
-                    {
-                        "Label": "LFREGNO",
-                        "Value": 1545
-                    },
-                    {
-                        "Label": "PKREGNO",
-                        "Value": 1551
                     }
                 ]
             }
