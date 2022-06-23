@@ -4249,6 +4249,10 @@
                         "Value": 75.7
                     },
                     {
+                        "Label": "LFPLENGTH",
+                        "Value": 1.772
+                    },
+                    {
                         "Label": "LU92BARE",
                         "Value": 0
                     },
@@ -4319,10 +4323,6 @@
                     {
                         "Label": "SSURGOD",
                         "Value": 0
-                    },
-                    {
-                        "Label": "LFPLENGTH",
-                        "Value": 1.772
                     }
                 ]
             }
