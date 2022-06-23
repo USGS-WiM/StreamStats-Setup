@@ -7451,6 +7451,22 @@
                         "Value": 18.77
                     },
                     {
+                        "Label": "HA1PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "HA2PCT",
+                        "Value": 100.0
+                    },
+                    {
+                        "Label": "HA3PCT",
+                        "Value": 0.0
+                    },
+                    {
+                        "Label": "HA4PCT",
+                        "Value": 0.0
+                    },
+                    {
                         "Label": "PERMGTE2IN",
                         "Value": 40.317
                     },
@@ -7469,22 +7485,6 @@
                     {
                         "Label": "TNSOILFAC",
                         "Value": 40
-                    },
-                    {
-                        "Label": "HA1PCT",
-                        "Value": 0.0
-                    },
-                    {
-                        "Label": "HA2PCT",
-                        "Value": 100.0
-                    },
-                    {
-                        "Label": "HA3PCT",
-                        "Value": 0.0
-                    },
-                    {
-                        "Label": "HA4PCT",
-                        "Value": 0.0
                     }
                 ]
             }
