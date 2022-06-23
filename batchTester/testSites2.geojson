@@ -2906,8 +2906,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -93.15235,
-                    42.31502
+                    91.204366,
+                    40.719445
                 ]
             },
             "properties": {
@@ -2949,7 +2949,7 @@
                     },
                     {
                         "Label": "DRNAREA",
-                        "Value": 4340
+                        "Value": 4340	
                     },
                     {
                         "Label": "DRNFREQ",
@@ -2973,7 +2973,7 @@
                     },
                     {
                         "Label": "LC11CRPHAY",
-                        "Value": 77.1
+                        "Value": 77.1	
                     },
                     {
                         "Label": "LC11DEV",
@@ -3021,7 +3021,7 @@
                     },
                     {
                         "Label": "STRMTOT",
-                        "Value": 8784.547
+                        "Value": 8784.538
                     },
                     {
                         "Label": "TAU_ANN_G",
