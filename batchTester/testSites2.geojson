@@ -4779,6 +4779,119 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -71.649834,
+                    43.380793
+                ]
+            },
+            "properties": {
+                "siteid": "NHglobal",
+                "state": "NH",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 3.816
+                    },
+                    {
+                        "Label": "BSLDEM30M",
+                        "Value": 15.471
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 1000487.9
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 451267.5
+                    },
+                    {
+                        "Label": "CONIF",
+                        "Value": 20.5873
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 17.5
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1533.83
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 5234.217
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 4.92
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.06
+                    },
+                    {
+                        "Label": "MINTEMP_W",
+                        "Value": 11.484
+                    },
+                    {
+                        "Label": "MIXFOR",
+                        "Value": 30.7521
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 988725
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 321015
+                    },
+                    {
+                        "Label": "PREBC0103",
+                        "Value": 7.44
+                    },
+                    {
+                        "Label": "PREBC_1112",
+                        "Value": 7.83
+                    },
+                    {
+                        "Label": "PRECIPCENT",
+                        "Value": 41.3
+                    },
+                    {
+                        "Label": "PRECIPOUT",
+                        "Value": 40.8
+                    },
+                    {
+                        "Label": "PREG_03_05",
+                        "Value": 8.5
+                    },
+                    {
+                        "Label": "PREG_06_10",
+                        "Value": 17.1
+                    },
+                    {
+                        "Label": "SNOFALL",
+                        "Value": 10.968
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 41.667
+                    },
+                    {
+                        "Label": "TEMP_06_10",
+                        "Value": 59.322
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 10.0253
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -74.68437,
                     39.97016
                 ]
