@@ -6179,6 +6179,199 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -118.54797,
+                    42.013885
+                ]
+            },
+            "properties": {
+                "siteid": "ORglobal",
+                "state": "OR",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "ASPECT",
+                        "Value": 218
+                    },
+                    {
+                        "Label": "BSLOPD",
+                        "Value": 14.3
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 33
+                    },
+                    {
+                        "Label": "DRNDENSITY",
+                        "Value": 0.82
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 5900
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 8500
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 2.25
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 1.09
+                    },
+                    {
+                        "Label": "IMPERV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "JANAVPRE2K",
+                        "Value": 1.72
+                    },
+                    {
+                        "Label": "JANMAXT2K",
+                        "Value": 41
+                    },
+                    {
+                        "Label": "JANMAXTMP",
+                        "Value": 35	
+                    },
+                    {
+                        "Label": "JANMINT2K",
+                        "Value": 14.1
+                    },
+                    {
+                        "Label": "JANMINTMP",
+                        "Value": 20.2
+                    },
+                    {
+                        "Label": "JULAVPRE2K",
+                        "Value": 0.34
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEVHI",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVLO",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVMD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVOPN",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11FORSHB",
+                        "Value": 97
+                    },
+                    {
+                        "Label": "LC11HERB",
+                        "Value": 3
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.0303
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MAJ_ROADS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MAXBSLOPD",
+                        "Value": 39.8
+                    },
+                    {
+                        "Label": "MAXTEMP",
+                        "Value": 56.1
+                    },
+                    {
+                        "Label": "MIN_ROADS",
+                        "Value": 0.6
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 4230
+                    },
+                    {
+                        "Label": "MINBSLOPD",
+                        "Value": 0.0365
+                    },
+                    {
+                        "Label": "MINTEMP",
+                        "Value": 35.6
+                    },
+                    {
+                        "Label": "OR_HIPERMA",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "OR_HIPERMG",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "ORREG2",
+                        "Value": 363
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 16.6
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 4270
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 1.82
+                    },
+                    {
+                        "Label": "STATE_HWY",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSGODEP",
+                        "Value": 36.2
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 43.7
+                    },
+                    {
+                        "Label": "WATCAPORC",
+                        "Value": 0.0854
+                    },
+                    {
+                        "Label": "WATCAPORR",
+                        "Value": 0.0854
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -78.26763,
                     40.84919
                 ]
