@@ -3883,28 +3883,16 @@
                 "pointType": "local",
                 "testData": [
                     {
+                        "Label": "BSLDEM30M",
+                        "Value": 39.5
+                    },
+                    {
+                        "Label": "CHANWD_RS",
+                        "Value": 0
+                    },
+                    {
                         "Label": "CONTDA",
                         "Value": 218.2
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 6652.3
-                    },
-                    {
-                        "Label": "TEMP",
-                        "Value": 36.33
-                    },
-                    {
-                        "Label": "ELEVMAX",
-                        "Value": 9393
-                    },
-                    {
-                        "Label": "MINBELEV",
-                        "Value": 4558
-                    },
-                    {
-                        "Label": "RELIEF",
-                        "Value": 4835
                     },
                     {
                         "Label": "EL5000",
@@ -3913,6 +3901,26 @@
                     {
                         "Label": "EL6000",
                         "Value": 79.6
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 6652.3
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 9393
+                    },
+                    {
+                        "Label": "ET0306MOD",
+                        "Value": 1.63
+                    },
+                    {
+                        "Label": "ET0710MOD",
+                        "Value": 1.44
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 71
                     },
                     {
                         "Label": "IRRIGAT_MT",
@@ -3935,36 +3943,40 @@
                         "Value": 0
                     },
                     {
-                        "Label": "BSLDEM30M",
-                        "Value": 39.5
-                    },
-                    {
-                        "Label": "SLOP30_30M",
-                        "Value": 67.3
+                        "Label": "MINBELEV",
+                        "Value": 4558
                     },
                     {
                         "Label": "NFSL30_30M",
                         "Value": 20.7
                     },
                     {
-                        "Label": "SLOP50_30M",
-                        "Value": 29.6
-                    },
-                    {
                         "Label": "PRECIP",
                         "Value": 39.1
                     },
                     {
-                        "Label": "FOREST",
-                        "Value": 71
+                        "Label": "RELIEF",
+                        "Value": 4835
                     },
                     {
-                        "Label": "ET0306MOD",
-                        "Value": 1.63
+                        "Label": "SLOP30_30M",
+                        "Value": 67.3
                     },
                     {
-                        "Label": "ET0710MOD",
-                        "Value": 1.44
+                        "Label": "SLOP50_30M",
+                        "Value": 29.6
+                    },
+                    {
+                        "Label": "TEMP",
+                        "Value": 36.33
+                    },
+                    {
+                        "Label": "WACTCH",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "WBANKFULL",
+                        "Value": 0
                     }
                 ]
             }
