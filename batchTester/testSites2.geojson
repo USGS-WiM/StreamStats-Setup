@@ -5824,6 +5824,83 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -83.569747,
+                    40.77372
+                ]
+            },
+            "properties": {
+                "siteid": "OHglobal",
+                "state": "OH",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 278767.6
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4511727.7
+                    },
+                    {
+                        "Label": "CSL1085LFP",
+                        "Value": 8.65
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 62
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 7.04
+                    },
+                    {
+                        "Label": "LAT_CENT",
+                        "Value": 40.7268
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 8.37
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.27
+                    },
+                    {
+                        "Label": "LC92STOR",
+                        "Value": 0.62
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 14.6
+                    },
+                    {
+                        "Label": "LONG_CENT",
+                        "Value": 83.6196
+                    },
+                    {
+                        "Label": "OHREGA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "OHREGC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 34.9
+                    },
+                    {
+                        "Label": "STREAM_VARG",
+                        "Value": 0.76
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -94.95591,
                     36.6969
                 ]
