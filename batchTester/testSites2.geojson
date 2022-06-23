@@ -7664,6 +7664,107 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -109.132799,
+                    37.161885
+                ]
+            },
+            "properties": {
+                "siteid": "UTglobal",
+                "state": "UT",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "APRAVPRE",
+                        "Value": 1.04
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 1.96
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 15.6
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 15000
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 6950
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 1.13
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 25.3
+                    },
+                    {
+                        "Label": "JANAVPRE",
+                        "Value": 1.24
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 1.58
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 0.59
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 1.37
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.4
+                    },
+                    {
+                        "Label": "LU92HRBN",
+                        "Value": 21.5
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 1.44
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 1.02
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 1.34	
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.52
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 15.4	
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 1.49
+                    },
+                    {
+                        "Label": "SLOP30_10M",
+                        "Value": 0.52
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -78.47418,
                     37.84016
                 ]
@@ -7673,6 +7774,14 @@
                 "state": "VA",
                 "pointType": "local",
                 "testData": [
+                    {
+                        "Label": "BRMETA",
+                        "Value": 95.93
+                    },
+                    {
+                        "Label": "CPSED",
+                        "Value": 0
+                    },
                     {
                         "Label": "DRNAREA",
                         "Value": 104
@@ -7684,18 +7793,6 @@
                     {
                         "Label": "ELEVMAX",
                         "Value": 2387.45
-                    },
-                    {
-                        "Label": "MINBELEV",
-                        "Value": 308.58
-                    },
-                    {
-                        "Label": "RELIEF",
-                        "Value": 2080
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 46.694
                     },
                     {
                         "Label": "I24H2Y",
@@ -7798,16 +7895,12 @@
                         "Value": 0.08
                     },
                     {
-                        "Label": "BRMETA",
-                        "Value": 95.93
-                    },
-                    {
-                        "Label": "CPSED",
-                        "Value": 0
-                    },
-                    {
                         "Label": "PDIGMET",
                         "Value": 2.22
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 308.58
                     },
                     {
                         "Label": "MESZOIC",
@@ -7816,6 +7909,14 @@
                     {
                         "Label": "VRPLSLC",
                         "Value": 0
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 2080
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 46.694
                     },
                     {
                         "Label": "VRCARB",
