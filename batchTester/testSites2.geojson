@@ -5911,12 +5911,72 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "OUTLETELEV",
-                        "Value": 767
+                        "Label": "APRAVPRE",
+                        "Value": 4.13
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "CANOPY_PCT",
+                        "Value": 1.02
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 22.66
                     },
                     {
                         "Label": "CSL10_85fm",
                         "Value": 6.56
+                    },
+                    {
+                        "Label": "DAUNREG",
+                        "Value": 22.66
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 2.73
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 802
+                    },
+                    {
+                        "Label": "FEBAVPRE",
+                        "Value": 2.11
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 1.83
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 4.74
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 3.86
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 5.37
+                    },
+                    {
+                        "Label": "NRCSPCT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 767
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 44.68
+                    },
+                    {
+                        "Label": "PRECIPOUT",
+                        "Value": 44.66
                     },
                     {
                         "Label": "PREG_06_10",
@@ -5927,72 +5987,8 @@
                         "Value": 24.2
                     },
                     {
-                        "Label": "PRECIPOUT",
-                        "Value": 44.66
-                    },
-                    {
-                        "Label": "CONTDA",
-                        "Value": 22.66
-                    },
-                    {
-                        "Label": "DAUNREG",
-                        "Value": 22.66
-                    },
-                    {
-                        "Label": "JUNAVPRE",
-                        "Value": 4.74
-                    },
-                    {
-                        "Label": "NRCSPCT",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "MAYAVPRE",
-                        "Value": 5.37
-                    },
-                    {
-                        "Label": "FEBAVPRE",
-                        "Value": 2.11
-                    },
-                    {
-                        "Label": "MARAVPRE",
-                        "Value": 3.86
-                    },
-                    {
-                        "Label": "APRAVPRE",
-                        "Value": 4.13
-                    },
-                    {
-                        "Label": "DECAVPRE",
-                        "Value": 2.73
-                    },
-                    {
-                        "Label": "LC01DEV",
-                        "Value": 10.64
-                    },
-                    {
-                        "Label": "CANOPY_PCT",
-                        "Value": 1.02
-                    },
-                    {
-                        "Label": "IMPNLCD01",
-                        "Value": 1.83
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 44.68
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 802
-                    },
-                    {
                         "Label": "SOILPERM",
                         "Value": 0.44
-                    },
-                    {
-                        "Label": "BSLDEM10M",
-                        "Value": 1
                     }
                 ]
             }
