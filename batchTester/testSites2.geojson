@@ -5618,6 +5618,135 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -78.82445,
+                    42.450912
+                ]
+            },
+            "properties": {
+                "siteid": "NYglobal",
+                "state": "NY",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLOPCM",
+                        "Value": 455
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 210585.2
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4711047.1
+                    },
+                    {
+                        "Label": "CONTOUR",
+                        "Value": 1419.3
+                    },
+                    {
+                        "Label": "CSL1085LO",
+                        "Value": 11.9
+                    },
+                    {
+                        "Label": "CSL1085UP",
+                        "Value": 23
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 16.9
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 312
+                    },
+                    {
+                        "Label": "EL1200",
+                        "Value": 96.4
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 53.9
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 4.07
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 4.75
+                    },
+                    {
+                        "Label": "JUNMAXTMP",
+                        "Value": 74.4
+                    },
+                    {
+                        "Label": "LAGFACTOR",
+                        "Value": 2.82
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 5
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LENGTH",
+                        "Value": 49.7
+                    },
+                    {
+                        "Label": "MAR",
+                        "Value": 23.7
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 3.57
+                    },
+                    {
+                        "Label": "MXSNO",
+                        "Value": 18.7
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 185505
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 4706925
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 42.6
+                    },
+                    {
+                        "Label": "PRJUNAUG00",
+                        "Value": 12.8
+                    },
+                    {
+                        "Label": "SLOPERATIO",
+                        "Value": 0.0372
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 11
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 22
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 1.08	
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -83.15299,
                     40.82617
                 ]
