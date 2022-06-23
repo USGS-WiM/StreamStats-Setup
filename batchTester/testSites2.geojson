@@ -8434,6 +8434,111 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -87.87591,
+                    42.823411
+                ]
+            },
+            "properties": {
+                "siteid": "WIglobal",
+                "state": "WI",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "CLIFAC100Y",
+                        "Value": 2.7
+                    },
+                    {
+                        "Label": "CLIFAC25Y",
+                        "Value": 2.599
+                    },
+                    {
+                        "Label": "CLIMFAC2YR",
+                        "Value": 1.9
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 2.23
+                    },
+                    {
+                        "Label": "DEVNLCD01",
+                        "Value": 31.1
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 160
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 9.52
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 6.018
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 3.9
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 4.816
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 2.658
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 5.096
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 3.3
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 51.36
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 1.93
+                    },
+                    {
+                        "Label": "LC01WATER",
+                        "Value": 0.45
+                    },
+                    {
+                        "Label": "LC11EMWET",
+                        "Value": 0.54
+                    },
+                    {
+                        "Label": "LC11WDWET",
+                        "Value": 4.14
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 34.32
+                    },
+                    {
+                        "Label": "SNOFALL",
+                        "Value": 41.744
+                    },
+                    {
+                        "Label": "SSURGOKSAT",
+                        "Value": 8.841
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 4.68
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -120.89424,
                     48.69355
                 ]
