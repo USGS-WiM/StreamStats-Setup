@@ -5515,16 +5515,16 @@
                         "Value": 151.98
                     },
                     {
-                        "Label": "CSL10_85",
-                        "Value": 85.9
-                    },
-                    {
                         "Label": "CSL1085LO",
                         "Value": 54.3
                     },
                     {
                         "Label": "CSL1085UP",
                         "Value": 189.0
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 85.9
                     },
                     {
                         "Label": "DRNAREA",
