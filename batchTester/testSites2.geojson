@@ -7173,80 +7173,80 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "PII_SD",
-                        "Value": 1.12
-                    },
-                    {
-                        "Label": "DRNAREA",
-                        "Value": 261.97
-                    },
-                    {
-                        "Label": "CSL10_85",
-                        "Value": 5.18
-                    },
-                    {
-                        "Label": "CONTDA",
-                        "Value": 249.61
-                    },
-                    {
-                        "Label": "NONCONTDA",
-                        "Value": 12.36
+                        "Label": "BASINPERIM",
+                        "Value": 152.86
                     },
                     {
                         "Label": "BSLDEM10M",
                         "Value": 2.7
                     },
                     {
-                        "Label": "BASINPERIM",
-                        "Value": 152.86
+                        "Label": "COMPRAT",
+                        "Value": 2.66
                     },
                     {
-                        "Label": "LFPLENGTH",
-                        "Value": 45.2
+                        "Label": "CONTDA",
+                        "Value": 249.61
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 5.18
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 261.97
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1712.0
                     },
                     {
                         "Label": "ELEVMAX",
                         "Value": 1877.0
                     },
                     {
-                        "Label": "RELIEF",
-                        "Value": 313
+                        "Label": "LAKESNWI",
+                        "Value": 4.483
                     },
                     {
-                        "Label": "COMPRAT",
-                        "Value": 2.66
+                        "Label": "LC11DEV",
+                        "Value": 12.8
                     },
                     {
-                        "Label": "RELRELF",
-                        "Value": 2.05
+                        "Label": "LC11IMP",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 45.2
                     },
                     {
                         "Label": "LIME",
                         "Value": 0
                     },
                     {
-                        "Label": "LAKESNWI",
-                        "Value": 4.483
+                        "Label": "MINBELEV",
+                        "Value": 1565
                     },
                     {
-                        "Label": "WETLNDNWI",
-                        "Value": 6.009
+                        "Label": "NONCONTDA",
+                        "Value": 12.36
                     },
                     {
-                        "Label": "STORNWI",
-                        "Value": 10.492
+                        "Label": "OUTLETELEV",
+                        "Value": 1565.0
                     },
                     {
-                        "Label": "SD_LSTLZ",
-                        "Value": 0
+                        "Label": "PII_SD",
+                        "Value": 1.12
                     },
                     {
-                        "Label": "SD_LSTHW",
-                        "Value": 0
+                        "Label": "RELIEF",
+                        "Value": 313
                     },
                     {
-                        "Label": "SD_CC",
-                        "Value": 0
+                        "Label": "RELRELF",
+                        "Value": 2.05
                     },
                     {
                         "Label": "SD_AS",
@@ -7261,6 +7261,18 @@
                         "Value": 0
                     },
                     {
+                        "Label": "SD_CC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_LSTHW",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_LSTLZ",
+                        "Value": 0
+                    },
+                    {
                         "Label": "SD_SNDHLS",
                         "Value": 0
                     },
@@ -7269,24 +7281,12 @@
                         "Value": 1.9
                     },
                     {
-                        "Label": "ELEV",
-                        "Value": 1712.0
+                        "Label": "STORNWI",
+                        "Value": 10.492
                     },
                     {
-                        "Label": "MINBELEV",
-                        "Value": 1565
-                    },
-                    {
-                        "Label": "OUTLETELEV",
-                        "Value": 1565.0
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 0.77
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 12.8
+                        "Label": "WETLNDNWI",
+                        "Value": 6.009
                     }
                 ]
             }
