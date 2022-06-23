@@ -7002,6 +7002,167 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -80.819072,
+                    32.144741
+                ]
+            },
+            "properties": {
+                "siteid": "SCglobal",
+                "state": "SC",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM30FT",
+                        "Value": 2.17
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 1.07
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 14.6
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 6.06
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 41.1
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 11
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 6.9
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 8.4
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 4.5
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 9.6
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 24.5
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 28.8
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 5.46
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 25.8
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 28.1
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 5.83
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 26.3
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 27.9
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 5.96
+                    },
+                    {
+                        "Label": "LC16DEV",
+                        "Value": 34.1
+                    },
+                    {
+                        "Label": "LC16FOREST",
+                        "Value": 21.4
+                    },
+                    {
+                        "Label": "LC16IMP",
+                        "Value": 6.4
+                    },
+                    {
+                        "Label": "LC16STOR",
+                        "Value": 43.3
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 12.579
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": -4.95
+                    },
+                    {
+                        "Label": "PCTREG1",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG2",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG3",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG4",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "PCTREG5",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 51
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 22.4
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 7.4
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 23.2
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 43.5
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -96.8365,
                     43.84802
                 ]
