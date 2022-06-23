@@ -2917,6 +2917,135 @@
             "type": "Feature",
             "geometry": {
                 "type": "Point",
+                "coordinates": [
+                    -93.15235,
+                    42.31502
+                ]
+            },
+            "properties": {
+                "siteid": "IAglobal",
+                "state": "IA",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BASLENAH",
+                        "Value": 196.16
+                    },
+                    {
+                        "Label": "BFI",
+                        "Value": 0.4309
+                    },
+                    {
+                        "Label": "BSHAPE",
+                        "Value": 8.86
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 4.39
+                    },
+                    {
+                        "Label": "CCM",
+                        "Value": 0.49
+                    },
+                    {
+                        "Label": "CSL100",
+                        "Value": 2.35
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 1.86
+                    },
+                    {
+                        "Label": "DESMOIN",
+                        "Value": 25.652
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 4340
+                    },
+                    {
+                        "Label": "DRNFREQ",
+                        "Value": 1.38
+                    },
+                    {
+                        "Label": "FOSTREAM",
+                        "Value": 5990
+                    },
+                    {
+                        "Label": "HIGHREG",
+                        "Value": 2
+                    },
+                    {
+                        "Label": "HYSEP",
+                        "Value": 43.15
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 4.6
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 77.1
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 7.43
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 1.38
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 35.57
+                    },
+                    {
+                        "Label": "PRJULDEC10",
+                        "Value": 3.15
+                    },
+                    {
+                        "Label": "RSD",
+                        "Value": 0.34
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 1.34
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 71.2
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 23.9
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 3.45
+                    },
+                    {
+                        "Label": "SSURGOKSAT",
+                        "Value": 8.45
+                    },
+                    {
+                        "Label": "STREAM_VARG",
+                        "Value": 0.67
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 8784.547
+                    },
+                    {
+                        "Label": "TAU_ANN_G",
+                        "Value": 20.38
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
                 "pointType": "local",
                 "coordinates": [
                     -84.94215,
