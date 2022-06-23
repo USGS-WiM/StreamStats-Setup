@@ -4332,6 +4332,239 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -78.236158,
+                    33.959871
+                ]
+            },
+            "properties": {
+                "siteid": "NCglobal",
+                "state": "NC",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 107
+                    },
+                    {
+                        "Label": "BSLDEM30FT",
+                        "Value": 1.74
+                    },
+                    {
+                        "Label": "CSL10_85fm",
+                        "Value": 1.41
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 113
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 40.4
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 83
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 10.7
+                    },
+                    {
+                        "Label": "LC01BARE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01CRPHAY",
+                        "Value": 8.8
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 4.3
+                    },
+                    {
+                        "Label": "LC01FOREST",
+                        "Value": 32.6
+                    },
+                    {
+                        "Label": "LC01HERB",
+                        "Value": 3.5
+                    },
+                    {
+                        "Label": "LC01IMP",
+                        "Value": 0.75
+                    },
+                    {
+                        "Label": "LC01SHRUB",
+                        "Value": 14.8
+                    },
+                    {
+                        "Label": "LC01WATER",
+                        "Value": 0.2
+                    },
+                    {
+                        "Label": "LC01WETLND",
+                        "Value": 35.7
+                    },
+                    {
+                        "Label": "LC06BARE",
+                        "Value": 0.8
+                    },
+                    {
+                        "Label": "LC06DEV",
+                        "Value": 4.7
+                    },
+                    {
+                        "Label": "LC06FOREST",
+                        "Value": 27.3
+                    },
+                    {
+                        "Label": "LC06GRASS",
+                        "Value": 6.8
+                    },
+                    {
+                        "Label": "LC06IMP",
+                        "Value": 0.85
+                    },
+                    {
+                        "Label": "LC06PLANT",
+                        "Value": 8.8
+                    },
+                    {
+                        "Label": "LC06SHRUB",
+                        "Value": 15.7
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 0.3
+                    },
+                    {
+                        "Label": "LC06WETLND",
+                        "Value": 35.7
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0.9
+                    },
+                    {
+                        "Label": "LC11CRPHAY",
+                        "Value": 8.8
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 4.8
+                    },
+                    {
+                        "Label": "LC11FOREST",
+                        "Value": 25.1
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 7.1
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.9
+                    },
+                    {
+                        "Label": "LC11SHRUB",
+                        "Value": 17.3
+                    },
+                    {
+                        "Label": "LC11WATER",
+                        "Value": 0.3
+                    },
+                    {
+                        "Label": "LC11WETLND",
+                        "Value": 35.7
+                    },
+                    {
+                        "Label": "LC92FOREST",
+                        "Value": 59.2
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 26.193
+                    },
+                    {
+                        "Label": "LU92BARE",
+                        "Value": 4.1
+                    },
+                    {
+                        "Label": "LU92DEV",
+                        "Value": 0.4
+                    },
+                    {
+                        "Label": "LU92PLANT",
+                        "Value": 10
+                    },
+                    {
+                        "Label": "LU92WATER",
+                        "Value": 0.1
+                    },
+                    {
+                        "Label": "LU92WETLN",
+                        "Value": 26.3
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": -0.43
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 2
+                    },
+                    {
+                        "Label": "PCTREG1",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG2",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG3",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PCTREG4",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "PCTREG5",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 58.5
+                    },
+                    {
+                        "Label": "PROTECTED",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SSURGOA",
+                        "Value": 26.1
+                    },
+                    {
+                        "Label": "SSURGOB",
+                        "Value": 47.4
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 18.3
+                    },
+                    {
+                        "Label": "SSURGOD",
+                        "Value": 7.7
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -100.75175,
                     46.19347
                 ]
