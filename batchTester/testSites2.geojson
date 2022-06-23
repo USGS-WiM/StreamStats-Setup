@@ -6390,6 +6390,10 @@
                         "Value": 6.3742
                     },
                     {
+                        "Label": "BSLPDRPA20",
+                        "Value": 6.6124
+                    },
+                    {
                         "Label": "CARBON",
                         "Value": 0
                     },
@@ -6412,6 +6416,10 @@
                     {
                         "Label": "ELEV",
                         "Value": 1819.0
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2629.0
                     },
                     {
                         "Label": "FOREST",
@@ -6476,14 +6484,6 @@
                     {
                         "Label": "URBAN",
                         "Value": 2.4781
-                    },
-                    {
-                        "Label": "BSLPDRPA20",
-                        "Value": 6.6124
-                    },
-                    {
-                        "Label": "ELEVMAX",
-                        "Value": 2629.0
                     }
                 ]
             }
