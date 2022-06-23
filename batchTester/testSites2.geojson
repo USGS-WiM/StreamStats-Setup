@@ -4960,6 +4960,22 @@
                 "pointType": "local",
                 "testData": [
                     {
+                        "Label": "APRAVPRE",
+                        "Value": 0.83
+                    },
+                    {
+                        "Label": "AUGAVPRE",
+                        "Value": 1.74
+                    },
+                    {
+                        "Label": "BSLDEM30ff",
+                        "Value": 0.12
+                    },
+                    {
+                        "Label": "DECAVPRE",
+                        "Value": 0.87
+                    },
+                    {
                         "Label": "DRNAREA",
                         "Value": 113
                     },
@@ -4968,28 +4984,232 @@
                         "Value": 7713
                     },
                     {
-                        "Label": "PRECIP",
-                        "Value": 13.2
-                    },
-                    {
-                        "Label": "PREC10to4",
-                        "Value": 5.74
-                    },
-                    {
-                        "Label": "BSLDEM30ff",
-                        "Value": 0.12
-                    },
-                    {
-                        "Label": "I24H100Y",
-                        "Value": 3.5
+                        "Label": "FEBAVPRE",
+                        "Value": 1.31
                     },
                     {
                         "Label": "HIGHREG",
                         "Value": 1097
                     },
                     {
+                        "Label": "I24H100Y",
+                        "Value": 3.5
+                    },
+                    {
+                        "Label": "I24H100YA2",
+                        "Value": 3.13
+                    },
+                    {
+                        "Label": "I6H100Y",
+                        "Value": 2.87
+                    },
+                    {
+                        "Label": "JANAVPRE",
+                        "Value": 2.57
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 4.74
+                    },
+                    {
+                        "Label": "JUNAVPRE",
+                        "Value": 1.16
+                    },
+                    {
+                        "Label": "LC11BARE",
+                        "Value": 0.23
+                    },
+                    {
+                        "Label": "LC11CROP",
+                        "Value": 0.0126
+                    },
+                    {
+                        "Label": "LC11DECID",
+                        "Value": 0.95
+                    },
+                    {
+                        "Label": "LC11DEVHI",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DVLO",
+                        "Value": 0.0175
+                    },
+                    {
+                        "Label": "LC11DVMD",
+                        "Value": 0.00585
+                    },
+                    {
+                        "Label": "LC11DVOPN",
+                        "Value": 0.0274
+                    },
+                    {
+                        "Label": "LC11EMWET",
+                        "Value": 0.0979
+                    },
+                    {
+                        "Label": "LC11EVERG",
+                        "Value": 49.1
+                    },
+                    {
+                        "Label": "LC11GRASS",
+                        "Value": 12.6
+                    },
+                    {
+                        "Label": "LC11MIXFOR",
+                        "Value": 0.0311
+                    },
+                    {
+                        "Label": "LC11PAST",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11SHRUB",
+                        "Value": 36.7
+                    },
+                    {
+                        "Label": "LC11SNOIC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11STOR",
+                        "Value": 0.13
+                    },
+                    {
+                        "Label": "LC11WDWET",
+                        "Value": 0.1
+                    },
+                    {
+                        "Label": "LI10AFTCZ",
+                        "Value": 5.2
+                    },
+                    {
+                        "Label": "LI10AIVR",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10CR",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10CS",
+                        "Value": 4.2
+                    },
+                    {
+                        "Label": "LI10CZSCT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10ESCT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10ESFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10EVR",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10GLSFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10GOGL",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10GTC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10GTL",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10HPM",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10NCR",
+                        "Value": 28.1	
+                    },
+                    {
+                        "Label": "LI10SLS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10SRM",
+                        "Value": 62.5
+                    },
+                    {
+                        "Label": "LI10TCT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LI10WATER",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MARAVPRE",
+                        "Value": 1.02
+                    },
+                    {
+                        "Label": "MAYAVPRE",
+                        "Value": 1.73	
+                    },
+                    {
+                        "Label": "NOVAVPRE",
+                        "Value": 1.01
+                    },
+                    {
+                        "Label": "OCTAVPRE",
+                        "Value": 1.68
+                    },
+                    {
                         "Label": "OUTLETELEV",
                         "Value": 5824
+                    },
+                    {
+                        "Label": "PERENNIAL",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "PREC10to4",
+                        "Value": 5.74
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 13.2
+                    },
+                    {
+                        "Label": "SEPAVPRE",
+                        "Value": 0.98
+                    },
+                    {
+                        "Label": "STATSGOA",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSGOB",
+                        "Value": 15.6
+                    },
+                    {
+                        "Label": "STATSGOC",
+                        "Value": 84.4
+                    },
+                    {
+                        "Label": "STATSGOD",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSPERM",
+                        "Value": 91.3
+                    },
+                    {
+                        "Label": "STATSWATCP",
+                        "Value": 9.82
                     }
                 ]
             }
