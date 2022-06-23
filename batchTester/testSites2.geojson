@@ -3162,6 +3162,10 @@
                         "Value": 3.91
                     },
                     {
+                        "Label": "JULAVPRE",
+                        "Value": 5.44
+                    },
+                    {
                         "Label": "LC06WATER",
                         "Value": 0
                     },
@@ -3172,6 +3176,10 @@
                     {
                         "Label": "LC11IMP",
                         "Value": 0.26
+                    },
+                    {
+                        "Label": "PCTSNDGRV",
+                        "Value": 0
                     },
                     {
                         "Label": "PRDECFEB90",
@@ -3194,12 +3202,12 @@
                         "Value": 12.8
                     },
                     {
-                        "Label": "STORNWI",
-                        "Value": 3.14
-                    },
-                    {
                         "Label": "STORAGE",
                         "Value": 2.424
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 3.14
                     }
                 ]
             }
