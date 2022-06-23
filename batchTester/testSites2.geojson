@@ -5996,6 +5996,10 @@
                 "pointType": "local",
                 "testData": [
                     {
+                        "Label": "ASPECT",
+                        "Value": 251.0
+                    },
+                    {
                         "Label": "BSLOPD",
                         "Value": 18.2
                     },
@@ -6028,6 +6032,10 @@
                         "Value": 0
                     },
                     {
+                        "Label": "JANAVPRE2K",
+                        "Value": 8.5
+                    },
+                    {
                         "Label": "JANMAXT2K",
                         "Value": 46.7
                     },
@@ -6042,6 +6050,10 @@
                     {
                         "Label": "JANMINTMP",
                         "Value": 29.8
+                    },
+                    {
+                        "Label": "JULAVPRE2K",
+                        "Value": 0.65
                     },
                     {
                         "Label": "LC11BARE",
@@ -6144,6 +6156,10 @@
                         "Value": 0
                     },
                     {
+                        "Label": "STATSGODEP",
+                        "Value": 45.3
+                    },
+                    {
                         "Label": "STRMTOT",
                         "Value": 1.52
                     },
@@ -6154,22 +6170,6 @@
                     {
                         "Label": "WATCAPORR",
                         "Value": 0.13
-                    },
-                    {
-                        "Label": "ASPECT",
-                        "Value": 251.0
-                    },
-                    {
-                        "Label": "JANAVPRE2K",
-                        "Value": 8.5
-                    },
-                    {
-                        "Label": "JULAVPRE2K",
-                        "Value": 0.65
-                    },
-                    {
-                        "Label": "STATSGODEP",
-                        "Value": 45.3
                     }
                 ]
             }
