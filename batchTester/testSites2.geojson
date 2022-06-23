@@ -4671,7 +4671,7 @@
                 ]
             },
             "properties": {
-                "siteid": "NHtestSite",
+                "siteid": "NHlocal",
                 "state": "NH",
                 "pointType": "local",
                 "testData": [
@@ -4732,12 +4732,12 @@
                         "Value": 311715
                     },
                     {
-                        "Label": "PREBC_1112",
-                        "Value": 9.25
-                    },
-                    {
                         "Label": "PREBC0103",
                         "Value": 8.9
+                    },
+                    {
+                        "Label": "PREBC_1112",
+                        "Value": 9.25
                     },
                     {
                         "Label": "PRECIPCENT",
