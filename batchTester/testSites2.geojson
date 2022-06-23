@@ -6493,6 +6493,127 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -80.454929,
+                    41.916838
+                ]
+            },
+            "properties": {
+                "siteid": "PAglobal",
+                "state": "PA",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLOPD",
+                        "Value": 3.5752
+                    },
+                    {
+                        "Label": "BSLOPDRAW",
+                        "Value": 3.7717
+                    },
+                    {
+                        "Label": "BSLPDRPA20",
+                        "Value": 4.369
+                    },
+                    {
+                        "Label": "CARBON",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CENTROXA83",
+                        "Value": -203751.0821
+                    },
+                    {
+                        "Label": "CENTROYA83",
+                        "Value": 326426.9555
+                    },
+                    {
+                        "Label": "DRN",
+                        "Value": 5
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 0.0381
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 870
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 912
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 32.5558
+                    },
+                    {
+                        "Label": "GLACIATED",
+                        "Value": 100
+                    },
+                    {
+                        "Label": "IMPNLCD01",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC01DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "LONG_OUT",
+                        "Value": -80.454917
+                    },
+                    {
+                        "Label": "MAXTEMP",
+                        "Value": 57.9
+                    },
+                    {
+                        "Label": "OUTLETXA83",
+                        "Value": -203624.5245	
+                    },
+                    {
+                        "Label": "OUTLETYA83",
+                        "Value": 326759.6708
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 41
+                    },
+                    {
+                        "Label": "ROCKDEP",
+                        "Value": 5
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STRDEN",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "URBAN",
+                        "Value": 0
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -66.45962,
                     18.32206
                 ]
