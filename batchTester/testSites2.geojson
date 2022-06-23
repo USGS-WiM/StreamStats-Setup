@@ -3212,6 +3212,132 @@
                 ]
             }
         },
+        
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    -69.591693,
+                    44.596016
+                ]
+            },
+            "properties": {
+                "siteid": "MEglobal",
+                "state": "ME",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 3.45
+                    },
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 453770.34
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 4938409.01
+                    },
+                    {
+                        "Label": "COASTDIST",
+                        "Value": 73
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 0.17
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 146.8
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 175
+                    },
+                    {
+                        "Label": "I24H100Y",
+                        "Value": 5.85
+                    },
+                    {
+                        "Label": "I24H10Y",
+                        "Value": 3.96
+                    },
+                    {
+                        "Label": "I24H200Y",
+                        "Value": 6.49
+                    },
+                    {
+                        "Label": "I24H25Y",
+                        "Value": 4.7
+                    },
+                    {
+                        "Label": "I24H2Y",
+                        "Value": 2.76
+                    },
+                    {
+                        "Label": "I24H500Y",
+                        "Value": 7.42
+                    },
+                    {
+                        "Label": "I24H50Y",
+                        "Value": 5.27
+                    },
+                    {
+                        "Label": "I24H5Y",
+                        "Value": 3.42
+                    },
+                    {
+                        "Label": "JULAVPRE",
+                        "Value": 3.18
+                    },
+                    {
+                        "Label": "LC06WATER",
+                        "Value": 4.91
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 9.1
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 3.3
+                    },
+                    {
+                        "Label": "PCTSNDGRV",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "PRDECFEB90",
+                        "Value": 9.19
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 41.6
+                    },
+                    {
+                        "Label": "SANDGRAVAF",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SANDGRAVAP",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "STATSGOA",
+                        "Value": 2
+                    },
+                    {
+                        "Label": "STORAGE",
+                        "Value": 3.924
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 3.35
+                    }
+                ]
+            }
+        },
         {
             "type": "Feature",
             "geometry": {
