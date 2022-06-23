@@ -3065,14 +3065,6 @@
                         "Value": 805
                     },
                     {
-                        "Label": "KVARIND10",
-                        "Value": 1.25
-                    },
-                    {
-                        "Label": "KVARIND93",
-                        "Value": 1.35
-                    },
-                    {
                         "Label": "KYVARIND10",
                         "Value": 1.25
                     },
@@ -3085,12 +3077,12 @@
                         "Value": 38.297977
                     },
                     {
-                        "Label": "LC11IMP",
-                        "Value": 0.57
-                    },
-                    {
                         "Label": "LC11DEV",
                         "Value": 5.68
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.57
                     }
                 ]
             }
