@@ -6738,70 +6738,6 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "DRNAREA",
-                        "Value": 1.17
-                    },
-                    {
-                        "Label": "STRMTOT",
-                        "Value": 3.35
-                    },
-                    {
-                        "Label": "STRDEN",
-                        "Value": 2.86
-                    },
-                    {
-                        "Label": "CSL10_85",
-                        "Value": 43.0
-                    },
-                    {
-                        "Label": "LFPLENGTH",
-                        "Value": 2.76
-                    },
-                    {
-                        "Label": "FOREST",
-                        "Value": 54.9
-                    },
-                    {
-                        "Label": "WATER",
-                        "Value": 0.13
-                    },
-                    {
-                        "Label": "WETLAND",
-                        "Value": 23.5
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 113
-                    },
-                    {
-                        "Label": "CRSDFT",
-                        "Value": 0
-                    },
-                    {
-                        "Label": "CROPS",
-                        "Value": 4.96
-                    },
-                    {
-                        "Label": "STORNHD",
-                        "Value": 5.62
-                    },
-                    {
-                        "Label": "STRMTOTED",
-                        "Value": 3.35
-                    },
-                    {
-                        "Label": "STRDENED",
-                        "Value": 2.86
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 2.21
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 8.75
-                    },
-                    {
                         "Label": "CAT1ROADS",
                         "Value": 0.0
                     },
@@ -6818,6 +6754,10 @@
                         "Value": 4.39
                     },
                     {
+                        "Label": "CROPS",
+                        "Value": 4.96
+                    },
+                    {
                         "Label": "CROSCOUNT1",
                         "Value": 0.0
                     },
@@ -6832,6 +6772,66 @@
                     {
                         "Label": "CROSCOUNT4",
                         "Value": 2.0
+                    },
+                    {
+                        "Label": "CRSDFT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 43.0
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 1.17
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 113
+                    },
+                    {
+                        "Label": "FOREST",
+                        "Value": 54.9
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 8.75
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 2.21
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 2.76
+                    },
+                    {
+                        "Label": "STORNHD",
+                        "Value": 5.62
+                    },
+                    {
+                        "Label": "STRDEN",
+                        "Value": 2.86
+                    },
+                    {
+                        "Label": "STRDENED",
+                        "Value": 2.86
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 3.35
+                    },
+                    {
+                        "Label": "STRMTOTED",
+                        "Value": 3.35
+                    },
+                    {
+                        "Label": "WATER",
+                        "Value": 0.13
+                    },
+                    {
+                        "Label": "WETLAND",
+                        "Value": 23.5
                     }
                 ]
             }
