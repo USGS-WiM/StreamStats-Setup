@@ -4575,72 +4575,36 @@
                 "pointType": "local",
                 "testData": [
                     {
-                        "Label": "DRNAREA",
-                        "Value": 219
-                    },
-                    {
                         "Label": "AG_OF_DA",
                         "Value": 6.89
-                    },
-                    {
-                        "Label": "BSLDEM10M",
-                        "Value": 6.77
-                    },
-                    {
-                        "Label": "CSL1085LFP",
-                        "Value": 7.09
-                    },
-                    {
-                        "Label": "ELEV",
-                        "Value": 1968
-                    },
-                    {
-                        "Label": "PRECIP",
-                        "Value": 17
-                    },
-                    {
-                        "Label": "SLOPERAT",
-                        "Value": 0.0198
-                    },
-                    {
-                        "Label": "SOILPERM",
-                        "Value": 2.84
                     },
                     {
                         "Label": "BASINPERIM",
                         "Value": 104
                     },
                     {
+                        "Label": "BSLDEM10M",
+                        "Value": 6.77
+                    },
+                    {
                         "Label": "COMPRAT",
                         "Value": 1.99
                     },
                     {
-                        "Label": "LFPLENGTH",
-                        "Value": 60.3
+                        "Label": "CSL1085LFP",
+                        "Value": 7.09
                     },
                     {
-                        "Label": "STRMTOT",
-                        "Value": 572
+                        "Label": "DRNAREA",
+                        "Value": 219
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1968
                     },
                     {
                         "Label": "ELEVMAX",
                         "Value": 2548
-                    },
-                    {
-                        "Label": "MINBELEV",
-                        "Value": 1653
-                    },
-                    {
-                        "Label": "RUGGED",
-                        "Value": 2330
-                    },
-                    {
-                        "Label": "LC11IMP",
-                        "Value": 0.11
-                    },
-                    {
-                        "Label": "LC11DEV",
-                        "Value": 0.77
                     },
                     {
                         "Label": "ISOLAKEDA",
@@ -4657,6 +4621,42 @@
                     {
                         "Label": "LAKEAREASU",
                         "Value": 0.00615
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.77
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.11
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 60.3
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 1653
+                    },
+                    {
+                        "Label": "PRECIP",
+                        "Value": 17
+                    },
+                    {
+                        "Label": "RUGGED",
+                        "Value": 2330
+                    },
+                    {
+                        "Label": "SLOPERAT",
+                        "Value": 0.0198
+                    },
+                    {
+                        "Label": "SOILPERM",
+                        "Value": 2.84
+                    },
+                    {
+                        "Label": "STRMTOT",
+                        "Value": 572
                     }
                 ]
             }
