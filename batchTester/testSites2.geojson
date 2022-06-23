@@ -7296,6 +7296,135 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -96.525566,
+                    42.636976
+                ]
+            },
+            "properties": {
+                "siteid": "SDglobal",
+                "state": "SD",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BASINPERIM",
+                        "Value": 985.02
+                    },
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 3
+                    },
+                    {
+                        "Label": "COMPRAT",
+                        "Value": 3.05
+                    },
+                    {
+                        "Label": "CONTDA",
+                        "Value": 7407.93
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 1.8
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 8291.77	
+                    },
+                    {
+                        "Label": "ELEV",
+                        "Value": 1624
+                    },
+                    {
+                        "Label": "ELEVMAX",
+                        "Value": 2084
+                    },
+                    {
+                        "Label": "LAKESNWI",
+                        "Value": 1.291
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 10.2
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.93
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 429.3
+                    },
+                    {
+                        "Label": "LIME",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "MINBELEV",
+                        "Value": 1094
+                    },
+                    {
+                        "Label": "NONCONTDA",
+                        "Value": 883.85
+                    },
+                    {
+                        "Label": "OUTLETELEV",
+                        "Value": 1102
+                    },
+                    {
+                        "Label": "RELIEF",
+                        "Value": 990
+                    },
+                    {
+                        "Label": "RELRELF",
+                        "Value": 1
+                    },
+                    {
+                        "Label": "SD_AS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_ASLZ",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_BHEXT",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_CC",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_LSTHW",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_LSTLZ",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SD_SNDHLS",
+                        "Value": 0
+                    },
+                    {
+                        "Label": "SLOPERAT",
+                        "Value": 0.61
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 4.684
+                    },
+                    {
+                        "Label": "WETLNDNWI",
+                        "Value": 3.922
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -88.15859,
                     35.41836
                 ]
