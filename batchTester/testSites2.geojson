@@ -2819,12 +2819,12 @@
                         "Value": 0.89
                     },
                     {
-                        "Label": "CSL10_85",
-                        "Value": 3.87
-                    },
-                    {
                         "Label": "CSL100",
                         "Value": 4.71
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 3.87
                     },
                     {
                         "Label": "DESMOIN",
