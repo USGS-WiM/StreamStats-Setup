@@ -3381,6 +3381,14 @@
                         "Value": 311.0
                     },
                     {
+                        "Label": "CENTROIDX",
+                        "Value": 67661
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 935091.4
+                    },
+                    {
                         "Label": "CROSCOUNT1",
                         "Value": 0.0
                     },
@@ -3397,20 +3405,12 @@
                         "Value": 274.0
                     },
                     {
-                        "Label": "CSL10_85",
-                        "Value": 16.4
-                    },
-                    {
-                        "Label": "CENTROIDX",
-                        "Value": 67661
-                    },
-                    {
-                        "Label": "CENTROIDY",
-                        "Value": 935091.4
-                    },
-                    {
                         "Label": "CRSDFT",
                         "Value": 10.16
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 16.4
                     },
                     {
                         "Label": "DRFTPERSTR",
@@ -3447,7 +3447,7 @@
                     {
                         "Label": "LFPLENGTH",
                         "Value": 25.8
-                    }
+                    },
                     {
                         "Label": "MAREGION",
                         "Value": 1
@@ -3479,7 +3479,7 @@
                     {
                         "Label": "WETLAND",
                         "Value": 3.06
-                    },
+                    }
                 ]
             }
         },
