@@ -3646,6 +3646,87 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -92.333821,
+                    46.654034
+                ]
+            },
+            "properties": {
+                "siteid": "MNglobal",
+                "state": "MN",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "BSLDEM10M",
+                        "Value": 2.34
+                    },
+                    {
+                        "Label": "CSL10_85",
+                        "Value": 2.52
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 3564.39
+                    },
+                    {
+                        "Label": "GENRO",
+                        "Value": 10.9
+                    },
+                    {
+                        "Label": "LAKEAREA",
+                        "Value": 2.72
+                    },
+                    {
+                        "Label": "LC06CROP",
+                        "Value": 3.19
+                    },
+                    {
+                        "Label": "LC11DEV",
+                        "Value": 0.0316
+                    },
+                    {
+                        "Label": "LC11IMP",
+                        "Value": 0.58
+                    },
+                    {
+                        "Label": "LFPLENGTH",
+                        "Value": 195.91
+                    },
+                    {
+                        "Label": "LOGDA",
+                        "Value": 3.55
+                    },
+                    {
+                        "Label": "PFLATLOW",
+                        "Value": 33.2
+                    },
+                    {
+                        "Label": "PMPE",
+                        "Value": 183
+                    },
+                    {
+                        "Label": "SOILA",
+                        "Value": 7.3
+                    },
+                    {
+                        "Label": "SSURGOC",
+                        "Value": 34.4
+                    },
+                    {
+                        "Label": "SSURGOM",
+                        "Value": 21.3
+                    },
+                    {
+                        "Label": "STORNWI",
+                        "Value": 42.4
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -92.77203,
                     39.41615
                 ]
