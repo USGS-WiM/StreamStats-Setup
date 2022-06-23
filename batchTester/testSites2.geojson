@@ -648,11 +648,11 @@
                     },
                     {
                         "Label": "BSHAPELFP",
-                        "Value": 5.845
+                        "Value": 5.842
                     },
                     {
                         "Label": "CSL1085ADJ",
-                        "Value": 20.585
+                        "Value": 20.593
                     },
                     {
                         "Label": "CSL1085LFP",
@@ -696,7 +696,7 @@
                     },
                     {
                         "Label": "LFPLENGTH",
-                        "Value": 35.989
+                        "Value": 35.98
                     },
                     {
                         "Label": "LOWREG",
