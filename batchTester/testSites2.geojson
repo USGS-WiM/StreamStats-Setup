@@ -6927,6 +6927,22 @@
                         "Value": 0.94
                     },
                     {
+                        "Label": "LC16DEV",
+                        "Value": 6.7
+                    },
+                    {
+                        "Label": "LC16FOREST",
+                        "Value": 6.7
+                    },
+                    {
+                        "Label": "LC16IMP",
+                        "Value": 1.1
+                    },
+                    {
+                        "Label": "LC16STOR",
+                        "Value": 25.7
+                    },
+                    {
                         "Label": "LFPLENGTH",
                         "Value": 33.664
                     },
@@ -6977,22 +6993,6 @@
                     {
                         "Label": "STORAGE",
                         "Value": 24.9
-                    },
-                    {
-                        "Label": "LC16DEV",
-                        "Value": 6.7
-                    },
-                    {
-                        "Label": "LC16FOREST",
-                        "Value": 6.7
-                    },
-                    {
-                        "Label": "LC16IMP",
-                        "Value": 1.1
-                    },
-                    {
-                        "Label": "LC16STOR",
-                        "Value": 25.7
                     }
                 ]
             }
