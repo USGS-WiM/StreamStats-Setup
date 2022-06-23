@@ -8280,6 +8280,55 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
+                    -72.486822,
+                    42.970681
+                ]
+            },
+            "properties": {
+                "siteid": "VTglobal",
+                "state": "VT",
+                "pointType": "global",
+                "testData": [
+                    {
+                        "Label": "CENTROIDX",
+                        "Value": 534742.3
+                    },
+                    {
+                        "Label": "CENTROIDY",
+                        "Value": 177861.1
+                    },
+                    {
+                        "Label": "DRNAREA",
+                        "Value": 5710
+                    },
+                    {
+                        "Label": "EL1200",
+                        "Value": 2.51
+                    },
+                    {
+                        "Label": "LC06STOR",
+                        "Value": 1.2
+                    },
+                    {
+                        "Label": "OUTLETX",
+                        "Value": 501075
+                    },
+                    {
+                        "Label": "OUTLETY",
+                        "Value": 52285
+                    },
+                    {
+                        "Label": "PRECPRIS10",
+                        "Value": 43.4
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
                     -90.1183,
                     44.48291
                 ]
