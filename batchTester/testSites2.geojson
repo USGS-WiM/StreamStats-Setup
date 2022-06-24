@@ -3632,8 +3632,8 @@
             "geometry": {
                 "type": "Point",
                 "coordinates": [
-                    -92.333821,
-                    46.654034
+                    -92.333855,
+                    46.653991
                 ]
             },
             "properties": {
@@ -3667,7 +3667,7 @@
                     },
                     {
                         "Label": "LC11DEV",
-                        "Value": 0.0316
+                        "Value": 0.0316	
                     },
                     {
                         "Label": "LC11IMP",
