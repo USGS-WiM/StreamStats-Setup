@@ -211,6 +211,12 @@
 			#printTypeHeader.stat-type #printBasinTypeHeader{
 				display: none;
 			}
+			#printTypeHeader.variable-type #printAppInfoHeader{
+				display: none;
+			}
+			#printTypeHeader.stat-type #printGeneralInfoHeader{
+				display: none;
+			}
 			#printDate{
 				font-style: italic;
 				font-size: 12px;
@@ -306,11 +312,13 @@
 		</div>
 
 		<div class="page-body">
-			<h2>StreamStats Statistic Labels</h2>
+			<h2>StreamStats Labels</h2>
 
 			<div id="printTypeHeader" class="stat-type">
 				<h3 id="printStatTypeHeader">Statistic Types</h3>
 				<h3 id="printBasinTypeHeader">Basin Characteristic Types</h3>
+				<h3 id="printAppInfoHeader">Application Information</h3>
+				<h3 id="printGeneralInfoHeader">General StreamStats Information</h3>
 				<!-- Date for print -->
 				<div id="printDate"></div>
 			</div>
@@ -319,6 +327,8 @@
 				<div class="tabs">
 					<button onclick="getStatisticTypes()" class="tab active" id="statTypeButton">Statistic Types</button>
 					<button onclick="getVariableTypes()" class="tab" id="varTypeButton">Basin Characteristic Types</button>
+					<button onclick="getAppInfo()" class="tab" id="appInfoButton">Application Information</button>
+					<button onclick="getGeneralInfo()" class="tab" id="generalInfoButton">General StreamStats Information</button>
 				</div>
 
 				<button onclick="window.print()" class="tab" id="printButton">Print</button><!--add print-->
@@ -331,8 +341,14 @@
 			<p class="showVarTypes hidden">
 				The values below are used in StreamStats as labels for basin characteristics at streamgages and user-selected ungaged locations, and are also used as parameters in regression-based scenarios.
 			</p>
+			<p class="showAppInfo hidden">
+				Select a state to view application information about that state. 
+			</p>
+			<p class="showGeneralInfo hidden">
+				Select a state to view general streamstats information about that state. 
+			</p>
 			
-			<!-- Statistic Group Dropdowns -->
+			<!-- Dropdowns -->
 			<div class="selectDiv showStatTypes">
 			  <label>Filter by Statistic Groups:</label>
 			  <select onChange="filterByStatGroup(this.value)" id="statTypeDropdown">
@@ -341,7 +357,7 @@
 			  <br>
 			  <br>
 			  <label>Filter by Region:</label>
-			  <select onChange="filterByRegion(this.value)" id="regionDropdown">
+			  <select onChange="filterStatsByRegion(this.value)" id="statRegionDropdown">
 				<option value="None">None</option>
 			  </select>
 			</div>
@@ -351,7 +367,18 @@
 				<option value="None">None</option>
 			  </select>
 			</div>
-
+			<div class="selectDiv showAppInfo hidden">
+			<label>Select a Region:</label>
+			<select onChange="filterAppInfoByRegion(this.value)" id="appInfoRegionDropdown">
+				<option value="None">None</option>
+			</select>
+			</div>
+			<div class="selectDiv showGeneralInfo hidden">
+			<label>Select a Region:</label>
+			<select onChange="filterGeneralInfoByRegion(this.value)" id="generalInfoRegionDropdown">
+				<option value="None">None</option>
+			</select>
+			</div>
 
 			<!-- Loader -->
 			<div id="usgsLoader">
@@ -379,6 +406,30 @@
 					<th>Metric Unit</th>
 				</thead>
 				<tbody id="varTypeTable"></tbody>
+			</table>
+
+			<table class="appInfo hidden">
+				<thead >
+					<th>State</th>
+					<th>Statistic Label</th>
+					<th>Description</th>
+					<th>Computation Method</th>
+					<th>Data Source</th>
+					<th>Report Varaible</th>
+				</thead>
+				<tbody id="appInfoTable"></tbody>
+			</table>
+
+			<table class="generalInfo hidden" style="width:100%">
+				<thead >
+					<th>Description</th>
+					<th>Excluded Area</th>
+					<th>Statstics Available</th>
+					<th>ArcGIS version</th>
+					<th>Topogrid Used</th>
+					<th>DEM Projection</th>
+				</thead>
+				<tbody id="generalInfoTable"></tbody>
 			</table>
 
 		</div> <!-- End Page Body -->
@@ -501,7 +552,9 @@
 				success: function(data) {
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
 					for (i in data) {
-						$('#regionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+						$('#statRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+						$('#appInfoRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+						$('#generalInfoRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
 					}
 
 					// Hide Loader
@@ -515,12 +568,22 @@
 				// Active Button
 				$("#statTypeButton").attr("class", "tab");
 				$("#varTypeButton").attr("class", "tab active");
+				$("#appInfoButton").attr("class", "tab");
+				$("#generalTypeButton").attr("class", "tab");
 
 				$("#printTypeHeader").attr("class", "variable-type");
 
 				var statTypes = document.getElementsByClassName('showStatTypes');
 				for (i=0; i<statTypes.length; i++) {
 					statTypes[i].classList.add('hidden');
+				}
+				var appInfo = document.getElementsByClassName('showAppInfo');
+				for (i=0; i<appInfo.length; i++) {
+					appInfo[i].classList.add('hidden');
+				}
+				var generalInfo = document.getElementsByClassName('showGeneralInfo');
+				for (i=0; i<generalInfo.length; i++) {
+					generalInfo[i].classList.add('hidden');
 				}
 				var varTypes = document.getElementsByClassName('showVarTypes');
 				for (i=0; i<varTypes.length; i++) {
@@ -533,6 +596,36 @@
 				// Active Button
 				$("#statTypeButton").attr("class", "tab active");
 				$("#varTypeButton").attr("class", "tab");
+				$("#appInfoButton").attr("class", "tab");
+				$("#generalInfoButton").attr("class", "tab");
+
+				$("#printTypeHeader").attr("class", "stat-type");
+
+				var varTypes = document.getElementsByClassName('showVarTypes');
+				for (i=0; i<varTypes.length; i++) {
+					varTypes[i].classList.add('hidden');
+				}
+				var appInfo = document.getElementsByClassName('showAppInfo');
+				for (i=0; i<appInfo.length; i++) {
+					appInfo[i].classList.add('hidden');
+				}
+				var generalInfo = document.getElementsByClassName('showGeneralInfo');
+				for (i=0; i<generalInfo.length; i++) {
+					generalInfo[i].classList.add('hidden');
+				}
+				var statTypes = document.getElementsByClassName('showStatTypes');
+				for (i=0; i<statTypes.length; i++) {
+					statTypes[i].classList.remove('hidden');
+				}
+			}
+
+			function getAppInfo() {
+
+				// Active Button
+				$("#statTypeButton").attr("class", "tab");
+				$("#varTypeButton").attr("class", "tab");
+				$("#appInfoButton").attr("class", "tab active");
+				$("#generalInfoButton").attr("class", "tab");
 
 				$("#printTypeHeader").attr("class", "stat-type");
 
@@ -542,7 +635,43 @@
 				}
 				var statTypes = document.getElementsByClassName('showStatTypes');
 				for (i=0; i<statTypes.length; i++) {
-					statTypes[i].classList.remove('hidden');
+					statTypes[i].classList.add('hidden');
+				}
+				var generalInfo = document.getElementsByClassName('showGeneralInfo');
+				for (i=0; i<generalInfo.length; i++) {
+					generalInfo[i].classList.add('hidden');
+				}
+				var appInfo = document.getElementsByClassName('showAppInfo');
+				for (i=0; i<appInfo.length; i++) {
+					appInfo[i].classList.remove('hidden');
+				}
+			}
+
+			function getGeneralInfo() {
+
+				// Active Button
+				$("#statTypeButton").attr("class", "tab");
+				$("#varTypeButton").attr("class", "tab");
+				$("#appInfoButton").attr("class", "tab");
+				$("#generalInfoButton").attr("class", "tab active");
+
+				$("#printTypeHeader").attr("class", "stat-type");
+
+				var varTypes = document.getElementsByClassName('showVarTypes');
+				for (i=0; i<varTypes.length; i++) {
+					varTypes[i].classList.add('hidden');
+				}
+				var statTypes = document.getElementsByClassName('showStatTypes');
+				for (i=0; i<statTypes.length; i++) {
+					statTypes[i].classList.add('hidden');
+				}
+				var appInfo = document.getElementsByClassName('showAppInfo');
+				for (i=0; i<appInfo.length; i++) {
+					appInfo[i].classList.add('hidden');
+				}
+				var generalInfo = document.getElementsByClassName('showGeneralInfo');
+				for (i=0; i<generalInfo.length; i++) {
+					generalInfo[i].classList.remove('hidden');
 				}
 			}
 			
@@ -611,7 +740,7 @@
 				});
 			}
 
-			function filterByRegion(region) {
+			function filterStatsByRegion(region) {
 				// Show Loader
 				$("#usgsLoader").show();
 				$('#statTypeTable').empty();
@@ -639,7 +768,64 @@
 					}
 				});
 			}
+
+			function filterAppInfoByRegion(region) {
+				// Show Loader
+				$("#usgsLoader").show();
+				$('#appInfoTable').empty();
+				var statTypeTable = document.getElementById('appInfoTable');
+				selectedRegionID = region;
+
+				// if user selects None
+				if (region == 'None') {
+					selectedRegionID = "";
+				}
+				$.ajax({
+					type: "GET",
+					url: baseUrl + "nssservices/appInformations/SD",
+					success: function(data) {
+						// filteredRegressionTypes = data;
+
+						// comment out these if we get the gage stats stuff back in
+						//data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
+						//for (i in data) {
+							//addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
+						//}
+						// Hide Loader
+						$("#usgsLoader").hide();
+					}
+				});
+			}
 			
+			function filterGeneralInfoByRegion(region) {
+				// Show Loader
+				$("#usgsLoader").show();
+				$('#generalInfoTable').empty();
+				var statTypeTable = document.getElementById('generalInfoTable');
+				selectedRegionID = region;
+
+				// if user selects None
+				if (region == 'None') {
+					selectedRegionID = "";
+				}
+				$.ajax({
+					type: "GET",
+					url: baseUrl + "nssservices/GeneralInformations/SD",
+					success: function(data) {
+						// filteredRegressionTypes = data;
+
+						// comment out these if we get the gage stats stuff back in
+						//data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
+						//for (i in data) {
+							//addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
+						//}
+						// Hide Loader
+						$("#usgsLoader").hide();
+					}
+				});
+			}
+			
+
 			function addStatisticToTable(statTypeTable, statisticType) {
 				var tr = statTypeTable.appendChild(document.createElement('tr'));
 				var name_td = tr.appendChild(document.createElement('td'));
