@@ -131,7 +131,12 @@
 				letter-spacing: -0.2px;
 				font-family: monospace;
 			}
-
+			.label { 
+				background-color: #D9DDE4;
+				font-weight: 700;
+				border: 1px solid #DADDE4;
+				display: inline-block;
+			}
 			td:nth-child(2){
 				min-width: 120px;
 			}
@@ -196,7 +201,6 @@
 				box-sizing: border-box;
 			}
 
-
 			/* Hide type headers - only shown on print */
 			#printTypeHeader{
 				display: none;
@@ -221,8 +225,6 @@
 				font-style: italic;
 				font-size: 12px;
 			}
-
-
 			
 			/* select */
 			select{
@@ -242,7 +244,6 @@
 			option {
 				background-color: white;
 			}
-			
 			.selectDiv {
 				padding: 10px 0px;
 			}
@@ -263,9 +264,9 @@
 					margin-bottom: 10px;
 					box-shadow: none;
 				}
-					.usgs-bar img{
-						filter: invert(100%);
-					}
+				.usgs-bar img{
+					filter: invert(100%);
+				}
 
 				/* Remove whitespace */
 				.page-body{
@@ -289,20 +290,12 @@
 				select::-ms-expand {
 					display: none;
 				}
-
-
 			}
-
-			
 		</style>
-
 	</head>
 
 	<body>
-
-		<!-- 
-		USGS Bar
-		-->
+		<!-- USGS Bar -->
 		<div class="usgs-bar">
 			<div class="standard-width xs-pl-15 xs-pr-15 sm-pl-20 sm-pr-20 md-pl-30 md-pr-30 lg-pl-50 lg-pr-50 xs-pt-10 xs-pb-10">
 				<a href="https://usgs.gov" target="_blank">
@@ -408,29 +401,34 @@
 				<tbody id="varTypeTable"></tbody>
 			</table>
 
-			<table class="appInfo hidden">
+			<table class="showAppInfo hidden">
 				<thead >
 					<th>State</th>
 					<th>Statistic Label</th>
 					<th>Description</th>
 					<th>Computation Method</th>
 					<th>Data Source</th>
-					<th>Report Varaible</th>
+					<th>Report Variable</th>
 				</thead>
 				<tbody id="appInfoTable"></tbody>
 			</table>
 
-			<table class="generalInfo hidden" style="width:100%">
-				<thead >
-					<th>Description</th>
-					<th>Excluded Area</th>
-					<th>Statstics Available</th>
-					<th>ArcGIS version</th>
-					<th>Topogrid Used</th>
-					<th>DEM Projection</th>
-				</thead>
-				<tbody id="generalInfoTable"></tbody>
-			</table>
+			<div class="showGeneralInfo hidden">
+				<div class="label">Description:</div>&nbsp;<label id="description"></label><br>
+				<div class="label">Excluded Area:</div>&nbsp;<label id="excluded"></label><br>
+				<div class="label">Statstics Available:</div>&nbsp;<label id="stats"></label><br>	
+				<div class="label">ArcGIS version:</div>&nbsp;<label id="arcgis"></label><br>
+				<div class="label">Topogrid Used:</div>&nbsp;<label id="topogrid"></label><br>			
+				<div class="label">DEM Projection:</div>&nbsp;<label id="proj"></label><br>		
+				<div class="label">DEM Resolution:</div>&nbsp;<label id="res"></label><br>		
+				<div class="label">DEM Source:</div>&nbsp;<label id="demsource"></label><br>			
+				<div class="label">Hydrography Source:</div>&nbsp;<label id="hydrography"></label><br>		
+				<div class="label">Inwalls Source:</div>&nbsp;<label id="inwalls"></label><br>		
+				<div class="label">Gage Basin Boundry Source:</div>&nbsp;<label id="basinbound"></label><br>		
+				<div class="label">Snapping Tolerance:</div>&nbsp;<label id="snap"></label><br>		
+				<div class="label">Basin characteristics Computed Using CPGs:</div>&nbsp;<label id="cpgs"></label><br>		
+				<div class="label">Special Functionality:</div>&nbsp;<label id="special"></label><br>
+			</div>
 
 		</div> <!-- End Page Body -->
 
@@ -459,9 +457,6 @@
 			</div>
 			<!-- /.footer-wrap -->
 		</footer>
-
-
-
 
 		<!-- Global site tag (gtag.js) - Google Analytics -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-61219868-27"></script>
@@ -688,30 +683,6 @@
 				$("#usgsLoader").hide();
 			}
 			
-			function addVariableToTable(varTypeTable, variable) {
-				
-				var tr = varTypeTable.appendChild(document.createElement('tr'));
-				var name_td = tr.appendChild(document.createElement('td'));
-				name_td.title = 'name';
-				name_td.innerHTML = variable['name'];
-				var code_td = tr.appendChild(document.createElement('td'));
-				code_td.title = 'code';
-				code_td.innerHTML = variable['code'];
-				var desc_td = tr.appendChild(document.createElement('td'));
-				desc_td.title = 'description';
-				desc_td.innerHTML = variable['description'];
-				var  english_td = tr.appendChild(document.createElement('td'));
-				if (variable['englishUnitType'] && variable['englishUnitType']['name']) {
-					english_td.title = 'english-unit';
-					english_td.innerHTML = variable['englishUnitType']['name'];
-				}
-				var  metric_td = tr.appendChild(document.createElement('td'));
-				if (variable['metricUnitType'] && variable['metricUnitType']['name']) {
-					metric_td.title = 'metric-unit';
-					metric_td.innerHTML = variable['metricUnitType']['name'];
-				}
-			}
-			
 			function filterByStatGroup(statGroup) {
 				// Show Loader
 				$("#usgsLoader").show();
@@ -773,7 +744,8 @@
 				// Show Loader
 				$("#usgsLoader").show();
 				$('#appInfoTable').empty();
-				var statTypeTable = document.getElementById('appInfoTable');
+				var filteredAppInfo = [];
+				var appInfoTable = document.getElementById('appInfoTable');
 				selectedRegionID = region;
 
 				// if user selects None
@@ -782,15 +754,12 @@
 				}
 				$.ajax({
 					type: "GET",
-					url: baseUrl + "nssservices/appInformations/SD",
+					url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
 					success: function(data) {
-						// filteredRegressionTypes = data;
-
-						// comment out these if we get the gage stats stuff back in
-						//data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
-						//for (i in data) {
-							//addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
-						//}
+						filteredAppInfo = data
+						for (i in data) {
+							addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
+						}
 						// Hide Loader
 						$("#usgsLoader").hide();
 					}
@@ -800,8 +769,9 @@
 			function filterGeneralInfoByRegion(region) {
 				// Show Loader
 				$("#usgsLoader").show();
-				$('#generalInfoTable').empty();
-				var statTypeTable = document.getElementById('generalInfoTable');
+				clearGeneralInfoTable();
+				var filteredGeneralInfo = []
+				var generalInfoTable = document.getElementById('generalInfoTable');
 				selectedRegionID = region;
 
 				// if user selects None
@@ -810,21 +780,41 @@
 				}
 				$.ajax({
 					type: "GET",
-					url: baseUrl + "nssservices/GeneralInformations/SD",
+					url: baseUrl + "nssservices/GeneralInformations/" + selectedRegionID,
 					success: function(data) {
-						// filteredRegressionTypes = data;
-
-						// comment out these if we get the gage stats stuff back in
-						//data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
-						//for (i in data) {
-							//addStatisticToTable(statTypeTable, filteredRegressionTypes[i]);
-						//}
+						filteredGeneralInfo = data;
+						for (i in data) {
+							addGeneralInfoToTable(generalInfoTable, filteredGeneralInfo[i]);
+						}
 						// Hide Loader
 						$("#usgsLoader").hide();
 					}
 				});
 			}
 			
+			function addVariableToTable(varTypeTable, variable) {
+				
+				var tr = varTypeTable.appendChild(document.createElement('tr'));
+				var name_td = tr.appendChild(document.createElement('td'));
+				name_td.title = 'name';
+				name_td.innerHTML = variable['name'];
+				var code_td = tr.appendChild(document.createElement('td'));
+				code_td.title = 'code';
+				code_td.innerHTML = variable['code'];
+				var desc_td = tr.appendChild(document.createElement('td'));
+				desc_td.title = 'description';
+				desc_td.innerHTML = variable['description'];
+				var  english_td = tr.appendChild(document.createElement('td'));
+				if (variable['englishUnitType'] && variable['englishUnitType']['name']) {
+					english_td.title = 'english-unit';
+					english_td.innerHTML = variable['englishUnitType']['name'];
+				}
+				var  metric_td = tr.appendChild(document.createElement('td'));
+				if (variable['metricUnitType'] && variable['metricUnitType']['name']) {
+					metric_td.title = 'metric-unit';
+					metric_td.innerHTML = variable['metricUnitType']['name'];
+				}
+			}
 
 			function addStatisticToTable(statTypeTable, statisticType) {
 				var tr = statTypeTable.appendChild(document.createElement('tr'));
@@ -839,7 +829,62 @@
 				desc_td.innerHTML = statisticType['description'];
 			}
 			
-		</script>
+			function addAppInfoToTable(appInfoTable, appInfo) {
+				var tr = appInfoTable.appendChild(document.createElement('tr'));
+				var state_td = tr.appendChild(document.createElement('td'));
+				state_td.title = 'state';
+				state_td.innerHTML = appInfo['application'];
+				var stat_td = tr.appendChild(document.createElement('td'));
+				stat_td.title = 'statistic label';
+				stat_td.innerHTML = appInfo['statisticLabel'];
+				var desc_td = tr.appendChild(document.createElement('td'));
+				desc_td.title = 'description';
+				desc_td.innerHTML = appInfo['description'];
+				var comp_td = tr.appendChild(document.createElement('td'));
+				comp_td.title = 'computation method';
+				comp_td.innerHTML = appInfo['computationMethod'];
+				var data_td = tr.appendChild(document.createElement('td'));
+				data_td.title = 'data source';
+				data_td.innerHTML = appInfo['dataSource'];
+				var var_td = tr.appendChild(document.createElement('td'));
+				var_td.title = 'report variable';
+				var_td.innerHTML = appInfo['reportVar'];
+			}
 
+			function addGeneralInfoToTable(generalInfoTable, generalInfo) {
+				document.getElementById('description').innerHTML = generalInfo['projectAreaGeneralDescription'];
+				document.getElementById('excluded').innerHTML = generalInfo['excludedAreas'];
+				document.getElementById('stats').innerHTML = generalInfo['typesOfStatisticsAvailable'];
+				document.getElementById('arcgis').innerHTML = generalInfo['arcGisVersionUsedForProcessing'];
+				document.getElementById('topogrid').innerHTML = generalInfo['topogridUsed'];
+				document.getElementById('proj').innerHTML = generalInfo['projectionOfDemAndDerivatives'];
+				document.getElementById('res').innerHTML = generalInfo['resolutionOfDemAndDerivatives'];
+				document.getElementById('demsource').innerHTML = generalInfo['demSourceAndDate'];
+				document.getElementById('hydrography').innerHTML = generalInfo['hydrographySource'];
+				document.getElementById('inwalls').innerHTML = generalInfo['inwallsUsedSource'];
+				document.getElementById('basinbound').innerHTML = generalInfo['gageBasinBoundariesSource'];
+				document.getElementById('snap').innerHTML = generalInfo['interactiveSnappingTolerance'];
+				document.getElementById('cpgs').innerHTML = generalInfo['basinCharacteristicsComputedUsingContinuousParameterGrids'];
+				document.getElementById('special').innerHTML = generalInfo['specialFunctionality'];
+			}
+
+			function clearGeneralInfoTable(generalInfoTable, generalInfo) {
+				document.getElementById('description').innerHTML = null;
+				document.getElementById('excluded').innerHTML = null;
+				document.getElementById('stats').innerHTML = null;
+				document.getElementById('arcgis').innerHTML = null;
+				document.getElementById('topogrid').innerHTML = null;
+				document.getElementById('proj').innerHTML = null;
+				document.getElementById('res').innerHTML = null;
+				document.getElementById('demsource').innerHTML = null;
+				document.getElementById('hydrography').innerHTML = null;
+				document.getElementById('inwalls').innerHTML = null;
+				document.getElementById('basinbound').innerHTML = null;
+				document.getElementById('snap').innerHTML = null;
+				document.getElementById('cpgs').innerHTML = null;
+				document.getElementById('special').innerHTML = null;
+			}
+			
+		</script>
 	</body>
 </html>
