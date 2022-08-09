@@ -401,7 +401,8 @@
 				<tbody id="varTypeTable"></tbody>
 			</table>
 
-			<table class="showAppInfo hidden">
+			<div class="showAppInfo hidden"></div>
+			<table class="showAppInfoTable hidden">
 				<thead >
 					<th style="width:5%">State</th>
 					<th>Statistic Label</th>
@@ -413,7 +414,8 @@
 				<tbody id="appInfoTable"></tbody>
 			</table>
 
-			<div class="showGeneralInfo hidden">
+			<div class="showGeneralInfo hidden"></div>
+			<div class="showGeneralInfoTable hidden">
 				<div class="label">Description:</div>&nbsp;<label id="description"></label><br>
 				<div class="label">Excluded Area:</div>&nbsp;<label id="excluded"></label><br>
 				<div class="label">Statstics Available:</div>&nbsp;<label id="stats"></label><br>	
@@ -745,25 +747,35 @@
 				$("#usgsLoader").show();
 				$('#appInfoTable').empty();
 				var filteredAppInfo = [];
-				var appInfoTable = document.getElementById('appInfoTable');
 				selectedRegionID = region;
+				var table = document.getElementsByClassName('showAppInfoTable');
 
 				// if user selects None
 				if (region == 'None') {
-					selectedRegionID = "";
-				}
-				$.ajax({
-					type: "GET",
-					url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
-					success: function(data) {
-						filteredAppInfo = data
-						for (i in data) {
-							addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
-						}
-						// Hide Loader
-						$("#usgsLoader").hide();
+					filteredAppInfo = [];
+					for (i=0; i<table.length; i++) {
+						table[i].classList.add('hidden');
 					}
-				});
+					$("#usgsLoader").hide();
+				} else {
+					$.ajax({
+						type: "GET",
+						url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
+						success: function(data) {
+							for (i=0; i<table.length; i++) {
+								table[i].classList.remove('hidden');
+							}
+
+							filteredAppInfo = data
+							for (i in data) {
+								addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
+							}
+							
+							// Hide Loader
+							$("#usgsLoader").hide();
+						}
+					});
+				}
 			}
 			
 			function filterGeneralInfoByRegion(region) {
@@ -771,25 +783,33 @@
 				$("#usgsLoader").show();
 				clearGeneralInfoTable();
 				var filteredGeneralInfo = []
-				var generalInfoTable = document.getElementById('generalInfoTable');
 				selectedRegionID = region;
+				var table = document.getElementsByClassName('showGeneralInfoTable');
 
 				// if user selects None
 				if (region == 'None') {
-					selectedRegionID = "";
-				}
-				$.ajax({
-					type: "GET",
-					url: baseUrl + "nssservices/GeneralInformations/" + selectedRegionID,
-					success: function(data) {
-						filteredGeneralInfo = data;
-						for (i in data) {
-							addGeneralInfoToTable(generalInfoTable, filteredGeneralInfo[i]);
-						}
-						// Hide Loader
-						$("#usgsLoader").hide();
+					filteredGeneralInfo = [];
+					for (i=0; i<table.length; i++) {
+						table[i].classList.add('hidden');
 					}
-				});
+					$("#usgsLoader").hide();
+				} else {
+					$.ajax({
+						type: "GET",
+						url: baseUrl + "nssservices/GeneralInformations/" + selectedRegionID,
+						success: function(data) {
+							for (i=0; i<table.length; i++) {
+								table[i].classList.remove('hidden');
+							}
+							filteredGeneralInfo = data;
+							for (i in data) {
+								addGeneralInfoToTable( filteredGeneralInfo[i]);
+							}
+							// Hide Loader
+							$("#usgsLoader").hide();
+						}
+					});
+				}
 			}
 			
 			function addVariableToTable(varTypeTable, variable) {
@@ -851,7 +871,7 @@
 				var_td.innerHTML = appInfo['reportVar'];
 			}
 
-			function addGeneralInfoToTable(generalInfoTable, generalInfo) {
+			function addGeneralInfoToTable( generalInfo) {
 				document.getElementById('description').innerHTML = generalInfo['projectAreaGeneralDescription'];
 				document.getElementById('excluded').innerHTML = generalInfo['excludedAreas'];
 				document.getElementById('stats').innerHTML = generalInfo['typesOfStatisticsAvailable'];
