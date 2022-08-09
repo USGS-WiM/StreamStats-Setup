@@ -415,22 +415,64 @@
 			</table>
 
 			<div class="showGeneralInfo hidden"></div>
-			<div class="showGeneralInfoTable hidden">
-				<div class="label">Description:</div>&nbsp;<label id="description"></label><br>
-				<div class="label">Excluded Area:</div>&nbsp;<label id="excluded"></label><br>
-				<div class="label">Statstics Available:</div>&nbsp;<label id="stats"></label><br>	
-				<div class="label">ArcGIS version:</div>&nbsp;<label id="arcgis"></label><br>
-				<div class="label">Topogrid Used:</div>&nbsp;<label id="topogrid"></label><br>			
-				<div class="label">DEM Projection:</div>&nbsp;<label id="proj"></label><br>		
-				<div class="label">DEM Resolution:</div>&nbsp;<label id="res"></label><br>		
-				<div class="label">DEM Source:</div>&nbsp;<label id="demsource"></label><br>			
-				<div class="label">Hydrography Source:</div>&nbsp;<label id="hydrography"></label><br>		
-				<div class="label">Inwalls Source:</div>&nbsp;<label id="inwalls"></label><br>		
-				<div class="label">Gage Basin Boundry Source:</div>&nbsp;<label id="basinbound"></label><br>		
-				<div class="label">Snapping Tolerance:</div>&nbsp;<label id="snap"></label><br>		
-				<div class="label">Basin characteristics Computed Using CPGs:</div>&nbsp;<label id="cpgs"></label><br>		
-				<div class="label">Special Functionality:</div>&nbsp;<label id="special"></label><br>
-			</div>
+			<table class="showGeneralInfoTable hidden">
+				<tr>
+					<th>Description:</th>
+					<td id=description></td>
+				</tr>
+				<tr>
+					<th>Excluded Area:</th>
+					<td id=excluded></td>
+				</tr>
+				<tr>
+					<th>Statstics Available:</th>
+					<td id=stats></td>
+				</tr>
+				<tr>
+					<th>ArcGIS version:</th>
+					<td id=arcgis></td>
+				</tr>
+				<tr>
+					<th>Topogrid Used:</th>
+					<td id=topogrid></td>
+				</tr>
+				<tr>
+					<th>DEM Projection:</th>
+					<td id=proj></td>
+				</tr>
+				<tr>
+					<th>DEM Resolution:</th>
+					<td id=res></td>
+				</tr>
+				<tr>
+					<th>DEM Source:</th>
+					<td id=demsource></td>
+				</tr>
+				<tr>
+					<th>Hydrography Source:</th>
+					<td id=hydrography></td>
+				</tr>
+				<tr>
+					<th>Inwalls Source:</th>
+					<td id=inwalls></td>
+				</tr>
+				<tr>
+					<th>Gage Basin Boundry Source:</th>
+					<td id=basinbound></td>
+				</tr>
+				<tr>
+					<th>Snapping Tolerance:</th>
+					<td id=snap></td>
+				</tr>
+				<tr>
+					<th>Basin characteristics Computed Using CPGs:</th>
+					<td id=cpgs></td>
+				</tr>
+				<tr>
+					<th>Special Functionality:</th>
+					<td id=special></td>
+				</tr>
+			</table>
 
 		</div> <!-- End Page Body -->
 
@@ -781,7 +823,7 @@
 			function filterGeneralInfoByRegion(region) {
 				// Show Loader
 				$("#usgsLoader").show();
-				clearGeneralInfoTable();
+				$('#generalInfoTable').empty();
 				var filteredGeneralInfo = []
 				selectedRegionID = region;
 				var table = document.getElementsByClassName('showGeneralInfoTable');
@@ -803,7 +845,7 @@
 							}
 							filteredGeneralInfo = data;
 							for (i in data) {
-								addGeneralInfoToTable( filteredGeneralInfo[i]);
+								addGeneralInfoToTable(filteredGeneralInfo[i]);
 							}
 							// Hide Loader
 							$("#usgsLoader").hide();
@@ -871,7 +913,7 @@
 				var_td.innerHTML = appInfo['reportVar'];
 			}
 
-			function addGeneralInfoToTable( generalInfo) {
+			function addGeneralInfoToTable(generalInfo) {
 				document.getElementById('description').innerHTML = generalInfo['projectAreaGeneralDescription'];
 				document.getElementById('excluded').innerHTML = generalInfo['excludedAreas'];
 				document.getElementById('stats').innerHTML = generalInfo['typesOfStatisticsAvailable'];
@@ -886,23 +928,6 @@
 				document.getElementById('snap').innerHTML = generalInfo['interactiveSnappingTolerance'];
 				document.getElementById('cpgs').innerHTML = generalInfo['basinCharacteristicsComputedUsingContinuousParameterGrids'];
 				document.getElementById('special').innerHTML = generalInfo['specialFunctionality'];
-			}
-
-			function clearGeneralInfoTable(generalInfoTable, generalInfo) {
-				document.getElementById('description').innerHTML = null;
-				document.getElementById('excluded').innerHTML = null;
-				document.getElementById('stats').innerHTML = null;
-				document.getElementById('arcgis').innerHTML = null;
-				document.getElementById('topogrid').innerHTML = null;
-				document.getElementById('proj').innerHTML = null;
-				document.getElementById('res').innerHTML = null;
-				document.getElementById('demsource').innerHTML = null;
-				document.getElementById('hydrography').innerHTML = null;
-				document.getElementById('inwalls').innerHTML = null;
-				document.getElementById('basinbound').innerHTML = null;
-				document.getElementById('snap').innerHTML = null;
-				document.getElementById('cpgs').innerHTML = null;
-				document.getElementById('special').innerHTML = null;
 			}
 
 		</script>
