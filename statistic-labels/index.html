@@ -763,7 +763,9 @@
 								for (i in data) {
 									addGeneralInfoToTable(filteredGeneralInfo[i]);
 								}
-								document.getElementById('regionalDropdown').value = region
+								setTimeout(function(){
+									setTimeout($("#regionalDropdown").val(region),500)
+								}, 300);
 							} 
 							// Hide Loader
 							$("#usgsLoader").hide();
@@ -781,7 +783,6 @@
 								for (i in data) {
 									addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
 								}
-								document.getElementById('regionalDropdown').value = region
 							} 
 							// Hide Loader
 							$("#usgsLoader").hide();
