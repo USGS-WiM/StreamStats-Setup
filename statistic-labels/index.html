@@ -208,10 +208,7 @@
 			#printTypeHeader.stat-type #printBasinTypeHeader{
 				display: none;
 			}
-			#printTypeHeader.variable-type #printAppInfoHeader{
-				display: none;
-			}
-			#printTypeHeader.stat-type #printGeneralInfoHeader{
+			#printTypeHeader.regional-type #printRegInfoHeader{
 				display: none;
 			}
 			#printDate{
@@ -303,8 +300,7 @@
 			<div id="printTypeHeader" class="stat-type">
 				<h3 id="printStatTypeHeader">Statistic Types</h3>
 				<h3 id="printBasinTypeHeader">Basin Characteristic Types</h3>
-				<h3 id="printAppInfoHeader">Application Information</h3>
-				<h3 id="printGeneralInfoHeader">General StreamStats Information</h3>
+				<h3 id="printRegInfoHeader">Regional Information</h3>
 				<!-- Date for print -->
 				<div id="printDate"></div>
 			</div>
@@ -313,8 +309,7 @@
 				<div class="tabs">
 					<button onclick="getStatisticTypes()" class="tab active" id="statTypeButton">Statistic Types</button>
 					<button onclick="getVariableTypes()" class="tab" id="varTypeButton">Basin Characteristic Types</button>
-					<button onclick="getAppInfo()" class="tab" id="appInfoButton">Application Information</button>
-					<button onclick="getGeneralInfo()" class="tab" id="generalInfoButton">General StreamStats Information</button>
+					<button onclick="getRegionalInfo()" class="tab" id="regionalInfoButton">Regional Information</button>
 				</div>
 
 				<button onclick="window.print()" class="tab" id="printButton">Print</button><!--add print-->
@@ -322,17 +317,15 @@
 
 			<p class="showStatTypes">
 				The values below are used in StreamStats as statistic labels for at-site statistics for streamgages and regression-based scenarios at user-selected ungaged locations.
-				Not all statistic labels are available in all states. Use the "Filter by Region" drop-down box to view the statistic labels available for a specific state.
+				Not all statistic labels are available in all states/regions. Use the "Filter by Region" drop-down box to view the statistic labels available for a specific states/regions.
 			</p>
 			<p class="showVarTypes hidden">
 				The values below are used in StreamStats as labels for basin characteristics at streamgages and user-selected ungaged locations, and are also used as parameters in regression-based scenarios.
 			</p>
-			<p class="showAppInfo hidden">
-				Select a state to view application information about that state. 
+			<p class="showRegionalInfo hidden">
+				Select a region/state to view region specific information. 
 			</p>
-			<p class="showGeneralInfo hidden">
-				Select a state to view general streamstats information about that state. 
-			</p>
+
 			
 			<!-- Dropdowns -->
 			<div class="selectDiv showStatTypes">
@@ -342,7 +335,7 @@
 			  </select>
 			  <br>
 			  <br>
-			  <label>Filter by Region:</label>
+			  <label>Filter by State/Region:</label>
 			  <select onChange="filterStatsByRegion(this.value)" id="statRegionDropdown">
 				<option value="None">None</option>
 			  </select>
@@ -353,15 +346,9 @@
 				<option value="None">None</option>
 			  </select>
 			</div>
-			<div class="selectDiv showAppInfo hidden">
-			<label>Select a Region:</label>
-			<select onChange="filterAppInfoByRegion(this.value)" id="appInfoRegionDropdown">
-				<option value="None">None</option>
-			</select>
-			</div>
-			<div class="selectDiv showGeneralInfo hidden">
-			<label>Select a Region:</label>
-			<select onChange="filterGeneralInfoByRegion(this.value)" id="generalInfoRegionDropdown">
+			<div class="selectDiv showRegionalInfo hidden">
+			<label>Select a State/Region:</label>
+			<select onChange="filterRegionalInfoByRegion(this.value)" id="regionalDropdown">
 				<option value="None">None</option>
 			</select>
 			</div>
@@ -394,79 +381,79 @@
 				<tbody id="varTypeTable"></tbody>
 			</table>
 
-			<div class="showAppInfo hidden"></div>
-			<table class="showAppInfoTable hidden">
-				<thead >
-					<th style="width:5%">State</th>
-					<th>Statistic Label</th>
-					<th>Description</th>
-					<th>Computation Method</th>
-					<th>Data Source</th>
-					<th style="width:10%">Report Variable</th>
-				</thead>
-				<tbody id="appInfoTable"></tbody>
-			</table>
+			<div class="showRegionalInfo hidden">
+				<h3 class="showGeneralInfoTable hidden">General Information</h3>
+				<table class="showGeneralInfoTable hidden">
+					<tr>
+						<th>Description:</th>
+						<td id=description></td>
+					</tr>
+					<tr>
+						<th>Excluded Area:</th>
+						<td id=excluded></td>
+					</tr>
+					<tr>
+						<th>Statstics Available:</th>
+						<td id=stats></td>
+					</tr>
+					<tr>
+						<th>ArcGIS version:</th>
+						<td id=arcgis></td>
+					</tr>
+					<tr>
+						<th>Topogrid Used:</th>
+						<td id=topogrid></td>
+					</tr>
+					<tr>
+						<th>DEM Projection:</th>
+						<td id=proj></td>
+					</tr>
+					<tr>
+						<th>DEM Resolution:</th>
+						<td id=res></td>
+					</tr>
+					<tr>
+						<th>DEM Source:</th>
+						<td id=demsource></td>
+					</tr>
+					<tr>
+						<th>Hydrography Source:</th>
+						<td id=hydrography></td>
+					</tr>
+					<tr>
+						<th>Inwalls Source:</th>
+						<td id=inwalls></td>
+					</tr>
+					<tr>
+						<th>Gage Basin Boundry Source:</th>
+						<td id=basinbound></td>
+					</tr>
+					<tr>
+						<th>Snapping Tolerance:</th>
+						<td id=snap></td>
+					</tr>
+					<tr>
+						<th>Basin characteristics Computed Using CPGs:</th>
+						<td id=cpgs></td>
+					</tr>
+					<tr>
+						<th>Special Functionality:</th>
+						<td id=special></td>
+					</tr>
+				</table>
 
-			<div class="showGeneralInfo hidden"></div>
-			<table class="showGeneralInfoTable hidden">
-				<tr>
-					<th>Description:</th>
-					<td id=description></td>
-				</tr>
-				<tr>
-					<th>Excluded Area:</th>
-					<td id=excluded></td>
-				</tr>
-				<tr>
-					<th>Statstics Available:</th>
-					<td id=stats></td>
-				</tr>
-				<tr>
-					<th>ArcGIS version:</th>
-					<td id=arcgis></td>
-				</tr>
-				<tr>
-					<th>Topogrid Used:</th>
-					<td id=topogrid></td>
-				</tr>
-				<tr>
-					<th>DEM Projection:</th>
-					<td id=proj></td>
-				</tr>
-				<tr>
-					<th>DEM Resolution:</th>
-					<td id=res></td>
-				</tr>
-				<tr>
-					<th>DEM Source:</th>
-					<td id=demsource></td>
-				</tr>
-				<tr>
-					<th>Hydrography Source:</th>
-					<td id=hydrography></td>
-				</tr>
-				<tr>
-					<th>Inwalls Source:</th>
-					<td id=inwalls></td>
-				</tr>
-				<tr>
-					<th>Gage Basin Boundry Source:</th>
-					<td id=basinbound></td>
-				</tr>
-				<tr>
-					<th>Snapping Tolerance:</th>
-					<td id=snap></td>
-				</tr>
-				<tr>
-					<th>Basin characteristics Computed Using CPGs:</th>
-					<td id=cpgs></td>
-				</tr>
-				<tr>
-					<th>Special Functionality:</th>
-					<td id=special></td>
-				</tr>
-			</table>
-
+				<h3 class="showAppInfoTable hidden">Basin Characteristics Methods and Source</h3>
+				<table class="showAppInfoTable hidden">
+					<thead >
+						<th style="width:10%">Name</th>
+						<th style="width:30%">Description</th>
+						<th style="width:20%">Computation Method</th>
+						<th style="width:30%">Data Source</th>
+						<th style="width:10%">Report Variable</th>
+					</thead>
+					<tbody id="appInfoTable"></tbody>
+				</table>
+			</div>
 		</div> <!-- End Page Body -->
 
 		<!-- USGS Footer -->
@@ -585,8 +572,7 @@
 					data.sort(function (a,b) {return ('' + a.code).localeCompare(b.code) });
 					for (i in data) {
 						$('#statRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
-						$('#appInfoRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
-						$('#generalInfoRegionDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
+						$('#regionalDropdown').append("<option value='" + data[i]['code'] + "'>" + data[i]['name'] + "</option");
 					}
 
 					// Hide Loader
@@ -600,8 +586,7 @@
 				// Active Button
 				$("#statTypeButton").attr("class", "tab");
 				$("#varTypeButton").attr("class", "tab active");
-				$("#appInfoButton").attr("class", "tab");
-				$("#generalTypeButton").attr("class", "tab");
+				$("#regionalInfoButton").attr("class", "tab");
 
 				$("#printTypeHeader").attr("class", "variable-type");
 
@@ -609,13 +594,9 @@
 				for (i=0; i<statTypes.length; i++) {
 					statTypes[i].classList.add('hidden');
 				}
-				var appInfo = document.getElementsByClassName('showAppInfo');
-				for (i=0; i<appInfo.length; i++) {
-					appInfo[i].classList.add('hidden');
-				}
-				var generalInfo = document.getElementsByClassName('showGeneralInfo');
-				for (i=0; i<generalInfo.length; i++) {
-					generalInfo[i].classList.add('hidden');
+				var regionalInfo = document.getElementsByClassName('showRegionalInfo');
+				for (i=0; i<regionalInfo.length; i++) {
+					regionalInfo[i].classList.add('hidden');
 				}
 				var varTypes = document.getElementsByClassName('showVarTypes');
 				for (i=0; i<varTypes.length; i++) {
@@ -628,8 +609,7 @@
 				// Active Button
 				$("#statTypeButton").attr("class", "tab active");
 				$("#varTypeButton").attr("class", "tab");
-				$("#appInfoButton").attr("class", "tab");
-				$("#generalInfoButton").attr("class", "tab");
+				$("#regionalInfoButton").attr("class", "tab");
 
 				$("#printTypeHeader").attr("class", "stat-type");
 
@@ -637,13 +617,9 @@
 				for (i=0; i<varTypes.length; i++) {
 					varTypes[i].classList.add('hidden');
 				}
-				var appInfo = document.getElementsByClassName('showAppInfo');
-				for (i=0; i<appInfo.length; i++) {
-					appInfo[i].classList.add('hidden');
-				}
-				var generalInfo = document.getElementsByClassName('showGeneralInfo');
-				for (i=0; i<generalInfo.length; i++) {
-					generalInfo[i].classList.add('hidden');
+				var regionalInfo = document.getElementsByClassName('showRegionalInfo');
+				for (i=0; i<regionalInfo.length; i++) {
+					regionalInfo[i].classList.add('hidden');
 				}
 				var statTypes = document.getElementsByClassName('showStatTypes');
 				for (i=0; i<statTypes.length; i++) {
@@ -651,15 +627,14 @@
 				}
 			}
 
-			function getAppInfo() {
+			function getRegionalInfo() {
 
 				// Active Button
 				$("#statTypeButton").attr("class", "tab");
 				$("#varTypeButton").attr("class", "tab");
-				$("#appInfoButton").attr("class", "tab active");
-				$("#generalInfoButton").attr("class", "tab");
+				$("#regionalInfoButton").attr("class", "tab active");
 
-				$("#printTypeHeader").attr("class", "stat-type");
+				$("#printTypeHeader").attr("class", "regional-type");
 
 				var varTypes = document.getElementsByClassName('showVarTypes');
 				for (i=0; i<varTypes.length; i++) {
@@ -669,41 +644,9 @@
 				for (i=0; i<statTypes.length; i++) {
 					statTypes[i].classList.add('hidden');
 				}
-				var generalInfo = document.getElementsByClassName('showGeneralInfo');
-				for (i=0; i<generalInfo.length; i++) {
-					generalInfo[i].classList.add('hidden');
-				}
-				var appInfo = document.getElementsByClassName('showAppInfo');
-				for (i=0; i<appInfo.length; i++) {
-					appInfo[i].classList.remove('hidden');
-				}
-			}
-
-			function getGeneralInfo() {
-
-				// Active Button
-				$("#statTypeButton").attr("class", "tab");
-				$("#varTypeButton").attr("class", "tab");
-				$("#appInfoButton").attr("class", "tab");
-				$("#generalInfoButton").attr("class", "tab active");
-
-				$("#printTypeHeader").attr("class", "stat-type");
-
-				var varTypes = document.getElementsByClassName('showVarTypes');
-				for (i=0; i<varTypes.length; i++) {
-					varTypes[i].classList.add('hidden');
-				}
-				var statTypes = document.getElementsByClassName('showStatTypes');
-				for (i=0; i<statTypes.length; i++) {
-					statTypes[i].classList.add('hidden');
-				}
-				var appInfo = document.getElementsByClassName('showAppInfo');
-				for (i=0; i<appInfo.length; i++) {
-					appInfo[i].classList.add('hidden');
-				}
-				var generalInfo = document.getElementsByClassName('showGeneralInfo');
-				for (i=0; i<generalInfo.length; i++) {
-					generalInfo[i].classList.remove('hidden');
+				var regionalInfo = document.getElementsByClassName('showRegionalInfo');
+				for (i=0; i<regionalInfo.length; i++) {
+					regionalInfo[i].classList.remove('hidden');
 				}
 			}
 			
@@ -776,56 +719,27 @@
 					}
 				});
 			}
-
-			function filterAppInfoByRegion(region) {
-				// Show Loader
-				$("#usgsLoader").show();
-				$('#appInfoTable').empty();
-				var filteredAppInfo = [];
-				selectedRegionID = region;
-				var table = document.getElementsByClassName('showAppInfoTable');
-
-				// if user selects None
-				if (region == 'None') {
-					filteredAppInfo = [];
-					for (i=0; i<table.length; i++) {
-						table[i].classList.add('hidden');
-					}
-					$("#usgsLoader").hide();
-				} else {
-					$.ajax({
-						type: "GET",
-						url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
-						success: function(data) {
-							for (i=0; i<table.length; i++) {
-								table[i].classList.remove('hidden');
-							}
-
-							filteredAppInfo = data
-							for (i in data) {
-								addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
-							}
-							
-							// Hide Loader
-							$("#usgsLoader").hide();
-						}
-					});
-				}
-			}
 			
-			function filterGeneralInfoByRegion(region) {
+			function filterRegionalInfoByRegion(region) {
 				// Show Loader
 				$("#usgsLoader").show();
 				$('#generalInfoTable').empty();
+				$('#appInfoTable').empty();
+				var filteredAppInfo = [];
 				var filteredGeneralInfo = []
 				selectedRegionID = region;
-				var table = document.getElementsByClassName('showGeneralInfoTable');
+				var gentable = document.getElementsByClassName('showGeneralInfoTable');
+				var apptable = document.getElementsByClassName('showAppInfoTable');
 
 				// if user selects None
 				if (region == 'None') {
 					filteredGeneralInfo = [];
-					for (i=0; i<table.length; i++) {
-						table[i].classList.add('hidden');
+					for (i=0; i<gentable.length; i++) {
+						gentable[i].classList.add('hidden');
+					}
+					filteredAppInfo = [];
+					for (i=0; i<apptable.length; i++) {
+						apptable[i].classList.add('hidden');
 					}
 					$("#usgsLoader").hide();
 				} else {
@@ -833,13 +747,30 @@
 						type: "GET",
 						url: baseUrl + "nssservices/GeneralInformations/" + selectedRegionID,
 						success: function(data) {
-							for (i=0; i<table.length; i++) {
-								table[i].classList.remove('hidden');
+							for (i=0; i<gentable.length; i++) {
+								gentable[i].classList.remove('hidden');
 							}
 							filteredGeneralInfo = data;
 							for (i in data) {
 								addGeneralInfoToTable(filteredGeneralInfo[i]);
 							}
+							// Hide Loader
+							$("#usgsLoader").hide();
+						}
+					});
+					$.ajax({
+						type: "GET",
+						url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
+						success: function(data) {
+							for (i=0; i<apptable.length; i++) {
+								apptable[i].classList.remove('hidden');
+							}
+
+							filteredAppInfo = data
+							for (i in data) {
+								addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
+							}
+							
 							// Hide Loader
 							$("#usgsLoader").hide();
 						}
@@ -886,9 +817,6 @@
 			
 			function addAppInfoToTable(appInfoTable, appInfo) {
 				var tr = appInfoTable.appendChild(document.createElement('tr'));
-				var state_td = tr.appendChild(document.createElement('td'));
-				state_td.title = 'state';
-				state_td.innerHTML = appInfo['application'];
 				var stat_td = tr.appendChild(document.createElement('td'));
 				stat_td.title = 'statistic label';
 				stat_td.innerHTML = appInfo['statisticLabel'];
