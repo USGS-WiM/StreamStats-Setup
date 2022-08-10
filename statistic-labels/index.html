@@ -508,6 +508,14 @@
 			var selectedRegionID = "";
 			var selectedStatisticID = "";
 
+			const queryString = window.location.search;
+			const urlParams = new URLSearchParams(queryString);
+			const region = urlParams.get('region')
+			if (region) {
+				getRegionalInfo();
+				filterRegionalInfoByRegion(region.toUpperCase());
+			}
+
 			$.ajax({
 				type: "GET",
 				url: baseUrl + "nssservices/regressiontypes",
@@ -726,7 +734,7 @@
 				$('#generalInfoTable').empty();
 				$('#appInfoTable').empty();
 				var filteredAppInfo = [];
-				var filteredGeneralInfo = []
+				var filteredGeneralInfo = [];
 				selectedRegionID = region;
 				var gentable = document.getElementsByClassName('showGeneralInfoTable');
 				var apptable = document.getElementsByClassName('showAppInfoTable');
@@ -747,13 +755,16 @@
 						type: "GET",
 						url: baseUrl + "nssservices/GeneralInformations/" + selectedRegionID,
 						success: function(data) {
-							for (i=0; i<gentable.length; i++) {
-								gentable[i].classList.remove('hidden');
-							}
-							filteredGeneralInfo = data;
-							for (i in data) {
-								addGeneralInfoToTable(filteredGeneralInfo[i]);
-							}
+							if (data.length > 0) {
+								for (i=0; i<gentable.length; i++) {
+									gentable[i].classList.remove('hidden');
+								}
+								filteredGeneralInfo = data;
+								for (i in data) {
+									addGeneralInfoToTable(filteredGeneralInfo[i]);
+								}
+								document.getElementById('regionalDropdown').value = region
+							} 
 							// Hide Loader
 							$("#usgsLoader").hide();
 						}
@@ -762,15 +773,16 @@
 						type: "GET",
 						url: baseUrl + "nssservices/applicationinfos/" + selectedRegionID,
 						success: function(data) {
-							for (i=0; i<apptable.length; i++) {
-								apptable[i].classList.remove('hidden');
-							}
-
-							filteredAppInfo = data
-							for (i in data) {
-								addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
-							}
-							
+							if (data.length > 0) { 
+								for (i=0; i<apptable.length; i++) {
+									apptable[i].classList.remove('hidden');
+								}
+								filteredAppInfo = data
+								for (i in data) {
+									addAppInfoToTable(appInfoTable, filteredAppInfo[i]);
+								}
+								document.getElementById('regionalDropdown').value = region
+							} 
 							// Hide Loader
 							$("#usgsLoader").hide();
 						}
